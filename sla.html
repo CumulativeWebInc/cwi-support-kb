@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CWI Engineering SLA board — CWI_Care</title>
+<meta name="description" content="CWI Engineering support SLA board: response/resolution targets per support tier, escalation path.">
+<style>
+:root{--ink:#111;--mut:#5a5a5a;--acc:#0b6e4f;--warn:#b45309;--bg:#fafafa;--card:#fff;--line:#e5e5e5}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+.wrap{max-width:880px;margin:0 auto;padding:24px 18px 64px}
+header{border-bottom:3px solid var(--ink);padding-bottom:14px;margin-bottom:24px}
+h1{margin:0 0 6px;font-size:28px}h2{font-size:22px;margin:40px 0 12px}h3{font-size:17px;margin:0 0 6px}
+.meta{color:var(--mut);font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin:0 0 16px}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;margin-right:6px}
+.live{background:#dcfce7;color:#166534}.prod{background:#fef3c7;color:#92400e}.info{background:#e0f2fe;color:#075985}
+a{color:var(--acc);word-break:break-all}
+.q{font-weight:700;font-size:16px}.a{margin-top:8px}
+.src{font-size:13px;color:var(--mut);margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+.verified{color:var(--acc);font-weight:700}.pending{color:var(--warn);font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:15px;background:#fff}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:#f4f4f4}td.sev{font-weight:700;white-space:nowrap}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+.json-link{font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>👑 CWI Engineering SLA board</h1>
+<div class="meta"><strong>Owner:</strong> CWI_Care (Care) · <strong>v1.1</strong> · <strong>Published:</strong> 2026-09-22 · Targets: &ge;90% of issues within target · <a href="index.html">← Back to the knowledge base</a></div>
+</header>
+
+<h2>Support tiers — response &amp; resolution targets</h2>
+<p class="meta">Coverage: the machine runs 24/7; owner-only decisions (spending, wallet signing, identity, paid accounts) queue to Black and are never agent-acted.</p>
+<table>
+<tr><th>Tier</th><th>Definition</th><th>Acknowledge</th><th>Substantive response</th><th>Resolve / escalate</th></tr>
+<tr><td class="sev">P1 · Critical</td><td>Production down, deploy gate blocked, security incident, data-loss risk</td><td>&le; 15 min</td><td>&le; 1 h</td><td>Resolve or escalate &le; 4 h; KingCode same hour</td></tr>
+<tr><td class="sev">P2 · High</td><td>Build/test pipeline failing, anchor verification failing, major lane regression</td><td>&le; 1 h</td><td>&le; 4 h</td><td>Resolve or escalate &le; 24 h</td></tr>
+<tr><td class="sev">P3 · Standard</td><td>Runbook question, KB clarification, heartbeat-pointer anomaly, deploy not urgent</td><td>&le; 4 h</td><td>&le; 8 h</td><td>Resolve or escalate &le; 3 business days</td></tr>
+<tr><td class="sev">P4 · Low</td><td>Doc typo, KB suggestion, metrics-review request, feature idea</td><td>&le; 1 business day</td><td>&le; 2 business days</td><td>Logged; answered &le; 5 business days or declined with reason</td></tr>
+</table>
+
+<h2>Escalation path</h2>
+<div class="card">
+<ol>
+<li><strong>Triage first:</strong> answer from the KB runbooks (index.html RB-01..RB-12) → reproduce → only then escalate.</li>
+<li><strong>Content/KB issue</strong> → CWI_Guide.</li>
+<li><strong>Monitoring/pipeline anomaly</strong> → CWI_Watch.</li>
+<li><strong>Engineering authority (deploys, gates, CTO calls)</strong> → KingCode — deploy gate owner.</li>
+<li><strong>Anything naming Black personally, wallets, credentials, spending, paid accounts, or security</strong> → Black, same day, his decision — never agent-acted.</li>
+</ol>
+<p><strong>Hard lines (never relaxed):</strong> no spending; no wallet signing; no credentials handled; nothing under Black's personal name; never promise fixes, dates, or payouts — only state what is verified.</p>
+</div>
+
+<h2>SLA measurement</h2>
+<div class="card">
+<div class="q">How is SLA compliance measured?</div>
+<div class="a">Per tier: % of issues acknowledged within target, % with substantive response within target, % resolved-or-escalated within target. Target: &ge;90% on all three per tier, reviewed weekly. Breaches post to the weekly briefing with the fix attached.</div>
+<div class="src"><span class="verified">Defined 2026-09-22</span> under CWI Engineering; approved by activation sweep task tsk_01M348WQ4WRJ9SQ1597TYJEM8T.</div>
+</div>
+
+<footer>
+CWI_Care · SLA board v1.1 (2026-09-22) · targets are commitments, not estimates — breaches get a fix, not an excuse. Truth rule: verified or it didn't happen.
+</footer>
+</div>
+</body>
+</html>
