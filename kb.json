@@ -1,5 +1,5 @@
 {
- "kb_version": "1.0",
+ "kb_version": "1.1",
  "owner": "CWI_Care",
  "published": "2026-09-22",
  "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -121,5 +121,93 @@
    "nothing under Black's personal name",
    "never promise fixes, dates, or payouts"
   ]
- }
+ },
+ "runbook_entries": [
+  {
+   "id": "RB-01",
+   "question": "How do the 22-agent live-task pointers stay in sync?",
+   "answer": "The heartbeat wrapper ~/workspace/gear-ledger/bin/gear-ledger-heartbeat.js derives each agent's pointer from the store: newest in_progress task else newest assigned task, formatted SHORT:tsk_id, one write per agent. Old path frozen. Present-pointer IDs are URN-prefixed (MUSE_CWI:tsk_...); tasks array carries bare IDs - match on the tail after the last colon.",
+   "source": "AGENTS.md 2026-09-22 + wrapper source read live; 22/22 pointers OK",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "RB-02",
+   "question": "What is the memory read/write standing law?",
+   "answer": "Every task begins with memory.js read agent:X and ends with durable claims written (claim/source/date/confidence). read agent:X returns ONLY the shared pool + that agent's own namespace. Cross-agent teaching uses memory.js writeshared (single copy only).",
+   "source": "AGENTS.md 2026-09-19/2026-09-18 + memory.js read verified live",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "RB-03",
+   "question": "What is the memory->anchor cycle law?",
+   "answer": "After EVERY conversation entry: memory write -> git push to cwi-agent-memory -> offchain-anchor per agent -> offchain-verify. Memory never left UNANCHORED overnight. EAS off-chain attestations (EIP-712, chainId 84532), hash-chained via refUID; bodies never on-chain. Mainnet anchoring needs Black's per-batch signature - no agent key, no exceptions.",
+   "source": "AGENTS.md 2026-09-21; cli/memory-chain.js present",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "RB-04",
+   "question": "What gates a TAG CITY deploy?",
+   "answer": "No build deploys without CWI_Visual's signed-off screenshot comparison (deployed frame vs locked key art). The look is a hard gate equal to tests and FPS. Debug overlays never ship in production.",
+   "source": "AGENTS.md 2026-09-20 (Black's correction)",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "RB-05",
+   "question": "What is the synthetic-only art rule?",
+   "answer": "FINAL LAW (Black, 2026-09-22): no real-art uploads of any kind - not crops, not full art, nothing derived from the locked key art - to any external service, no exceptions, ever. Synthetic placeholders only. Constraint lives in the spawn brief itself.",
+   "source": "MEMORY.md 2026-09-22",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "RB-06",
+   "question": "What is the encryption-at-rest workflow?",
+   "answer": "GPG AES-256 symmetric via the CWI-docs passphrase. Round-trip verify (decrypt -> sha256 match -> shred temp copy) BEFORE deleting plaintexts. Decrypt to /tmp only for local machine work; wipe temp plaintext after use; passphrase never in briefs, logs, or repos; external-facing agents get synthetic placeholders only.",
+   "source": "MEMORY.md 2026-09-22; sensitive-data.tar.gpg round-tripped 305/305",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "RB-07",
+   "question": "What is the no-downgrade law?",
+   "answer": "Never degrade graphics to the Atari age. Every visual lane ships modern, high-quality rendering or does not ship. When a build risks looking downgraded: reroute the process, research precedent, rebuild - never ship the downgrade.",
+   "source": "MEMORY.md 2026-09-17 (Black's words)",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "RB-08",
+   "question": "What are the truth rules?",
+   "answer": "'Verified or it didn't happen.' Never fabricate adoption, traffic, rights, placements, metrics, etc. No agent reports a zero to Black without a fix - zero is an internal kill signal, never a deliverable upward - and faking a non-zero is the unforgivable failure.",
+   "source": "MEMORY.md 2026-09-17 (Black's non-negotiable laws)",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "RB-09",
+   "question": "Why can't we trust the GitHub Contents API response body?",
+   "answer": "The Contents API returned wrong bytes (797 vs true 536) for 3 blobs while reporting the correct blob sha. Authority hierarchy: git/blobs > contents/sha > contents/content-field. Take the sha from Contents, fetch bytes from git/blobs.",
+   "source": "AGENTS.md 2026-09-18",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "RB-10",
+   "question": "How do kill rules and checkpoints work?",
+   "answer": "Intervention checkpoints at 50% and 75% of every project window: diagnose the gap, change the actions, re-execute. Loops close by results, not expiry. Every play: predicted conversion with error bars, measurable proof, numeric kill line.",
+   "source": "AGENTS.md 2026-09-19/2026-09-20",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "RB-11",
+   "question": "What is the standing identity rule?",
+   "answer": "The project/company identity is Cumulative Web Inc - nothing else. No launches under Black's personal name or any other label; CWI logo on everything. His personal Facebook is reads-only; subscriber email blasts stay off without explicit approval.",
+   "source": "MEMORY.md 2026-09-19",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "RB-12",
+   "question": "How is task start/end logged?",
+   "answer": "Helper ~/workspace/cwi-company/digital-brain/phase2/gate/log-task.js: start <task-id> <agent-urn> (--read|--no-read); end <task-id> <agent-urn> --claims <N>; default log phase1/memory/task-log.jsonl. Known gap (flagged 2026-09-22): URN validator accepts only the 11 original agents; heartbeat-registered support units (e.g. agent:CWI_Care) append in the same JSONL format until fixed.",
+   "source": "helper source + validator regex read live 2026-09-22",
+   "last_verified": "2026-09-22"
+  }
+ ],
+ "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
+ "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01"
 }
