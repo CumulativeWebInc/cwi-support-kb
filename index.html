@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CWI Support Knowledge Base v1 — Care</title>
+<meta name="description" content="CWI user-support knowledge base: 10 verified product entries + SLA board. Verified or it didn't happen.">
+<style>
+:root{--ink:#111;--mut:#5a5a5a;--acc:#0b6e4f;--warn:#b45309;--bg:#fafafa;--card:#fff;--line:#e5e5e5}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+.wrap{max-width:880px;margin:0 auto;padding:24px 18px 64px}
+header{border-bottom:3px solid var(--ink);padding-bottom:14px;margin-bottom:24px}
+h1{margin:0 0 6px;font-size:28px}h2{font-size:22px;margin:40px 0 12px}h3{font-size:17px;margin:0 0 6px}
+.meta{color:var(--mut);font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin:0 0 16px}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;margin-right:6px}
+.live{background:#dcfce7;color:#166534}.prod{background:#fef3c7;color:#92400e}.info{background:#e0f2fe;color:#075985}
+a{color:var(--acc);word-break:break-all}
+.q{font-weight:700;font-size:16px}.a{margin-top:8px}
+.src{font-size:13px;color:var(--mut);margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+.verified{color:var(--acc);font-weight:700}.pending{color:var(--warn);font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:15px;background:#fff}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:#f4f4f4}td.sev{font-weight:700;white-space:nowrap}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+.json-link{font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>👑 CWI Support Knowledge Base</h1>
+<div class="meta"><strong>Owner:</strong> CWI_Care (Care) · <strong>Content:</strong> CWI_Guide ·
+<strong>KB v1.0</strong> · <strong>Published:</strong> 2026-09-22 · Every answer below is verified against a real source.
+Unverified = never told to users. <a class="json-link" href="kb.json">Machine-readable kb.json</a></div>
+</header>
+
+<h2>Product knowledge — 10 entries</h2>
+
+<div class="card">
+<span class="badge live">LIVE</span>
+<div class="q">Q1. What is the Agent Deck, and where can I browse the products?</div>
+<div class="a">The Agent Deck is the umbrella brand for CWI's gear line — products are SKUs on its shelf.
+The Agent Deck Storefront is live at <a href="https://cumulativewebinc.github.io/agent-deck/">cumulativewebinc.github.io/agent-deck/</a> with 25+ live SKUs.
+Pricing is blank and license terms are DRAFT — nothing is for sale yet, so never quote a price.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> URL returned HTTP 200 via live curl check. Catalog contents from the CWI Apps Registry (REGISTRY.md), deploy-verified 2026-09-16.</div>
+</div>
+
+<div class="card">
+<span class="badge live">LIVE</span>
+<div class="q">Q2. How does Neon Nights pt. 777 work? (v8.3, live 2026-09-21)</div>
+<div class="a">Free promo slot game for "Neon Nights Pt. 777" at
+<a href="https://cumulativewebinc.github.io/cwi-777-neon-nights/">cumulativewebinc.github.io/cwi-777-neon-nights/</a>.
+You get 40 spins; the counter counts down every spin; at zero it's GAME OVER.
+Every listening prize ships a real music link plus an on-screen announcement naming the prize.
+Spend 25 Neon Credits → 10 more spins. Full song replays bank +25 credits; jackpot (+1000 credits)
+lets you cash in for your choice of streaming link. Spins and credits are never reset — not by support,
+not by anyone. Fun points only — Neon Credits have no money value.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> URL 200 live; mechanics from nn777 CHANGELOG + PRODUCTION-LOG v8.3
+(2026-09-21, owner: Black's telemetry order). iPhone defects (spin counter, win announcement, music
+link) fixed in v8.2 — regression QA 21/21 pass — but Black's live re-test on his device is still pending.
+Never tell a player a fix is confirmed until he re-tests.</div>
+</div>
+
+<div class="card">
+<span class="badge live">LIVE (demo)</span>
+<div class="q">Q3. What is KingCode Lens?</div>
+<div class="a">Web apps for Meta Ray-Ban Display glasses: an on-lens simulator lab plus a "Hey KingCode" voice
+agent. Live demo at <a href="https://cumulativewebinc.github.io/cwi-kingcode-lens/">cumulativewebinc.github.io/cwi-kingcode-lens/</a>.
+$0 build, tests 117/117. It is a simulator demo — there is no real on-face speech yet; the kill rule is
+no real on-face speak → avatar answers-on-lens demo by 2026-10-30.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> URL 200 live (title "KingCode Lens v1.0.0 — On-Lens Simulator").
+Build/test facts from CWI memory (MEMORY.md, 2026-09-18).</div>
+</div>
+
+<div class="card">
+<span class="badge prod">IN PRODUCTION</span>
+<div class="q">Q4. When is TAG CITY launching? What is it?</div>
+<div class="a">TAG CITY is in production — there is no public URL and no launch date to give.
+v1.0.0 was rejected by Black on 2026-09-20 for not matching the art, and he ordered a full 3D rebuild
+("the whole game 3D like the image") on 2026-09-21. The whole-stack engineering spec passed art-lead
+sign-off the same day. Graphics bar (locked): premium 2026–2027 mobile AAA and beyond —
+anything reading retro/Atari/dated is a kill criterion at art review. Do not promise dates or features.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> production status + rebuild order from CWI memory (MEMORY.md, 2026-09-21).
+No public URL exists — never invent one.</div>
+</div>
+
+<div class="card">
+<span class="badge info">LIVE STATS</span>
+<div class="q">Q5. How close is That Boy Hi Hat to 1 million streams? (ROAD-1M)</div>
+<div class="a">As of 2026-09-17: <strong>956,340 streams, 43,660 to 1,000,000 (95.634%)</strong>.
+Numbers are owner-verified against the artist's Spotify for Artists dashboard, with an integrity-checked
+public mirror at <a href="https://cumulativewebinc.github.io/cwi-road-to-1m/stats.json">cumulativewebinc.github.io/cwi-road-to-1m/stats.json</a>.
+These move over time — always check the mirror before quoting.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> baseline figures from <code>road-to-1m/pace-tracker.json</code>
+(as_of 2026-09-17, integrity verdict PASS, sum-of-tracks matches). Figures are dated — never present
+as "today's" without re-checking the mirror.</div>
+</div>
+
+<div class="card">
+<span class="badge live">LIVE (sim)</span>
+<div class="q">Q6. What is the Gear Ledger 3D world?</div>
+<div class="a">The live agent world at <a href="https://cumulativewebinc.github.io/gear-ledger-3d-mockup/">cumulativewebinc.github.io/gear-ledger-3d-mockup/</a>:
+11 identity-derived agent 3D forms (including ATHENA's keystone), broadcast mode, embed support.
+Honest label: client-side simulation — state is not server-authoritative. Real-time presence and tasks
+run in the gear ledger itself.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> URL 200 live. Facts from the CWI Apps Registry (truth label SAMPLE,
+deployed 2026-09-16) + agent roster (MEMORY.md, 2026-09-17).</div>
+</div>
+
+<div class="card">
+<span class="badge live">LIVE</span>
+<div class="q">Q7. How do agents install CWI gear products?</div>
+<div class="a">Via ClawHub, free and open-source (MIT-0):
+<code>clawhub install cwi/signal-boy</code> (the wearable CWI-1 Walkman carrying the 24-track catalog),
+<code>clawhub install cwi/gear-ledger</code>, and <code>clawhub install cwi/chain-of-title-compass</code>.
+Install tests passed 18/18 (verified twice). Products are agent-usable digital assets — adoption targets
+tracked in the gear ledger, not claimed without evidence.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> install names and 18/18 install-test result from
+AGENTS.md (2026-09-19) and the three product READMEs in <code>gear-line/skills/</code>.</div>
+</div>
+
+<div class="card">
+<span class="badge live">LIVE</span>
+<div class="q">Q8. How do I license CWI music for sync (games, ads, film)?</div>
+<div class="a">Through <a href="https://cumulativewebinc.github.io/cwi-sync/">cumulativewebinc.github.io/cwi-sync/</a>:
+3 one-sheet PDFs, direct clearance, and a license-inquiry funnel. Try the tracks first in the Sync
+Audition Room (<a href="https://cumulativewebinc.github.io/cwi-sync-audition/">cumulativewebinc.github.io/cwi-sync-audition/</a>,
+24 tracks with real Spotify embeds and mood filters). Clearance contact: hp@cumulativeweb.com (business &amp; sync inbox).
+Never claim tracks are pre-cleared or one-stop — clearance is on request.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> both URLs 200 live. Facts from the CWI Apps Registry
+(deployed 2026-09-16, 25/25 tests). Rights rule from CueFinder honesty labels (no one-stop claims).</div>
+</div>
+
+<div class="card">
+<span class="badge info">SCAN-VERIFIED</span>
+<div class="q">Q9. Where is That Boy Hi Hat placed on playlists right now?</div>
+<div class="a">Five placements across three playlists, all scan-verified via the Spotify API:
+Audiartist "New Rap Hits" — Shaka Zulu #21, Zooted Zone #30, Doves &amp; Diamonds #31;
+Flow's "No Label Needed" — Zooted Zone #21 of 21; Eric Alper's "360°: The Best Indie Music" —
+Zooted Zone #216 of 216. Live at <a href="https://cumulativewebinc.github.io/cwi-placement-wall/">cumulativewebinc.github.io/cwi-placement-wall/</a>.
+Placements change — verify in the wall before quoting a position.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> URL 200 live; placements from the CWI Apps Registry
+(scan-verified 2026-09-17, honest-limits + STALE kill rule). Cross-checked against CWI memory (all 4 holding 2026-09-20).</div>
+</div>
+
+<div class="card">
+<span class="badge info">ACTIVE</span>
+<div class="q">Q10. Is Spotify Discovery Mode active for That Boy Hi Hat?</div>
+<div class="a">Yes — active via DistroKid since March 2023 (42 campaigns). The October 2026 campaign is scheduled
+for "Diabolique" (Oct 1–31, approved Sep 11). Discovery Mode places the artist in Spotify Radio/Autoplay
+contexts for a 30% commission on recording royalties in those contexts; there is no upfront budget.
+It is a royalties-paid algorithmic placement deal — not a sync license.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> from CWI memory (MEMORY.md, 2026-09-18). Campaign
+terms from DistroKid dashboard state as recorded. Re-confirm on DistroKid before announcing new campaigns.</div>
+</div>
+
+<h2>SLA board — response-time targets</h2>
+<p class="meta">Severity triage → response targets → escalation path. Every issue: acknowledged ≤24h, resolved-or-escalated ≤7d (≥90%).</p>
+<table>
+<tr><th>Severity</th><th>Definition</th><th>Acknowledge</th><th>Substantive response</th><th>Resolve / escalate</th></tr>
+<tr><td class="sev">S1 · Critical</td><td>Suspected data loss, security issue, or a live product down for all users</td><td>≤ 4h</td><td>≤ 24h</td><td>Escalate to <strong>KingCode same day</strong>; user told it's escalated</td></tr>
+<tr><td class="sev">S2 · Major</td><td>Core feature broken for many (e.g. spins never work, links never issue)</td><td>≤ 12h</td><td>≤ 48h</td><td>Resolve or escalate ≤ 7d</td></tr>
+<tr><td class="sev">S3 · Normal</td><td>Single-user defect, wrong display, FAQ-level question</td><td>≤ 24h</td><td>≤ 72h</td><td>Resolve or escalate ≤ 7d</td></tr>
+<tr><td class="sev">S4 · Low</td><td>Feature request, suggestion, general product question</td><td>≤ 48h</td><td>≤ 5d</td><td>Logged; answered when shipped or declined with reason</td></tr>
+</table>
+
+<h2>Escalation path</h2>
+<div class="card">
+<ol>
+<li><strong>Triage first:</strong> answer from this KB → reproduce on the live product → only then escalate.</li>
+<li><strong>Technical defect with repro</strong> (device, OS, browser, build version, time, steps) → ENG-REL via <strong>CWI_Results</strong>.</li>
+<li><strong>Economy/credit dispute</strong> (Neon Credits, spins, prizes) → <strong>CWI_Affairs</strong>.</li>
+<li><strong>Anything naming Black personally, wallets, credentials, or security</strong> → <strong>KingCode, same day</strong>.</li>
+<li><strong>Public-facing status updates</strong> → drafted by CWI_Care, verified by KingCode before posting.</li>
+</ol>
+<p><strong>Hard lines (never relaxed):</strong> no spending; no wallet signing; no credentials handled;
+nothing under Black's personal name; never promise fixes, dates, or payouts — only state what is verified.</p>
+</div>
+
+<footer>
+CWI_Care · knowledge base v1.0 (2026-09-22) · living document — facts carry last-verified dates;
+unverified claims never reach users. Truth rule: verified or it didn't happen.
+</footer>
+</div>
+</body>
+</html>
