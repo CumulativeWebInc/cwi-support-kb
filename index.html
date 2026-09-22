@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CWI Support Knowledge Base v1 — Care</title>
-<meta name="description" content="CWI user-support knowledge base: 10 verified product entries + SLA board. Verified or it didn't happen.">
+<meta name="description" content="CWI user-support knowledge base: 10 verified product entries + 12 engineering runbook entries + SLA board. Verified or it didn't happen.">
 <style>
 :root{--ink:#111;--mut:#5a5a5a;--acc:#0b6e4f;--warn:#b45309;--bg:#fafafa;--card:#fff;--line:#e5e5e5}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
@@ -31,11 +31,12 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:v
 <header>
 <h1>👑 CWI Support Knowledge Base</h1>
 <div class="meta"><strong>Owner:</strong> CWI_Care (Care) · <strong>Content:</strong> CWI_Guide ·
-<strong>KB v1.0</strong> · <strong>Published:</strong> 2026-09-22 · Every answer below is verified against a real source.
+<strong>KB v1.1</strong> · <strong>Published:</strong> 2026-09-22 · Every answer below is verified against a real source.
 Unverified = never told to users. <a class="json-link" href="kb.json">Machine-readable kb.json</a></div>
 </header>
 
 <h2>Product knowledge — 10 entries</h2>
+<p class="meta">User-facing product support. <a href="sla.html">CWI Engineering SLA board →</a></p>
 
 <div class="card">
 <span class="badge live">LIVE</span>
@@ -153,6 +154,94 @@ contexts for a 30% commission on recording royalties in those contexts; there is
 It is a royalties-paid algorithmic placement deal — not a sync license.</div>
 <div class="src"><span class="verified">Verified 2026-09-22:</span> from CWI memory (MEMORY.md, 2026-09-18). Campaign
 terms from DistroKid dashboard state as recorded. Re-confirm on DistroKid before announcing new campaigns.</div>
+</div>
+
+
+<h2>Engineering runbooks — 12 entries</h2>
+<p class="meta">Internal CWI Engineering support. Every entry cites a real, verified source — file path, date, or live check. Unverified = never acted on.</p>
+
+<div class="card">
+<span class="badge live">RUNBOOK</span>
+<div class="q">RB-01. How do the 22-agent live-task pointers stay in sync?</div>
+<div class="a">The heartbeat wrapper <code>~/workspace/gear-ledger/bin/gear-ledger-heartbeat.js</code> runs on a standing cron and <strong>derives</strong> each agent's pointer from the store: newest <code>in_progress</code> task assigned to them, else newest <code>assigned</code> task, formatted <code>SHORT:tsk_…</code> — one write per agent. The old path <code>goals/cwi-agent-company/crons/minutely/bin/gear-ledger-heartbeat.js</code> is frozen (cron tree is read-only). Pointer writes are paired with a durable shared-pool memory claim so the neural brain records every change. Present-pointer IDs are URN-prefixed (<code>MUSE_CWI:tsk_…</code>) while the tasks array carries bare IDs — always match on the tail after the last colon.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> wrapper source read live; AGENTS.md "Gear-ledger heartbeat pointer-sync fix (2026-09-22, Black's order)". 22/22 live pointers, OK=22 FAIL=0.</div>
+</div>
+
+<div class="card">
+<span class="badge live">RUNBOOK</span>
+<div class="q">RB-02. What is the memory read/write standing law?</div>
+<div class="a"><strong>Every task begins</strong> with <code>node ~/workspace/cwi-agent-memory/cli/memory.js read agent:X</code> and <strong>ends</strong> with durable claims written (<code>claim/source/date/confidence</code>). <code>read agent:X</code> returns ONLY the shared pool + agent X's own namespace — claims written to another agent's own namespace are <strong>invisible</strong> to you. Cross-agent teaching uses <code>memory.js writeshared &lt;urn&gt; --claims &lt;file&gt;</code>, which appends to the shared pool stamped <code>writer=&lt;urn&gt;</code> — write to shared <strong>once</strong>, never to both own+shared (duplicates show in every reader's view).</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> memory.js read ran live; AGENTS.md "Teaching-loop read-path finding (2026-09-19)", "Standing law — all agents learn and store memories (2026-09-18)".</div>
+</div>
+
+<div class="card">
+<span class="badge live">RUNBOOK</span>
+<div class="q">RB-03. What is the memory→anchor cycle law?</div>
+<div class="a">After <strong>every</strong> conversation entry, in sequence: memory write (durable claims) → <code>git push</code> to cwi-agent-memory → <code>offchain-anchor</code> for each agent with own-namespace claims → <code>offchain-verify</code>. <strong>Memory is never left UNANCHORED overnight.</strong> Anchors are EAS off-chain attestations (EIP-712, chainId 84532), salted-SHA-256 hash-chained via refUID in <code>anchors/offchain/</code> — bodies never on-chain. Mainnet anchoring needs Black's per-batch signature: no agent key, no hot wallet, no exceptions.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> <code>cli/memory-chain.js</code> present; AGENTS.md "Standing cycle law (2026-09-21, Black's order)". Verified same-day: 5 morning commits + re-anchor of MUSE_CWI/CWI_Studio/CWI_Data, all ANCHORED-OK.</div>
+</div>
+
+<div class="card">
+<span class="badge live">RUNBOOK</span>
+<div class="q">RB-04. What gates a TAG CITY deploy?</div>
+<div class="a">Tests + FPS are not enough. <strong>No build deploys without CWI_Visual's signed-off screenshot comparison</strong> (deployed frame vs locked key art). The look is a hard gate, equal to tests and FPS. Debug overlays (FPS text, debug HUD) never ship in production. This rule was written after v1.0.0 shipped live with a flat vector-cartoon render that Black rejected on sight — the gate checks the look, not just the code.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> AGENTS.md "Standing law — visual sign-off gate before every deploy (2026-09-20, Black's correction)".</div>
+</div>
+
+<div class="card">
+<span class="badge live">RUNBOOK</span>
+<div class="q">RB-05. What is the synthetic-only art rule?</div>
+<div class="a"><strong>FINAL LAW (Black, 2026-09-22):</strong> no real-art uploads of any kind — not crops, not full art, nothing derived from the locked key art — to any external service, no exceptions, ever. Synthetic placeholders only for external generator calls. Local use of already-generated blockout meshes as sculpt reference is fine (never leaves the machine). The constraint lives <strong>in the spawn brief itself</strong>; a compliance incident was reported to Black the same morning it happened with the full forensic trace.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> MEMORY.md "3D lane ruling (2026-09-22 — FINAL: synthetic-only)".</div>
+</div>
+
+<div class="card">
+<span class="badge live">RUNBOOK</span>
+<div class="q">RB-06. What is the encryption-at-rest workflow?</div>
+<div class="a"><strong>GPG AES-256 symmetric</strong> via the CWI-docs passphrase. Round-trip verify (decrypt → sha256 match → shred temp copy) <strong>before</strong> deleting plaintexts. Working rules: sensitive data encrypted at rest; decrypt to <code>/tmp</code> <strong>only</strong> for local machine work; wipe temp plaintext after use; the passphrase is <strong>never</strong> in briefs, logs, or repos; external-facing agents never receive real art and never receive the passphrase. Encryption stops disk/repo theft — the upload-stopper is compartmentalization (synthetic placeholders only for external calls).</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> MEMORY.md "Encryption sweep 2 (2026-09-22, Black's order)". Bundle <code>~/workspace/hero-build/sensitive-data.tar.gpg</code> (319,485,412 bytes) round-tripped 305/305 before plaintext deletion.</div>
+</div>
+
+<div class="card">
+<span class="badge live">RUNBOOK</span>
+<div class="q">RB-07. What is the no-downgrade law?</div>
+<div class="a"><strong>Black's standing rule:</strong> never degrade graphics to the Atari age. Every visual lane (games, 3D, generative media) ships modern, high-quality rendering — AAA-standard thinking, ray-traced lighting, rich post-processing — or it does not ship. When a build risks looking downgraded, the move is to reroute: change the process, research precedent, rebuild — never ship the downgrade.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> MEMORY.md "Standing law — no downgrade (2026-09-17, Black's words)".</div>
+</div>
+
+<div class="card">
+<span class="badge live">RUNBOOK</span>
+<div class="q">RB-08. What are the truth rules?</div>
+<div class="a"><strong>"Verified or it didn't happen."</strong> Never fabricate adoption, integration, traffic, rights, placements, meetings, endorsements, product use, or metrics. No agent reports a <strong>zero</strong> outcome to Black without a fix — zero is an internal kill signal, never a deliverable upward — and <strong>faking a non-zero is the unforgivable failure</strong>. Report scan-verified truth even when the answer is zero; Black checks, and a padded number burns everything. When asked who authorized an action, deliver the full forensic trace (timestamps, steps, authors), then log the standing rule.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> MEMORY.md "2026-09-17 — Black's non-negotiable laws"; alignment synthesis — the honest zero earned his trust.</div>
+</div>
+
+<div class="card">
+<span class="badge live">RUNBOOK</span>
+<div class="q">RB-09. Why can't we trust the GitHub Contents API response body?</div>
+<div class="a">For 3 blobs in cwi-agent-memory, the Contents API returned <strong>wrong bytes</strong> (797 vs true 536) while reporting the <strong>correct</strong> blob sha — consistently, across retries. The git blob endpoint (<code>/git/blobs/{sha}</code>) returned the true bytes. <strong>Authority hierarchy: git/blobs &gt; contents/sha &gt; contents/content-field.</strong> Always take the sha from the Contents API and fetch the bytes from git/blobs. (The repo was never corrupt — only the read path was.)</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> AGENTS.md "GitHub Contents API content field can LIE (2026-09-18)".</div>
+</div>
+
+<div class="card">
+<span class="badge live">RUNBOOK</span>
+<div class="q">RB-10. How do kill rules and checkpoints work?</div>
+<div class="a"><strong>Every project gets intervention checkpoints at 50% and 75% of its window:</strong> diagnose the gap, change the actions, re-execute. Loops close by results, not by expiry. Every play carries predicted conversion with error bars, measurable proof, and a numeric kill line. If initial actions don't yield results, modify the process: research, build, test, deploy <strong>different</strong> actions. Execute over and over with intelligence until results comply — hypothesis → experiment → measurement → modify → repeat.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> AGENTS.md "Standing doctrine — the in-between (2026-09-19, Black's words)"; "Standing doctrine — business-lifecycle reasoning (2026-09-20)".</div>
+</div>
+
+<div class="card">
+<span class="badge live">RUNBOOK</span>
+<div class="q">RB-11. What is the standing identity rule?</div>
+<div class="a"><strong>The project and company identity is Cumulative Web Inc — and nothing else.</strong> No company name, project, social post, or asset launches under Black's personal name or any other label; the CWI logo goes on <strong>everything</strong> (every profile avatar, every visual/content asset), and he denies posts that miss it. His personal Facebook is reads-only — never post to it. Subscriber email blasts stay off unless he explicitly approves them.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> MEMORY.md "Standing rule — identity is Cumulative Web Inc ONLY (2026-09-19)"; alignment synthesis (9/22 logo denial and redo).</div>
+</div>
+
+<div class="card">
+<span class="badge live">RUNBOOK</span>
+<div class="q">RB-12. How is task start/end logged?</div>
+<div class="a">Helper: <code>~/workspace/cwi-company/digital-brain/phase2/gate/log-task.js</code> — <code>start &lt;task-id&gt; &lt;agent-urn&gt; (--read|--no-read)</code>, <code>end &lt;task-id&gt; &lt;agent-urn&gt; --claims &lt;N&gt;</code>; default log <code>phase1/memory/task-log.jsonl</code>. <strong>Known tooling gap (flagged 2026-09-22):</strong> the URN validator accepts only the 11 original agent names — support units registered in the 22-agent heartbeat (e.g. <code>agent:CWI_Care</code>) are rejected, so their entries are appended in the helper's exact JSONL format until the validator is updated.</div>
+<div class="src"><span class="verified">Verified 2026-09-22:</span> helper source + validator regex read live this session; workaround entry logged in task-log.jsonl.</div>
 </div>
 
 <h2>SLA board — response-time targets</h2>
