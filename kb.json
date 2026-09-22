@@ -1,0 +1,125 @@
+{
+ "kb_version": "1.0",
+ "owner": "CWI_Care",
+ "published": "2026-09-22",
+ "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
+ "entries": [
+  {
+   "id": "Q1",
+   "question": "What is the Agent Deck, and where can I browse the products?",
+   "answer": "Umbrella brand for CWI gear line; storefront live at https://cumulativewebinc.github.io/agent-deck/ with 25+ live SKUs. Pricing blank, license terms DRAFT - nothing for sale yet.",
+   "source": "CWI Apps Registry (REGISTRY.md) + live 200 curl check 2026-09-22",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "Q2",
+   "question": "How does Neon Nights pt. 777 work?",
+   "answer": "Free promo slot game (v8.3 live 2026-09-21) at https://cumulativewebinc.github.io/cwi-777-neon-nights/. 40 spins counting down, GAME OVER at zero; every listening prize ships a real music link + on-screen announcement; 25 Neon Credits = 10 more spins; full song replays bank +25; jackpot (+1000) cashes in for streaming-link choice. Credits have no money value. Spins/credits never reset.",
+   "source": "nn777 CHANGELOG + PRODUCTION-LOG v8.3 (2026-09-21). iPhone defects fixed in v8.2 (QA 21/21 pass); Black's live re-test still pending.",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "Q3",
+   "question": "What is KingCode Lens?",
+   "answer": "Web apps for Meta Ray-Ban Display glasses: on-lens simulator lab + 'Hey KingCode' voice agent. Live demo at https://cumulativewebinc.github.io/cwi-kingcode-lens/. $0, tests 117/117. Simulator only - no real on-face speech yet; kill rule: no real on-face speak -> avatar answers-on-lens demo by 2026-10-30.",
+   "source": "CWI memory (MEMORY.md 2026-09-18) + live 200 curl check 2026-09-22",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "Q4",
+   "question": "When is TAG CITY launching? What is it?",
+   "answer": "In production - no public URL, no launch date. v1.0.0 rejected 2026-09-20; full 3D rebuild ordered 2026-09-21; whole-stack spec signed by art lead 2026-09-21. Graphics bar: premium 2026-2027 mobile AAA and beyond; retro/Atari/dated reads are kill criteria. Never promise dates or features.",
+   "source": "CWI memory (MEMORY.md 2026-09-21)",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "Q5",
+   "question": "How close is That Boy Hi Hat to 1 million streams?",
+   "answer": "956,340 streams / 43,660 to 1M (95.634%) as of 2026-09-17. Owner-verified vs Spotify for Artists dashboard; public mirror https://cumulativewebinc.github.io/cwi-road-to-1m/stats.json. Recheck mirror before quoting - numbers move.",
+   "source": "road-to-1m/pace-tracker.json (as_of 2026-09-17, integrity verdict PASS)",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "Q6",
+   "question": "What is the Gear Ledger 3D world?",
+   "answer": "Live agent world at https://cumulativewebinc.github.io/gear-ledger-3d-mockup/ with 11 identity-derived agent 3D forms incl. ATHENA keystone, broadcast mode, embeds. Honest label: client-side simulation, not server-authoritative.",
+   "source": "CWI Apps Registry (truth label SAMPLE, deployed 2026-09-16) + live 200 curl check 2026-09-22",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "Q7",
+   "question": "How do agents install CWI gear products?",
+   "answer": "clawhub install cwi/signal-boy (wearable CWI-1 Walkman, 24-track catalog), cwi/gear-ledger, cwi/chain-of-title-compass. MIT-0. Install tests 18/18 green x2. Adoption tracked in gear ledger, never claimed without evidence.",
+   "source": "AGENTS.md (2026-09-19) + gear-line/skills/*/README.md",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "Q8",
+   "question": "How do I license CWI music for sync?",
+   "answer": "https://cumulativewebinc.github.io/cwi-sync/ (3 one-sheet PDFs, direct clearance, inquiry funnel). Preview: Sync Audition Room https://cumulativewebinc.github.io/cwi-sync-audition/ (24 tracks, Spotify embeds). Clearance: hp@cumulativeweb.com. Never claim pre-cleared/one-stop.",
+   "source": "CWI Apps Registry (deployed 2026-09-16, 25/25 tests) + live 200 checks 2026-09-22",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "Q9",
+   "question": "Where is That Boy Hi Hat placed on playlists right now?",
+   "answer": "5 placements / 3 playlists (Spotify API scan-verified): Audiartist New Rap Hits - Shaka Zulu #21, Zooted Zone #30, Doves & Diamonds #31; Flow No Label Needed - Zooted Zone #21/21; Eric Alper 360\u00b0 Best Indie Music - Zooted Zone #216/216. Live at https://cumulativewebinc.github.io/cwi-placement-wall/. Verify in the wall before quoting.",
+   "source": "CWI Apps Registry (scan-verified 2026-09-17) + live 200 check 2026-09-22",
+   "last_verified": "2026-09-22"
+  },
+  {
+   "id": "Q10",
+   "question": "Is Spotify Discovery Mode active for That Boy Hi Hat?",
+   "answer": "Yes - active via DistroKid since Mar 2023 (42 campaigns). October 2026 campaign: Diabolique, Oct 1-31 (approved Sep 11). 30% commission on recording royalties in Discovery contexts; no upfront budget. Royalties-paid algorithmic placement - NOT a sync license.",
+   "source": "CWI memory (MEMORY.md 2026-09-18)",
+   "last_verified": "2026-09-22"
+  }
+ ],
+ "sla_board": {
+  "targets": {
+   "acknowledge_all": "<=24h",
+   "substantive": "<=72h",
+   "metric": "100% acknowledged <=24h; >=90% resolved-or-escalated <=7d"
+  },
+  "severities": {
+   "S1_critical": {
+    "definition": "suspected data loss, security issue, or live product down for all",
+    "acknowledge": "<=4h",
+    "substantive": "<=24h",
+    "action": "escalate to KingCode same day; user told it's escalated"
+   },
+   "S2_major": {
+    "definition": "core feature broken for many",
+    "acknowledge": "<=12h",
+    "substantive": "<=48h",
+    "action": "resolve or escalate <=7d"
+   },
+   "S3_normal": {
+    "definition": "single-user defect, wrong display, FAQ question",
+    "acknowledge": "<=24h",
+    "substantive": "<=72h",
+    "action": "resolve or escalate <=7d"
+   },
+   "S4_low": {
+    "definition": "feature request, suggestion, general question",
+    "acknowledge": "<=48h",
+    "substantive": "<=5d",
+    "action": "logged; answered when shipped or declined with reason"
+   }
+  },
+  "escalation": [
+   "triage first: KB answer -> reproduce -> escalate",
+   "technical defect with repro (device/OS/browser/version/time/steps) -> ENG-REL via CWI_Results",
+   "economy/credit dispute -> CWI_Affairs",
+   "Black's name/wallets/credentials/security -> KingCode same day",
+   "public status updates -> drafted by CWI_Care, verified by KingCode before posting"
+  ],
+  "hard_lines": [
+   "no spending",
+   "no wallet signing",
+   "no credentials handled",
+   "nothing under Black's personal name",
+   "never promise fixes, dates, or payouts"
+  ]
+ }
+}
