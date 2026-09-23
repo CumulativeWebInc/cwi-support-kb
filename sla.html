@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CWI Engineering SLA board — CWI_Care</title>
-<meta name="description" content="CWI Engineering support SLA board: response/resolution targets per support tier, escalation path.">
+<title>Support SLAs — CWI_Care &amp; CWI_Guide</title>
+<meta name="description" content="CWI published support SLAs: named response-time targets per support unit (CWI_Care, CWI_Guide) and per tier (Free / Paid / Priority), with the published 30-day compliance log.">
 <style>
 :root{--ink:#111;--mut:#5a5a5a;--acc:#0b6e4f;--warn:#b45309;--bg:#fafafa;--card:#fff;--line:#e5e5e5}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
@@ -24,17 +24,60 @@ th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-al
 th{background:#f4f4f4}td.sev{font-weight:700;white-space:nowrap}
 footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
 .json-link{font-size:13px}
+.btn{display:inline-block;background:var(--acc);color:#fff!important;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:6px 8px 6px 0;word-break:normal}
+.btn.ghost{background:#fff;color:var(--acc)!important;border:2px solid var(--acc)}
+.cta-box{background:#eef7f2;border:2px solid var(--acc);border-radius:12px;padding:20px;margin:32px 0}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
-<h1>👑 CWI Engineering SLA board</h1>
-<div class="meta"><strong>Owner:</strong> CWI_Care (Care) · <strong>v1.1</strong> · <strong>Published:</strong> 2026-09-22 · Targets: &ge;90% of issues within target · <a href="index.html">← Back to the knowledge base</a></div>
+<h1>👑 CWI Support SLAs</h1>
+<div class="meta"><strong>Owner:</strong> CWI_Care (technical/issue support) &amp; CWI_Guide (product how-to) · <strong>v1.2</strong> · <strong>Published:</strong> 2026-09-23 · Compliance target: &ge;90% of tickets within target · <a href="index.html">← Back to the knowledge base</a></div>
 </header>
 
-<h2>Support tiers — response &amp; resolution targets</h2>
-<p class="meta">Coverage: the machine runs 24/7; owner-only decisions (spending, wallet signing, identity, paid accounts) queue to Black and are never agent-acted.</p>
+<h2>User-facing SLAs — by support unit and tier</h2>
+<p class="meta">Targets are named commitments, measured against every ticket (TuneCore-style 3/2/1-day pattern:
+Free <strong>3 business days</strong>, Paid <strong>2 business days</strong>, Priority <strong>1 business day</strong> for urgent issues).
+Business days = Monday–Friday, US/Eastern. The machine runs 24/7; owner-only decisions (spending, wallet signing, identity, paid accounts) queue to Black and are never agent-acted.</p>
+<table>
+<tr><th>Support unit</th><th>Tier</th><th>Acknowledge</th><th>Substantive response</th><th>Resolve / escalate</th></tr>
+<tr><td class="sev">CWI_Care<br><span class="meta">technical &amp; issue support</span></td><td><strong>Free</strong> — every user</td><td>&le; 3 business days</td><td>&le; 5 business days</td><td>&le; 10 business days</td></tr>
+<tr><td class="sev">CWI_Care<br><span class="meta">technical &amp; issue support</span></td><td><strong>Paid</strong> — Booth-credit users &amp; licensees</td><td>&le; 2 business days</td><td>&le; 3 business days</td><td>&le; 5 business days</td></tr>
+<tr><td class="sev">CWI_Care<br><span class="meta">urgent: live product down, data-loss risk, security</span></td><td><strong>Priority</strong> — all tiers</td><td>&le; 1 business day</td><td>&le; 1 business day</td><td>Escalate to KingCode <strong>same day</strong></td></tr>
+<tr><td class="sev">CWI_Guide<br><span class="meta">product how-to, guides, walkthroughs</span></td><td><strong>Free</strong> — every user</td><td>&le; 3 business days</td><td>&le; 5 business days</td><td>Answered when shipped, or declined with reason</td></tr>
+<tr><td class="sev">CWI_Guide<br><span class="meta">product how-to, guides, walkthroughs</span></td><td><strong>Paid</strong> — Booth-credit users &amp; licensees</td><td>&le; 2 business days</td><td>&le; 3 business days</td><td>Answered when shipped, or declined with reason</td></tr>
+</table>
+<div class="card">
+<div class="q">Honest status of the Paid tier (read this first)</div>
+<div class="a"><span class="badge prod">NOT ACTIVE YET</span> CWI pricing is not set and no paid products exist yet (2026-09-23) — so <strong>everyone is on Free-tier targets right now.</strong> The Paid column activates only when paid products launch, with the exact launch date posted here. We will never present Free-tier users as receiving Paid-tier service, and never quote a price that Black has not set.</div>
+<div class="src"><span class="verified">Verified 2026-09-23:</span> pricing status from Agent Deck (license terms DRAFT, pricing null).</div>
+</div>
+
+<h2>How SLA compliance is measured — and what happens if we miss</h2>
+<div class="card">
+<div class="q">We measure, we publish, and we downgrade honestly — never silently.</div>
+<div class="a">
+<ol>
+<li><strong>Measured:</strong> every ticket is logged with its unit, tier, received time, acknowledge time, response time, and resolve/escalate time. Per unit × tier: % acknowledged within target, % substantively responded within target, % resolved-or-escalated within target. Target: <strong>&ge;90%</strong> on all three.</li>
+<li><strong>Published:</strong> the rolling 30-day compliance log is public at <a href="sla-compliance.html">sla-compliance.html</a> — the full ticket-level table, not a summary number. Day 1 starts empty with <em>"measurement begins 2026-09-23"</em> and is <strong>never backfilled</strong>: no ticket is entered for a day when logging was not live.</li>
+<li><strong>Honest downgrade, never silent:</strong> if any unit × tier misses its target on &gt;20% of tickets over a 30-day window, the published target is <strong>downgraded to what we actually achieved</strong> — the change is dated, announced in the log, and the old target is kept visible as history. What we promise is what we can keep.</li>
+<li><strong>Kill rule:</strong> 30 days with &gt;20% of tickets missing SLA &rarr; the published target is honestly downgraded that same week. Misses are never deleted and never re-labeled.</li>
+</ol>
+</div>
+<div class="src"><span class="verified">Defined 2026-09-23</span> · A11 (OPERATION INDUSTRY LEVEL). Kill rule: &gt;20% miss over 30 days &rarr; downgrade.</div>
+</div>
+
+<div class="cta-box">
+<h3>Try the shelf — then talk to us</h3>
+<p>Browse the Agent Deck and its machine-readable catalog before you file a ticket — most answers are one page away.</p>
+<p><a class="btn" href="https://cumulativewebinc.github.io/agent-deck/">Browse the Agent Deck</a>
+<a class="btn ghost" href="https://cumulativewebinc.github.io/agent-deck/products.json">Try the machine catalog (products.json)</a></p>
+<p class="meta">Support intake: file a ticket via the <a href="https://github.com/CumulativeWebInc/agent-deck/issues/new">license-request issue form</a> (choose the support template), or write hp@cumulativeweb.com (business &amp; sync inquiries). Owner-only topics (spending, wallet signing, identity, paid accounts) are decided by Black personally.</p>
+</div>
+
+<h2>Internal engineering board — P1–P4 (unchanged)</h2>
+<p class="meta">This section is the internal engineering SLA board (unchanged since v1.1, 2026-09-22):</p>
 <table>
 <tr><th>Tier</th><th>Definition</th><th>Acknowledge</th><th>Substantive response</th><th>Resolve / escalate</th></tr>
 <tr><td class="sev">P1 · Critical</td><td>Production down, deploy gate blocked, security incident, data-loss risk</td><td>&le; 15 min</td><td>&le; 1 h</td><td>Resolve or escalate &le; 4 h; KingCode same hour</td></tr>
@@ -46,7 +89,7 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:v
 <h2>Escalation path</h2>
 <div class="card">
 <ol>
-<li><strong>Triage first:</strong> answer from the KB runbooks (index.html RB-01..RB-12) → reproduce → only then escalate.</li>
+<li><strong>Triage first:</strong> answer from the KB (index.html Q1–Q10, RB-01..RB-12) → reproduce → only then escalate.</li>
 <li><strong>Content/KB issue</strong> → CWI_Guide.</li>
 <li><strong>Monitoring/pipeline anomaly</strong> → CWI_Watch.</li>
 <li><strong>Engineering authority (deploys, gates, CTO calls)</strong> → KingCode — deploy gate owner.</li>
@@ -55,15 +98,8 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:v
 <p><strong>Hard lines (never relaxed):</strong> no spending; no wallet signing; no credentials handled; nothing under Black's personal name; never promise fixes, dates, or payouts — only state what is verified.</p>
 </div>
 
-<h2>SLA measurement</h2>
-<div class="card">
-<div class="q">How is SLA compliance measured?</div>
-<div class="a">Per tier: % of issues acknowledged within target, % with substantive response within target, % resolved-or-escalated within target. Target: &ge;90% on all three per tier, reviewed weekly. Breaches post to the weekly briefing with the fix attached.</div>
-<div class="src"><span class="verified">Defined 2026-09-22</span> under CWI Engineering; approved by activation sweep task tsk_01M348WQ4WRJ9SQ1597TYJEM8T.</div>
-</div>
-
 <footer>
-CWI_Care · SLA board v1.1 (2026-09-22) · targets are commitments, not estimates — breaches get a fix, not an excuse. Truth rule: verified or it didn't happen.
+CWI_Care + CWI_Guide · SLA board v1.2 (2026-09-23) · targets are measured commitments, not estimates — the 30-day compliance log is public at <a href="sla-compliance.html">sla-compliance.html</a>. Truth rule: verified or it didn't happen.
 </footer>
 </div>
 </body>

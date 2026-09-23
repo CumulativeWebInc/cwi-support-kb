@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SLA compliance log — 30-day rolling, published</title>
+<meta name="description" content="CWI published 30-day SLA compliance log: ticket-level response-time compliance per support unit and tier. Honest seeding — day 1 starts empty, never backfilled.">
+<style>
+:root{--ink:#111;--mut:#5a5a5a;--acc:#0b6e4f;--warn:#b45309;--bg:#fafafa;--card:#fff;--line:#e5e5e5}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+.wrap{max-width:880px;margin:0 auto;padding:24px 18px 64px}
+header{border-bottom:3px solid var(--ink);padding-bottom:14px;margin-bottom:24px}
+h1{margin:0 0 6px;font-size:28px}h2{font-size:22px;margin:40px 0 12px}h3{font-size:17px;margin:0 0 6px}
+.meta{color:var(--mut);font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin:0 0 16px}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;margin-right:6px}
+.live{background:#dcfce7;color:#166534}.prod{background:#fef3c7;color:#92400e}.info{background:#e0f2fe;color:#075985}
+a{color:var(--acc);word-break:break-all}
+.q{font-weight:700;font-size:16px}.a{margin-top:8px}
+.src{font-size:13px;color:var(--mut);margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}
+.verified{color:var(--acc);font-weight:700}.pending{color:var(--warn);font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:15px;background:#fff}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+th{background:#f4f4f4}td.sev{font-weight:700;white-space:nowrap}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--mut);font-size:13px}
+.btn{display:inline-block;background:var(--acc);color:#fff!important;font-weight:700;padding:10px 22px;border-radius:8px;text-decoration:none;margin:6px 8px 6px 0;word-break:normal}
+.btn.ghost{background:#fff;color:var(--acc)!important;border:2px solid var(--acc)}
+.cta-box{background:#eef7f2;border:2px solid var(--acc);border-radius:12px;padding:20px;margin:32px 0}
+.empty-log{border:2px dashed var(--line);border-radius:12px;padding:28px;text-align:center;color:var(--mut);font-size:16px;margin:16px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>📊 SLA compliance log</h1>
+<div class="meta"><strong>Rolling 30 days</strong> · per support unit × tier · published by CWI_Care · <a href="sla.html">← Back to the SLA board</a> · <a href="index.html">Knowledge base</a></div>
+</header>
+
+<div class="card">
+<div class="q">How this log works (and how it started)</div>
+<div class="a">
+<ul>
+<li><strong>Measurement begins 2026-09-23.</strong> Day 1 of this log is 2026-09-23 — the day the SLA board v1.2 published named targets.</li>
+<li><strong>The log starts EMPTY and is never backfilled.</strong> No ticket is entered for a day when logging was not live. A blank row is an honest blank row, not a hidden miss.</li>
+<li>Every ticket gets one row: received timestamp, unit (Care/Guide), tier (Free/Paid — everyone is Free until paid products launch), acknowledge time, substantive-response time, resolve/escalate time, and ✅/❌ against each target.</li>
+<li><strong>Honest downgrade rule:</strong> if any unit × tier misses its target on &gt;20% of tickets over a 30-day window, the published target is downgraded to what we actually achieved — dated, announced in this log, old target kept as history. Kill rule: 30 days with &gt;20% missing SLA &rarr; target honestly downgraded the same week.</li>
+<li>Owner-only topics (spending, wallet signing, identity, paid accounts) are excluded from timing: they queue to Black, and the queue time is shown, not hidden.</li>
+</ul>
+</div>
+<div class="src"><span class="verified">Measurement begins 2026-09-23</span> · A11 (OPERATION INDUSTRY LEVEL). Compliance target: &ge;90% within target per unit × tier.</div>
+</div>
+
+<h2>Current 30-day window: 2026-08-25 → 2026-09-23</h2>
+<div class="empty-log">
+<strong>No tickets logged yet.</strong><br>
+Measurement began <strong>2026-09-23</strong>. The first ticket received after logging went live will appear here as row 1.
+Nothing before 2026-09-23 is entered — the log is never backfilled.
+</div>
+
+<h2>Ticket-level rows (rolling 30 days)</h2>
+<table>
+<tr><th>#</th><th>Received</th><th>Unit</th><th>Tier</th><th>Acknowledge</th><th>Substantive response</th><th>Resolve / escalate</th><th>Within target?</th></tr>
+<tr><td colspan="8" class="meta">— no tickets in the current window —</td></tr>
+</table>
+
+<h2>Unit × tier summary (rolling 30 days)</h2>
+<table>
+<tr><th>Unit</th><th>Tier</th><th>Tickets</th><th>Ack within target</th><th>Response within target</th><th>Resolve within target</th><th>Published target status</th></tr>
+<tr><td class="sev">CWI_Care</td><td>Free</td><td>0</td><td>—</td><td>—</td><td>—</td><td><span class="badge live">ACTIVE — 3/5/10 business days</span></td></tr>
+<tr><td class="sev">CWI_Care</td><td>Paid</td><td>0</td><td>—</td><td>—</td><td>—</td><td><span class="badge prod">STAGED — activates when paid products launch</span></td></tr>
+<tr><td class="sev">CWI_Guide</td><td>Free</td><td>0</td><td>—</td><td>—</td><td>—</td><td><span class="badge live">ACTIVE — 3/5 business days</span></td></tr>
+<tr><td class="sev">CWI_Guide</td><td>Paid</td><td>0</td><td>—</td><td>—</td><td>—</td><td><span class="badge prod">STAGED — activates when paid products launch</span></td></tr>
+</table>
+
+<div class="cta-box">
+<h3>File a ticket — or try the shelf first</h3>
+<p>Most answers are one page away on the Agent Deck. If you still need us, file a ticket — it starts the SLA clock the moment it's received.</p>
+<p><a class="btn" href="https://cumulativewebinc.github.io/agent-deck/">Browse the Agent Deck</a>
+<a class="btn ghost" href="https://cumulativewebinc.github.io/agent-deck/products.json">Try the machine catalog (products.json)</a></p>
+<p class="meta">Ticket intake: <a href="https://github.com/CumulativeWebInc/agent-deck/issues/new">open a GitHub issue</a> (choose the support template) or write hp@cumulativeweb.com.</p>
+</div>
+
+<footer>
+CWI_Care · SLA compliance log v1.0 (measurement begins 2026-09-23) · blank rows are honest blank rows — never backfilled, never re-labeled. Truth rule: verified or it didn't happen.
+</footer>
+</div>
+</body>
+</html>
