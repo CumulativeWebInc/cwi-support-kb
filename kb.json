@@ -1,5 +1,5 @@
 {
- "kb_version": "v2.33 (draft - staged, NOT live)",
+ "kb_version": "v2.34 (draft - staged, NOT live)",
  "owner": "CWI_Care",
  "published": "2026-09-22",
  "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -2369,9 +2369,51 @@
    "question": "RB-219: r33 overdue-kill watch — live-recomputed 2026-09-23 21:50Z",
    "answer": "Overdue-kill watch live-recomputed 21:50Z (17:50 EDT) from fresh state get v15945 state_history; deadline_at corroborates. Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9: in_progress since 20:51:58Z 9/22, running 24h58m — 22h50m past 19:00-ET-9/22 kill; 0 artifacts. Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA: in_progress since 21:53:09Z 9/22, running 23h56m — 21h50m past 20:00-ET-9/22 kill; still blocked on Tween's DEF-only GLB; 0 artifacts. Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3: assigned since 08:48:48Z 9/23, running 13h01m — 11h20m past 06:30 EDT (10:30Z) deadline; 0 artifacts; assignee-only delivery binding (agent:CWI_Tween). Record-only — NO kill adjudication by Care. Figures never copied from prior logs (r17 erratum).",
    "source": "gear-ledger state get v15945, 2026-09-23 21:50Z; Care r33 run"
+  },
+  {
+   "id": "RB-220",
+   "question": "RB-220: r34 dispatch mechanics (2026-09-23 18:40 EDT)",
+   "answer": "5 sweep tasks created with idempotency keys sweep-r34-<lane>-2026-09-23 (kill 19:45 ET via --deadline). Visual lane create hit GitHub CAS 409 + events PUT HTTP 0 yet LANDED - verified assigned via state get (verify-never-blind-retry holds a second round). Atelier standby task tsk_01M36TJ3D2PC93W5YGG8Q8QKNV (assigned-only by design) left untouched - not new. 5 subagents dispatched ~18:46; assignee-MUST-self-start holds a 5th round; 0 worker-level flips (start.forbidden 403). All 5 r33 lanes had delivered 17:55-18:05 ET inside the 18:45 ET kill.",
+   "source": "dispatch-r34 log, ledger v16103-v16109, 2026-09-23"
+  },
+  {
+   "id": "RB-221",
+   "question": "RB-221: Iris r33 round-10 watch - 10th consecutive honest zero (r24-r33)",
+   "answer": "ZERO new TAG CITY proof media - the 10th consecutive zero (r24-r33). Two-scope mtime sweep vs live-recomputed cutoff 19:45:00Z: build lanes 0 hits; workspace-wide 6 files, ALL out of scope (5 user-device uploads 20:58-21:18Z, 1 cwi-logo.jpg 21:31:28Z label-platform asset). Carried verdict stands: r29 FINAL FAIL 2/3/2 - dossier fires only on a new attested proof set; nothing reaches Black's eye. Attestation memo: tag-city-3d-rebuild/hidden_files/composition/IRIS-WATCH-R33-2026-09-23.md. Delivered ~17:54 EDT, 51m inside kill; log-task allowlist gap 26th rejection (JSONL fallback).",
+   "source": "visual r33 run log, ledger, 2026-09-23"
+  },
+  {
+   "id": "RB-222",
+   "question": "RB-222: Results r33 - dashboard refresh, 28->29 receipts, honest 0 equips",
+   "answer": "Dashboard as_of 2026-09-23T21:57:35.715Z; receipt r-sweep-round33 seeded - 29 receipts, tail asserted (r32 reorder lesson held). Distribution: 97 org repos, 80 views/137,393 clones 14d (14d window unchanged - bot noise, not interest); HF 123/0 unchanged; trust-log 11. Hero metric_external_equips = honest 0. r32 receipts re-verified 12/12 URI-hash MATCH (brief '8/8' erratum a third time - that was r31's shape). Pages CDN cache lag: public URL served 33,969 B vs verified /git/blobs 36,152 B - blob is source of truth. Independent proof-shot watch: 10th consecutive zero, corroborates Iris. Delivered 18:02 EDT (v16010), inside kill.",
+   "source": "results r33 run log, ledger v15965-v16010, 2026-09-23"
+  },
+  {
+   "id": "RB-223",
+   "question": "RB-223: MINT r33 taps-check - 4/4 unchanged, kill trigger STANDS",
+   "answer": "4 taps live-recomputed: (1) manifest sha256 bdee175f... matches r6-r33 chain, NO break - 10 covers, 2 verified:true/8 verified:false, hash-prefix-exact; (2) ledger approvals array EMPTY - zero Black exact-copy approvals today, x402 != MINT clearance (lane separation 33 rounds); (3) day-3 sync-pack form still DRAFT placeholder (form action='#'); (4) day-2 make_visualizer.sh allowlist-refuse guard intact. 8/8 clips ffprobe-verified byte-identical to r23-r32 inventory; zero new clips. Kill trigger STANDS - nothing on-chain, nothing published; day-3/day-4 launch clearance awaiting Black unchanged since r28. Delivered ~18:0x EDT inside kill; log-task URN gap 33rd rejection.",
+   "source": "mint r33 run log, ledger v15950, 2026-09-23"
+  },
+  {
+   "id": "RB-224",
+   "question": "RB-224: Guide r33 - Guide v2.32 + walkthrough #34, 12/0/0",
+   "answer": "Guide v2.32 (641,508 B, new §42 ops chapter) + walkthrough #34 (20,344 B): 12 PASS / 0 FAIL / 0 CONDITIONAL. Instrument lesson: first script sorted state-rank descending and reported a false 12/22 on the §10 pointer rule - heartbeat desiredPointer is the authority (true 22/22 exact-match, 31st corroboration). Fleet's fastest round: 3/5 lanes delivered within eleven minutes of dispatch. Standing flags: MINT trigger STANDS (27 rounds), URI-hash 12/12 MATCH, log-task URN gap 27th, §4 Step-7 honest zero 30th consecutive, §2 registry drift 32nd identical, no-idle/no-stack 11th cycle. Delivered 18:05:40 EDT (v16030), ~39m inside kill.",
+   "source": "guide r33 run log, ledger v15991-v16030, 2026-09-23"
+  },
+  {
+   "id": "RB-225",
+   "question": "RB-225: Care r33 - KB v2.33 draft + own-goal: never reset --hard on a dirty shared branch",
+   "answer": "KB v2.33: 6 new runbooks RB-214..RB-219 on round-32 events (draft branch ONLY, no publish, no merge). Push path: git push failed auth -> Contents API PUT via ghapi_put_file, byte-identity verified via /git/blobs (contents content-field never trusted - re-applied 2026-09-18 lesson). URI-hash 1f4a351d6235 byte-identical to r30/r31 (expected, never a collision). OWN-GOAL: local branch stale, aligned with git reset --hard on a dirty tree - verified afterward only kb.json differed from prior remote state so no lane content was lost, but the r34-hardened law is: fetch + compare first, then git update-ref refs/heads/kb-v2-draft <sha> - never reset on a dirty tree. Delivered 17:56:38 EDT inside the 18:45 ET kill.",
+   "source": "care r33 run log, ledger, 2026-09-23"
+  },
+  {
+   "id": "RB-226",
+   "question": "RB-226: r34 overdue-kill watch - live-recomputed (placeholder, filled at delivery)",
+   "answer": "Overdue-kill watch live-recomputed 22:51:21Z / 18:51:21 EDT from fresh state get v16144 state_history; deadline_at corroborates. Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9: in_progress since 20:51:58Z 9/22, running 25h59m - 23h51m past 19:00-ET-9/22 kill (deadline_at 2026-09-22T19:00:00-04:00); 0 artifacts. Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA: in_progress since 21:53:09Z 9/22, running 24h58m - 22h51m past 20:00-ET-9/22 kill (deadline_at 2026-09-22T20:00:00-04:00); 0 artifacts; still blocked on Tween's DEF-only GLB. Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3: assigned since 08:48:48Z 9/23, running 14h02m - 12h21m past 06:30 EDT (10:30Z) deadline; 0 artifacts; assignee-only delivery binding (agent:CWI_Tween). Plus 17 more overdue non-delivered tasks with deadline_at set (8h51m-150h51m past): the 9/22 day-command cycle (Watch, MUSE_CWI command, A&R reply watch, Radio, Press, Studio, Data, Affairs, Codex, Athena_PIONEER, Athena_CLOSER) 18h51m-21h21m past their 01:30Z/04:00Z 9/23 deadlines; Marketing MCP ranked-12 invite wave 96h51m past; A&R ROAD-1M strike plan 46h51m past; A&R NEEDLE DROP follow-ups 126h51m/150h51m past; MUSE_CWI CueFinder approvals 114h52m past; Athena world districts 8h51m past. Record-only - NO kill adjudication by Care. Figures never copied from prior logs (r17 erratum).",
+   "source": "gear-ledger state get v16144, 2026-09-23 22:51Z; Care r34 run"
   }
  ],
  "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
  "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
- "updated": "2026-09-23T20:50:54Z"
+ "updated": "2026-09-23T22:50:00Z"
 }
