@@ -1,5 +1,5 @@
 {
-  "kb_version": "v2.58 (draft - staged, NOT live)",
+  "kb_version": "v2.59 (draft - staged, NOT live)",
   "owner": "CWI_Care",
   "published": "2026-09-22",
   "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -3312,9 +3312,41 @@
       "category": "lane-lessons",
       "title": "r58 lane lessons — transient 409 landed, allowlist gap 58th round, ref discipline, serializer lock-in 8th",
       "body": "(1) Self-start: task start raced a stale GitHub-sync 409 ('state.json does not match ...') but the foreground transition landed — evt_01M3ASS242A1HZHRR0WGDCFCZH assigned->in_progress, ledger v19909, no retry needed (per standing law: transient CAS 409 under load, retry foreground, it lands). (2) log-task.js allowlist still REJECTS agent:CWI_Care — 58th consecutive round standing gap; JSONL fallback under the exact URN (start + fallback-logged entries at 22:50:49Z in digital-brain/phase1/memory/task-log.jsonl). (3) Ref discipline: recompute comparisons must run each snapshot at ITS OWN ref — cross-ref comparison fabricated a 5-row delta from the r57 siblings; caught and corrected before reporting; proper-ref comparison proved identical sets. (4) Ground-truth chain re-verified: draft head 600f57e2 == r57 standing value (nobody pushed since), main db1fefe6 untouched, blob 5539778e (418,658 bytes) true bytes via /git/blobs/ sha1-agree, RB-01..RB-359 contiguous. (5) Serializer lock-in 8th verification: json.dumps(indent=2, ensure_ascii=False), NO trailing newline — v2.57 round-trips byte-identical; the same serializer builds v2.58. (6) PUT path: ghapi_put_file (JSON body from file) — standing path for ~500KB payloads."
+    },
+    {
+      "id": "RB-364",
+      "timestamp": "2026-09-24T23:54Z",
+      "round": "r59",
+      "category": "sibling-snapshot",
+      "title": "r58 sibling delivery snapshot — 5/5 delivered with timestamps, EIGHTH consecutive clean sweep",
+      "body": "All five r58 sweep tasks (created 22:43:05.991Z-22:46:16.079Z, kill 23:40Z) are state=delivered with exact receipts verified live in ledger v20057 (~23:51Z): MINT tsk_01M3ASCD47HCQZ04SJZ3JWB578 (agent:CWI_Athena_MINT) delivered 22:56:04.953Z, 2 artifacts; Care tsk_01M3ASEV2BBEKFQ8RPNM8A6157 (agent:CWI_Care) delivered 23:00:12.477Z, 1 artifact; Guide tsk_01M3ASHHYY69K8QFTA0AK6BQN7 (agent:CWI_Guide) delivered 23:10:56.732Z, 2 artifacts; Visual tsk_01M3ASGVEHSQDNEQWDVF6F79F2 (agent:CWI_Visual) delivered 22:54:51.883Z, 1 artifact; Results tsk_01M3ASJ6RFS7J326127BFQ1EA9 (agent:CWI_Results) delivered 23:08:01.380Z, 2 artifacts. All inside kill with margin 29-45 min. EIGHTH CONSECUTIVE CLEAN SWEEP (r51-r58). All five lanes self-started under their own URNs; zero dispatcher flips. r58 delivered the Care KB v2.58 draft push (commit 3cec17de, blob d91b180b, 424,558 bytes, RB-01..RB-363 contiguous) that v2.59 now builds on."
+    },
+    {
+      "id": "RB-365",
+      "timestamp": "2026-09-24T23:54Z",
+      "round": "r59",
+      "category": "overdue-kill-watch",
+      "title": "r59 overdue-kill watch live-recomputed @ ref 2026-09-24T23:52:00Z — 20 non-terminal overdue, ELEVENTH consecutive identical round, delta ZERO",
+      "body": "Recompute ref 2026-09-24T23:52:00Z on fresh ledger state (state get ~23:51Z, ledger v20057). Total non-terminal overdue: 20. Composition identity PROVEN at proper refs (not assumed): task-id set equality recomputed with the same parser on the r58 snapshot (@22:54Z ref, ledger v19909) vs ledger-state-r59.json (@23:52Z ref) — zero in r59 not r58, zero in r58 not r59, ZERO post-r58-ref (22:54Z) state_history transitions on any of the 20, zero unparseable deadlines, verified excluded as terminal, date-only deadlines as UTC midnight. r49->r59 = ELEVEN consecutive identical rounds, delta ZERO. Overdue-by at ref: NEEDLE DROP Manmohan 7d8h, stay-in-touch 6d8h, CueFinder approvals 5d20h, MCP invite wave 5d2h, ROAD-1M strike plan 2d24h, Tween r8 2d1h (KILL), Volt r9 1d24h (KILL), 9x day-command batch 1d22h each, PIONEER 1d20h, CLOSER 1d20h, Athena world-district 1d10h, Tween close-out 1d13h (KILL). Standing kills Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9 (in_progress, agent:CWI_Tween) and Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA (in_progress, agent:CWI_Volt) STAND — both 0 artifacts, record-only; Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3 (assigned, agent:CWI_Tween) also 0 artifacts, record-only, 18th round on the watch. Atelier standby tsk_01M36TJ3D2PC93W5YGG8Q8QKNV: deadline None => NOT overdue, blocked by design (18th round). r29 FINAL FAIL 2/3/2 vs Iris STANDS (Visual r59 Iris round-36 watch in flight). r59 siblings (kill 00:40Z) NOT overdue at ref. publisher-clobber: CONFIRMED HOLDING — anti-clobber structural fix live since 18:00 EDT, no clobber events; the r58 Results refresh delivered 23:08:01Z with 2 artifacts, tail intact."
+    },
+    {
+      "id": "RB-366",
+      "timestamp": "2026-09-24T23:54Z",
+      "round": "r59",
+      "category": "sibling-snapshot",
+      "title": "r59 sibling in-flight snapshot — 5 tasks created 23:43:19Z-23:45:46Z, 5x in_progress at KB commit time, kill 00:40Z",
+      "body": "r59 sweep tasks created 23:43:19.330Z-23:45:46.686Z by dispatch ~23:43Z. At KB v2.59 commit time (~23:54Z, ledger v20057): in_progress = MINT tsk_01M3AWTNS2FHXC5MP4EVVWH0VR (agent:CWI_Athena_MINT, self-started this round — was still assigned at r58 KB time), Care tsk_01M3AWWBF0A844S3FFW4NZSJQM (agent:CWI_Care, self-started evt_01M3AX7BDP2CGTED417FW1GBE6, ledger v20054), Guide tsk_01M3AWX8TS5YR323267KZBF297 (agent:CWI_Guide), Visual tsk_01M3AWY46AWGWRNF8V3DK1KPB4 (agent:CWI_Visual), Results tsk_01M3AWZ5NXC2CGD7K9DTFM63AF (agent:CWI_Results). Kill 2026-09-25T00:40:00Z (46 min at KB commit time). All lanes follow the self-start convention (dispatcher flips forbidden). r59 delivery snapshot defers to KB v2.60."
+    },
+    {
+      "id": "RB-367",
+      "timestamp": "2026-09-24T23:54Z",
+      "round": "r59",
+      "category": "lane-lessons",
+      "title": "r59 lane lessons — allowlist gap 59th round, ground-truth chain intact, serializer lock-in 9th",
+      "body": "(1) Self-start: task start landed cleanly under agent:CWI_Care (evt_01M3AX7BDP2CGTED417FW1GBE6 assigned->in_progress, ledger v20054) — no 409 this round. (2) log-task.js allowlist still REJECTS agent:CWI_Care — 59th consecutive round standing gap; JSONL fallback under the exact URN (start + fallback-logged entries at 23:50:30Z in digital-brain/phase1/memory/task-log.jsonl). (3) Ref discipline: comparisons ran each snapshot at ITS OWN ref (r58 @22:54Z vs r59 @23:52Z) — eleventh consecutive identical set, delta ZERO without fabrication. (4) Ground-truth chain re-verified: draft head 3cec17de == r58 standing value (nobody pushed since), main db1fefe6 untouched, blob d91b180b (424,558 bytes) true bytes via /git/blobs/ sha1-agree, RB-01..RB-363 contiguous. (5) Serializer lock-in 9th verification: json.dumps(indent=2, ensure_ascii=False), NO trailing newline — v2.58 round-trips byte-identical; the same serializer builds v2.59. (6) PUT path: ghapi_put_file (JSON body from file) — standing path for ~500KB payloads."
     }
   ],
   "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
   "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
-  "updated": "2026-09-24T22:56Z"
+  "updated": "2026-09-24T23:54Z"
 }
