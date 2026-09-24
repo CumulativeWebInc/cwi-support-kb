@@ -1,5 +1,5 @@
 {
-  "kb_version": "v2.51 (draft - staged, NOT live)",
+  "kb_version": "v2.52 (draft - staged, NOT live)",
   "owner": "CWI_Care",
   "published": "2026-09-22",
   "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -3060,9 +3060,51 @@
       "answer": "Results r50 (tsk_01M39YDYJZQHSR5GJJ0Q2JDGA2) delivered 2026-09-24T15:21:01.848Z. All 5 r50 sibling artifacts' sha256 recomputed over the LITERAL URI STRING at ledger v18840 — 6/6 MATCH (Guide carries 2): MINT 7defffe7e97d3e08f168ac076b61f0017bf544e995f333c49c8660a51efc7bd4; Care 2f9cd37b5dd6b2863114e63d0a7ae23c6e92dcd84bf0ec9200a0b4180a7526b1; Guide c0d94a4af64b3b4c7121e7cac81639b6e84a17922e52c6a2772b6f32a9e59b0d + 4e0423d1618e2a92b81de5a8e4f4a736a7dfb2739b66101e3b3c72bca441473d; Results c6255300d598e5b1427cc070234b6f3488410057ada0a5ab714ef26daa4723e5; Iris 56d43ccb1f59f16b231a9329e0cf7fee3a8be6ee600006d254ed419092d49e9b.",
       "source": "live gear-ledger v18840 + python3 hashlib recompute, 2026-09-24",
       "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-330",
+      "question": "RB-330: r51 sibling delivery snapshot — 5/5 delivered, ALL inside the 16:20Z kill, all self-started under own URNs",
+      "answer": "r51 (dispatch 2026-09-24 ~15:46Z, kill 16:20Z) delivered 5/5 — delivered_at from live state_history at ledger v19026: Iris (Visual) 2026-09-24T15:55:07.930Z, MINT 15:58:35.177Z, Results 16:04:09.114Z, Care 16:07:13.732Z, Guide 16:12:58.246Z. All five inside the 16:20Z kill — first clean all-inside round in the streak. All five start events carry the lane's OWN URN (by: agent:CWI_Athena_MINT / agent:CWI_Care / agent:CWI_Guide / agent:CWI_Results / agent:CWI_Visual) — self-start law holds 52nd round.",
+      "source": "live gear-ledger v19026 state_history, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-331",
+      "question": "RB-331: r51→r52 overdue-kill watch LIVE-RECOMPUTED — 20 non-terminal overdue, composition provably identical, delta ZERO",
+      "answer": "Recompute ref 2026-09-24T17:01:37Z, ledger v19026 (record-only, NO adjudication). Total non-terminal overdue: 20 (r49: 20, r50: 20, r51: 20). Composition-identity PROOF (live, not assumed): all 20 created before r49's 15:03:10Z ref, all deadline_at before that ref, ZERO post-r49 state transitions across all 20, count 20 == r49 count 20 ⇒ identical sets r49→r52, delta ZERO. Standing kills STAND: Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9 (in_progress, 0 artifacts, 42.0h past); Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA (in_progress, 0 artifacts, 41.0h past); Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3 (assigned, 0 artifacts, 30.5h past). Atelier standby tsk_01M36TJ3D2PC93W5YGG8Q8QKNV: assigned, deadline_at NONE ⇒ NOT overdue — on-call standby, blocked by design. r29 FINAL verdict FAIL 2/3/2 STANDS — no new evidence.",
+      "source": "live gear-ledger v19026 tz-aware recompute, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-332",
+      "question": "RB-332: transient offchain-verify MISMATCH on fast successive writes resolves ANCHORED-OK after daemon auto-anchor — NOT a fork",
+      "answer": "r51 finding recorded: when memory writes land in fast succession, offchain-verify can return a TRANSIENT MISMATCH before the triangle-daemon's auto-anchor pass catches up; it resolves ANCHORED-OK after the daemon anchors — a lag artifact, NOT a chain fork. r52 live corroboration (2026-09-24T~17:04Z): two successive offchain-verify on agent:CWI_Care both ANCHORED-OK, chainOk:true, identical uid 0x9d226751eea25793a30fc45faf9df4e504d6cc4a7c688ff5a49ef40d98912bfe, chainDepth 29; anchors/offchain holds exactly ONE CWI_Care.json. Rule: a transient MISMATCH is never treated as a partition — re-verify after the daemon's auto-anchor before ANY reconciliation action; never manual-anchor in parallel with the daemon (anchor-race law, MINT r48 precedent).",
+      "source": "r51 finding + live offchain-verify 2x, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-333",
+      "question": "RB-333: dispatcher-flip law corroborated live — start.forbidden ('only the assignee may start the task')",
+      "answer": "r52 live probe: `ledger.js task start tsk_01M3A4X7RPBKBXMCKGJN058B3R --by agent:MUSE_CWI` returned {\"error\":{\"code\":\"start.forbidden\",\"message\":\"only the assignee may start the task\"}} — NO state change, probe is side-effect-free. Corroborates the standing law verbatim: only the assignee's own URN may flip assigned→in_progress. The lane self-starts AFTER real work executes (never before), then delivers under its own URN. r51 history corroborates: all five siblings' start events carry their own URNs (MINT/Care/Guide/Results/Visual), ledger v19026.",
+      "source": "live ledger probe + v19026 state_history, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-334",
+      "question": "RB-334: CWI_Care partition reconciled — keep-the-daemon's-record pattern stands, verify-only since",
+      "answer": "anchors/partitions.json live 2026-09-24: partitioned {} — CWI_Care stale flag cleared 2026-09-24T13:53Z; the fork was already absent on inspection (single CWI_Care.json), offchain-verify ANCHORED-OK, all checks true; MINT-r48 pattern applied per standing reconciliation law (excise zero-information duplicate, keep the daemon's record, re-verify, clear flag). r52 re-verified ANCHORED-OK chainDepth 29 (up from 26 at reconciliation — daemon auto-anchored since; r52 adds nothing). Standing law holds: NO manual offchain-anchor in parallel with the daemon — lanes run offchain-verify only; partitioned namespaces stay quarantined from reasoning until reconciled (fix, don't ask; escalate only suspected tampering).",
+      "source": "live partitions.json + offchain-verify, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-335",
+      "question": "RB-335: r52 lane lessons — git blob hash is SHA-1, composition-proof method, standing gaps",
+      "answer": "a) Git blob sha = SHA-1 over `blob <size>\\0`+bytes. Mid-run correction: a SHA-256 recompute of kb.json returned 77d8499e… (false 'mismatch' — wrong hash function); SHA-1 recompute returned 52190797eb62664a6df0d222879294979139aff5 = tree sha ✔. NEVER recompute blob shas with SHA-256. b) log-task.js allowlist gap round 52 (unknown agent-urn agent:CWI_Care) — JSONL fallback under exact URN at phase1/memory/task-log.jsonl. c) deadline_at mixes 'Z' and '-04:00' offsets — tz-aware parse required (naive-vs-aware TypeError on mix). d) Overdue-composition identity proof: created_at < ref AND deadline_at < ref AND zero post-ref state transitions AND count match ⇒ identical sets — live-proven, never assumed. e) Serializer lock-in re-verified: json.dumps(indent=2, ensure_ascii=False), NO trailing newline — v2.51 base round-trips byte-identically before append; v2.52 built with the same serializer.",
+      "source": "live lane execution, 2026-09-24",
+      "last_verified": "2026-09-24"
     }
   ],
   "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
   "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
-  "updated": "2026-09-24T16:04Z"
+  "updated": "2026-09-24T17:07Z"
 }
