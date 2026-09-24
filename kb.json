@@ -1,5 +1,5 @@
 {
-  "kb_version": "v2.46 (draft - staged, NOT live)",
+  "kb_version": "v2.47 (draft - staged, NOT live)",
   "owner": "CWI_Care",
   "published": "2026-09-22",
   "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -2850,9 +2850,51 @@
       "answer": "At r46 dispatch, v2.45 re-grounded from the LIVE remote head: /git/blobs/43d8fa824c72720051bb8f20a6c9b70145a9e5c8 → 330,782 bytes, BYTE-IDENTICAL to disk, tail RB-293, 293 entries, IDs RB-1..RB-293 contiguous (numeric-gap check: 0 gaps). r45 push: commit 1244eab9f312259d107e807d30ee5d6335256eec on kb-v2-draft (linear parent 870541d) via Contents PUT through ghapi_put_file (payload as file arg, never inline --data; branch param kb-v2-draft; blob sha from the Contents sha field — the content field is never trusted per the 2026-09-18 LIE finding). kb_version carries 'draft - staged, NOT live' on every draft commit. main untouched — no merge, no publish; Black's publish tap stands. Atelier standby tsk_01M36TJ3D2PC93W5YGG8Q8QKNV assigned-only BY DESIGN (r45 identical to r42/r43/r44 — no coordinator request; Iris r29 FAIL carried; starting it would be theater per sweep law step 4).",
       "source": "activation-sweep round-45 Care lane (2026-09-24)",
       "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-300",
+      "question": "RB-300: r46 sibling delivery snapshot — 5/5 inside the 11:45Z kill, self-starts under own URNs",
+      "answer": "r46 creations 10:43:14.312–10:44:05.054Z (MINT tsk_01M39G69R7ZA8SQCW1BDG026NN, Care tsk_01M39G6N35HW2YQCZ7DDSX78GY, Guide tsk_01M39G76KS8NQTWTGNVBY6EC5C, Results tsk_01M39G7JB3NC4W9C2JP7PTX933, Visual tsk_01M39G7V9YWJTV3YGKPEXKNYP5). Self-starts all under workers' own URNs: MINT 10:46:32.591Z, Guide 10:46:22.745Z, Results 10:46:38.621Z, Visual 10:46:47.492Z, Care 10:47:05.054Z — dispatcher flipped nothing. Deliveries: MINT 10:52:49.398Z, Care 10:51:55.394Z, Guide 11:05:39.475Z (evt_01M39HFEMXPMV6WTNBVFSFG1R9, v18081, one GitHub CAS 409 retry landed anyway), Results 10:49:07.893Z, Visual 10:51:45.449Z — 5/5 inside the 2026-09-24T11:45:00Z kill. Twenty-third consecutive 5-lane cycle; self-start rule + one-call deliver sustained. Lesson carried: duplicate prose handoffs never override ledger authority; every claim above grounded in state_history, not run logs.",
+      "source": "sweep r46 run logs + live ledger v18081 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-301",
+      "question": "RB-301: r46→r47 overdue-kill watch live-recomputed @ 2026-09-24T11:54:04Z (ledger v18191; record-only, no adjudication)",
+      "answer": "20 overdue (live state_history; figures never copied from prior logs per r17 erratum): 1) NEEDLE DROP Manmohan tsk_01M2MZ3NNB8JNNN0W5KNEQYF6Y assigned (CWI_AandR) 6d19h54m past 2026-09-17T16:00Z; 2) stay-in-touch tsk_01M2MZ3V8FAR95SGF3C3HQ87MR assigned (CWI_AandR) 5d19h54m past 2026-09-18T16:00Z; 3) CueFinder approvals tsk_01M2QBC27GGA7TRPWNEYJVA9NQ assigned (MUSE_CWI) 5d07h55m past 2026-09-18T23:59-04:00; 4) MCP invite wave tsk_01M2R8PFW7RNEAS93HF1CRG650 in_progress 4d13h54m past 2026-09-19T18:00-04:00; 5) Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9 in_progress (CWI_Tween) 1d12h54m past 2026-09-22T19:00-04:00, artifacts 0; 6) Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA in_progress (CWI_Volt) 1d11h54m past 2026-09-22T20:00-04:00, artifacts 0; 7) Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3 assigned 1d01h24m past 2026-09-23T10:30Z, artifacts 0; 8) World district tsk_01M2QENTJ1F7W4JN6CHW0B2HHR in_progress 21h54m past 2026-09-23T10:00-04:00; 9) ROAD-1M cluster: 8 tasks (Codex, Affairs, Data, Studio, Press, Radio, AandR, MUSE_CWI, CWI_Watch) 1d10h24m past 2026-09-23T01:30Z, CLOSER/PIONEER 1d07h54m past 2026-09-23T04:00Z, catalog strike plan tsk_01M2T1DYENE47P221SDTBDV6ME 2d11h54m past 2026-09-22 (NEW overdue this round). ROAD-1M mission cmd tsk_01M2T1DMZ3BSGKYEEXFCS23FKZ: deadline 2026-10-18 FUTURE — NOT overdue. Tween r8 (DEF-only GLB fix) and Volt r9 (matrix re-gate, blocked on Tween) carry their own standing lanes; watch signals, never verdicts.",
+      "source": "live gear-ledger state v18191 2026-09-24T11:54:04Z",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-302",
+      "question": "RB-302: Guide r46 dispatch-misattribution erratum — r44-class error family, caught pre-delivery",
+      "answer": "Guide's §54 draft (which must cover the r45 sweep) first wrote the r46 dispatch figures into it — creations 10:43:14.311–10:44:05.054Z, task IDs tsk_01M39G… — caught and rebuilt on the r45 records (creations 09:43:52.112–09:45:17.736Z, r45 IDs). This is the r44 erratum class: v2.43 changelog promised §53, file held 52. Standing lesson: when a round covers round N−1, EVERY figure in the draft must be checked against the N−1 records, never the current round's — never copy numbers from a prior log or the live round (r17 erratum). Corrected before the 11:05:39Z delivery; v2.45 carries the clean §54.",
+      "source": "Guide r46 run log 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-303",
+      "question": "RB-303: MINT r46 taps-check — kill-trigger STANDS (46th round), sha dual-recomputed live",
+      "answer": "Tap 1: manifest cwi-company/catalog-artwork/2026-09-17/manifest.json sha256 bdee175fd942af1f416694c103d2fbca319d9544c8a9bcf6811654dcf4bc2f61 via sha256sum AND python hashlib — BOTH agree, 64 chars counted, MATCH vs r6→r45 live chain, zero drift; 10 covers, 2 verified:true / 8 verified:false, hash-prefix-exact filenames. Tap 2: ledger approvals array EMPTY (0 entries) — zero Black exact-copy MINT approvals; x402 mainnet (2026-09-22) ≠ MINT clearance, lane separation holds 46 rounds. Tap 3: day3/sync-pack-interest-form.html action=\"#\" only, DRAFT badge — still placeholder, no $0 endpoint. Tap 4: make_visualizer.sh fail-closed guard live-tested: ./make_visualizer.sh 'Neon Nights' → REFUSED, exit 1, no output; script md5 ba34c2b91b3648745b08d2aff22fa0f3 unchanged. 8/8 clips ffprobe-verified (1080x1080 H.264 30fps 30.000000s), byte-identical to r23→r45 inventory; zero new clips since 06:40. Kill-trigger STANDS — 46th round, nothing on-chain, nothing published, launch clearance still awaiting Black. Delivered 10:52:49.398Z.",
+      "source": "MINT r46 run log 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-304",
+      "question": "RB-304: Iris round-23 watch — 23rd consecutive honest zero (r24→r46); r29 FINAL FAIL STANDS",
+      "answer": "Cutoff live-recomputed 2026-09-24T09:56:17Z from r45 delivery 09:56:16.365Z (r37 erratum: never copy from prior logs). New-proof sweep vs cutoff: build lanes (tag-city-3d-rebuild, 3d-asset-engine) 0 hits; 12 workspace-wide hits all avatar-system thumbnails, inspected and rejected; *proof*-named files since cutoff: 0 hits — 23rd consecutive honest zero. Custody: round-2 set proof_round2_angle1..3.png sha256 prefixes (cfc116f29787/984885ae16d4/0c7a2fea271b) + sizes (617975/603373/602519) + mtimes (2026-09-23 09:39:30–09:40:45 UTC) byte-identical to r29 receipt — held set intact. Gate attestation: 2 PASS / 3 PARTIAL / 2 FAIL — r29 FINAL verdict FAIL STANDS, round-3 proof set required for any change. Brand pre-gate armed on round-2 set. Delivered 10:51:45.449Z (evt_01M39GNZQNNRH2NFXWTZR7N9SB, v18037).",
+      "source": "Visual r46 run log 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-305",
+      "question": "RB-305: Results r46 dashboard + proof-shot watch — 6/6 URI-hashes MATCH, zero new proof media",
+      "answer": "Dashboard r45 refresh: all 5 r45 tasks confirmed delivered live (MINT 09:53:16Z, Care 09:54:31Z, Guide 10:05:34Z, Visual 09:56:16Z, Results 09:59:35Z); 6 artifacts across the 5 tasks, every artifact sha256 recomputed over the literal URI STRING — 6/6 MATCH. Proof-shot watch cutoff 2026-09-24T10:47:00Z: workspace-wide *tagcity* media 0 hits, *proof* media 0 hits — independent check concurs with the Iris watch (carried: round-22 delivered 22nd consecutive honest zero at 09:56:16.365Z; this run adds the 23rd). Custody check: round-2 set sha/sizes/mtimes byte-identical to r29 receipt. Honest-zero law: metric_external_equips = 0 reported as the verified value, never padded, never delivered upward. Delivered 10:49:07.893Z.",
+      "source": "Results r46 run log 2026-09-24",
+      "last_verified": "2026-09-24"
     }
   ],
   "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
   "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
-  "updated": "2026-09-24T10:55:00Z"
+  "updated": "2026-09-24T11:55Z"
 }
