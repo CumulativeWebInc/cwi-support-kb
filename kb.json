@@ -1,5 +1,5 @@
 {
-  "kb_version": "v2.47 (draft - staged, NOT live)",
+  "kb_version": "v2.48 (draft - staged, NOT live)",
   "owner": "CWI_Care",
   "published": "2026-09-22",
   "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -2892,9 +2892,51 @@
       "answer": "Dashboard r45 refresh: all 5 r45 tasks confirmed delivered live (MINT 09:53:16Z, Care 09:54:31Z, Guide 10:05:34Z, Visual 09:56:16Z, Results 09:59:35Z); 6 artifacts across the 5 tasks, every artifact sha256 recomputed over the literal URI STRING — 6/6 MATCH. Proof-shot watch cutoff 2026-09-24T10:47:00Z: workspace-wide *tagcity* media 0 hits, *proof* media 0 hits — independent check concurs with the Iris watch (carried: round-22 delivered 22nd consecutive honest zero at 09:56:16.365Z; this run adds the 23rd). Custody check: round-2 set sha/sizes/mtimes byte-identical to r29 receipt. Honest-zero law: metric_external_equips = 0 reported as the verified value, never padded, never delivered upward. Delivered 10:49:07.893Z.",
       "source": "Results r46 run log 2026-09-24",
       "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-306",
+      "question": "RB-306: r47 sibling delivery snapshot — 5/5 delivered inside the 12:45Z kill (times live-verified)",
+      "answer": "Deliveries from LIVE state_history at dispatch (ledger v18350; never copied from prior logs): Results tsk_01M39KRCGKQ6Y9NJKHN5QDGSY0 delivered 11:54:41.750Z; MINT tsk_01M39KPB873VXKC9JJQXHVREZR delivered 11:55:13.660Z; Care tsk_01M39KPZYDDA8EBD1GFTN2PZ2A delivered 11:56:54.582Z; Visual tsk_01M39KS5CD23ZK927XASYTV32Z delivered 11:57:40.402Z; Guide tsk_01M39KQSEAKSJ2QB7AG9A22HAV delivered 12:04:53.661Z. Latest delivery 12:04:53Z < 12:45Z kill → 5/5 inside kill. Standing lesson honored: every timestamp taken from live state_history, not from a prior run log.",
+      "source": "live gear-ledger state v18350 2026-09-24T12:57:25Z",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-307",
+      "question": "RB-307: r47→r48 overdue-kill watch live-recomputed @ 2026-09-24T12:58:25Z (ledger v18353; record-only, no adjudication)",
+      "answer": "20 overdue (live state_history; figures live-recomputed, never copied per r17 erratum): 1) NEEDLE DROP Manmohan tsk_01M2MZ3NNB8JNNN0W5KNEQYF6Y assigned (CWI_AandR) 7d20h58m past 2026-09-17T16:00Z; 2) stay-in-touch tsk_01M2MZ3V8FAR95SGF3C3HQ87MR assigned (CWI_AandR) 6d20h58m past 2026-09-18T16:00Z; 3) CueFinder approvals tsk_01M2QBC27GGA7TRPWNEYJVA9NQ assigned (MUSE_CWI) 5d08h59m past 2026-09-18T23:59-04:00; 4) MCP invite wave tsk_01M2R8PFW7RNEAS93HF1CRG650 in_progress (CWI_Marketing) 5d14h58m past 2026-09-19T18:00-04:00; 5) Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9 in_progress 0 artifacts (CWI_Tween) 2d13h58m past 2026-09-22T19:00-04:00; 6) Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA in_progress 0 artifacts (CWI_Volt) 2d12h58m past 2026-09-22T20:00-04:00; 7) Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3 assigned 0 artifacts (CWI_Tween) 1d02h28m past 2026-09-23T10:30Z; 8) ROAD-1M strike plan tsk_01M2T1DYENE47P221SDTBDV6ME assigned (CWI_AandR) past 2026-09-22 (DATE-ONLY deadline recorded as date-only — no synthesized hours). +12 ledger-overdue outside the standing watch list: 8 × sweep-round batch tsk_01M348* past 2026-09-23T01:30Z, 2 × ATHENA-lane tasks past 2026-09-23T04:00Z, ATHENA main tsk_01M2QENTJ1F7W4JN6CHW0B2HHR past 2026-09-23T14:00Z. Count holds 20 (r47: 20) — no new blocker; overdue kills Tween r8 / Volt r9 / close-out STAND as standing blockers.",
+      "source": "live gear-ledger state v18353 2026-09-24T12:58:08Z",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-308",
+      "question": "RB-308: Care r48 lane lessons — CAS retry verification, date-only deadline parsing, memory-read retry",
+      "answer": "(1) `task start` on this task hit a CAS write-conflict: x3 HTTP 409 retries landed no transition (concurrent writers). Per the standing rule the fix was verification, not blind retry: `state get` filtered by `task_id` — note the CLI's task list keys records by `task_id`, not `id`, and `task get` does not exist (`cli.unknown_command`) — found the task still `assigned`, then one fresh `task start` landed (evt_01M39QS0NXEHZWM5E8R2AJWBVK, ledger v18342). Lesson: a failed report does not show nothing happened; re-read live state before re-issuing any mutation. (2) date-only deadline_at '2026-09-22' (ROAD-1M strike plan) makes naive-vs-aware datetime comparison raise TypeError and a naive scanner silently drops the record; the overdue-watch script must special-case date-only deadlines and record them as date-only, never synthesize hours-past-deadline. (3) memory.js read first attempt died on http.client.RemoteDisconnected inside the embedded ghapi blob fetch; retry with backoff succeeded. Transient network failure is not a memory-law violation when the retry lands before any work proceeds. (4) log-task.js allowlist gap persists — 47th consecutive round agent:CWI_Care rejected; JSONL fallback used.",
+      "source": "Care r48 run log 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-309",
+      "question": "RB-309: MINT r47 taps-check — kill-trigger STANDS (47th round), sha dual-recomputed live",
+      "answer": "Tap 1: manifest cwi-company/catalog-artwork/2026-09-17/manifest.json sha256 bdee175fd942af1f416694c103d2fbca319d9544c8a9bcf6811654dcf4bc2f61 via sha256sum AND python hashlib — BOTH agree, MATCH vs the r6→r47 live chain, zero drift. Tap 2: ledger approvals array EMPTY (0 entries) at ledger v18350 — zero Black exact-copy MINT approvals; x402 mainnet stays gated on his go-live/wallet/gas/$0.05 approvals (standing 2026-09-22 carve-out). Kill-trigger STANDS: no taps signed, nothing minted, nothing published. 47th consecutive round.",
+      "source": "live gear-ledger v18350 + workspace manifest 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-310",
+      "question": "RB-310: Iris round-24 watch — 24th consecutive honest zero (cutoff live-recomputed)",
+      "answer": "Cutoff live-recomputed 2026-09-24T11:57:40Z from Visual r47 delivery 11:57:40.402Z (r37 erratum: never copy a cutoff from prior logs). Workspace-wide *proof* media sweep vs cutoff: 0 files newer than cutoff — 24th consecutive honest zero. r29 FINAL FAIL STANDS. No proof shot, no announcement; the release gate remains Iris's screenshot sign-off.",
+      "source": "Visual r47 delivery + workspace scan 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-311",
+      "question": "RB-311: Results r47 dashboard — 6/6 URI-hashes MATCH (sha256 over literal URI strings, recomputed)",
+      "answer": "All 5 r47 sibling tasks confirmed delivered live at dispatch (Results 11:54:41Z, MINT 11:55:13Z, Care 11:56:54Z, Visual 11:57:40Z, Guide 12:04:53Z); 6 artifacts across the 5 tasks — every artifact sha256 recomputed over the literal URI STRING — 6/6 MATCH (mint run-report, care draft-URI, guide v2.46 guide + walkthrough, results run-report, IRIS-VERDICT-R47). Independent hash check concurs with the Iris watch.",
+      "source": "live gear-ledger v18350 + hash recompute 2026-09-24",
+      "last_verified": "2026-09-24"
     }
   ],
   "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
   "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
-  "updated": "2026-09-24T11:55Z"
+  "updated": "2026-09-24T13:03Z"
 }
