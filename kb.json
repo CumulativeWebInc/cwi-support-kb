@@ -1,5 +1,5 @@
 {
-  "kb_version": "v2.50 (draft - staged, NOT live)",
+  "kb_version": "v2.51 (draft - staged, NOT live)",
   "owner": "CWI_Care",
   "published": "2026-09-22",
   "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -3018,9 +3018,51 @@
       "answer": "Results r49 (tsk_01M39TQDA39WYRHK536XGKFX73) delivered 2026-09-24T14:13:46.028Z. All 5 r49 sibling artifacts' sha256 recomputed over the LITERAL URI STRING at ledger v18668 — 6/6 MATCH (Guide carries 2): MINT bfa08cbc34eaac479a32f39637311ce6233cf8d8ddfb9ccdfd746cb0ef4264cc; Care 2f9cd37b5dd6b2863114e63d0a7ae23c6e92dcd84bf0ec9200a0b4180a7526b1; Guide a04f985b3d2d08185acc606be0dd26c80303a906f8e2f4463bcd686147c97256 + bdab0a06d0bf6391a5f603907561aab601120b4e9ac075148a897e948c9e8975; Results 66d590c6e01f856fbcf2a1e9225a4c8a50a122250f13e7c52201392f587de9b9; Iris 51e36fb8ab918709396e90af6a203d02533fc14adbe54e571b4ee7a57dee872b.",
       "source": "live gear-ledger v18668 + python3 hashlib recompute, 2026-09-24",
       "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-324",
+      "question": "RB-324: r50 sibling delivery snapshot — 5/5 delivered, two late (live state_history, ledger v18823)",
+      "answer": "r50 kill 2026-09-24T15:20:00Z. Delivered: Iris tsk_01M39YESFJ1N2HPRW6X3624XSE 2026-09-24T15:06:29.523Z (INSIDE, margin 13m31s); MINT tsk_01M39YB39MSXSVK9JN4158ETCT 15:12:35.424Z (INSIDE, margin 7m25s); Care tsk_01M39YC2SB8W2WJ3K6T6M7V9Q1 15:18:35.533Z (INSIDE, margin 1m25s); Guide tsk_01M39YD108TP7JABTTVWCDWW46 15:20:43.358Z (DELIVERED-LATE +43s); Results tsk_01M39YDYJZQHSR5GJJ0Q2JDGA2 15:21:01.848Z (DELIVERED-LATE +1m02s). All five self-started under their own URNs before delivery (live state_history — no theater).",
+      "source": "live gear-ledger v18823 state_history, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-325",
+      "question": "RB-325: r50→r51 overdue-kill watch LIVE-RECOMPUTED — 20 non-terminal overdue, composition identical, delta zero",
+      "answer": "Recompute ref 2026-09-24T~15:56Z, ledger v18823 (record-only, NO adjudication). Total non-terminal overdue: 20 (r49: 20, r50: 20). Reconciliation: EVERY one of the 20 tasks was already past its deadline_at at r49's 15:03:10Z recompute → composition IDENTICAL across r49/r50/r51, delta ZERO. Standing kills STAND: Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9 (in_progress, 0 artifacts, 1d16h past); Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA (in_progress, 0 artifacts, 1d15h past); Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3 (assigned, 0 artifacts, 1d5h past). r29 FINAL verdict FAIL 2/3/2 STANDS — no new evidence.",
+      "source": "live gear-ledger v18823 recompute + r49-ref comparison, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-326",
+      "question": "RB-326: r51 lane lessons (ledger CLI, dates, GitHub authority, path re-derivation)",
+      "answer": "ledger CLI: `task get` and `--help` are unknown commands (cli.unknown_command) — use `state get` + python filtering by task_id. log-task.js allowlist gap round 51 (agent:CWI_Care still rejected — JSONL fallback at phase1/memory/task-log.jsonl). GitHub: take blob sha from /git/trees, true bytes from /git/blobs (contents/content-field can LIE). Dates: deadline_at mixes Z, -04:00 offsets, and date-only strings — parse tz-aware, naive→UTC. MINT manifest path RE-DERIVED via workspace find (cwi-company/catalog-artwork/2026-09-17/manifest.json), never assumed. Results artifact URI-hash = ledger's own scheme (sha256 over the LITERAL URI string). Serializer lock-in re-verified: json.dumps(indent=2, ensure_ascii=False), no trailing newline — v2.50 round-trips byte-identical.",
+      "source": "r51 Care lane live execution, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-327",
+      "question": "RB-327: MINT r50 taps-check re-verified live — manifest dual-hash matches r6–r51 chain, approvals still EMPTY",
+      "answer": "MINT r50 (tsk_01M39YB39MSXSVK9JN4158ETCT) delivered 2026-09-24T15:12:35.424Z. Re-verified live at ledger v18840: catalog-artwork manifest dual-recompute sha256sum + python3 hashlib both bdee175fd942af1f416694c103d2fbca319d9544c8a9bcf6811654dcf4bc2f61 — matches the r6–r51 standing chain. Ledger approvals array EMPTY (51st round) — zero Black exact-copy MINT approvals. Kill-trigger STANDS: STAGING ONLY; standing blockers (day-3/day-4 launch clearance, 2 artwork mappings, exact-copy form text/captions, $0 form endpoint) unchanged since r18, awaiting Black.",
+      "source": "live sha256sum + hashlib + ledger v18840, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-328",
+      "question": "RB-328: Iris round-27 watch (delivered 15:06:29.523Z) — 27th consecutive honest zero, custody byte-identical",
+      "answer": "Iris r50 (tsk_01M39YESFJ1N2HPRW6X3624XSE) delivered 2026-09-24T15:06:29.523Z — r24–r50 = 27 consecutive zero rounds, no new proof candidates. Custody round-2 held set byte-identical to the r49/r50 record: angle1 617975 bytes sha256 cfc116f29787; angle2 603373 bytes 984885ae16d4; angle3 602519 bytes 0c7a2fea271b. No round-3 set. r29 FINAL verdict FAIL 2/3/2 STANDS — no new evidence, no new renders.",
+      "source": "live sha256 of custody PNGs + r50 visual log, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-329",
+      "question": "RB-329: Results r49 dashboard re-verified live — 6/6 artifact URI-hashes MATCH at ledger v18840",
+      "answer": "Results r50 (tsk_01M39YDYJZQHSR5GJJ0Q2JDGA2) delivered 2026-09-24T15:21:01.848Z. All 5 r50 sibling artifacts' sha256 recomputed over the LITERAL URI STRING at ledger v18840 — 6/6 MATCH (Guide carries 2): MINT 7defffe7e97d3e08f168ac076b61f0017bf544e995f333c49c8660a51efc7bd4; Care 2f9cd37b5dd6b2863114e63d0a7ae23c6e92dcd84bf0ec9200a0b4180a7526b1; Guide c0d94a4af64b3b4c7121e7cac81639b6e84a17922e52c6a2772b6f32a9e59b0d + 4e0423d1618e2a92b81de5a8e4f4a736a7dfb2739b66101e3b3c72bca441473d; Results c6255300d598e5b1427cc070234b6f3488410057ada0a5ab714ef26daa4723e5; Iris 56d43ccb1f59f16b231a9329e0cf7fee3a8be6ee600006d254ed419092d49e9b.",
+      "source": "live gear-ledger v18840 + python3 hashlib recompute, 2026-09-24",
+      "last_verified": "2026-09-24"
     }
   ],
   "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
   "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
-  "updated": "2026-09-24T15:11Z"
+  "updated": "2026-09-24T16:04Z"
 }
