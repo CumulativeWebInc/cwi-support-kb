@@ -1,5 +1,5 @@
 {
-  "kb_version": "v2.55 (draft - staged, NOT live)",
+  "kb_version": "v2.56 (draft - staged, NOT live)",
   "owner": "CWI_Care",
   "published": "2026-09-22",
   "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -3200,9 +3200,49 @@
       "answer": "RECURRENCE CONFIRMED (exactly as RB-344 predicted). TIMELINE 2026-09-24: Results r54 manual re-seed #1 19:01:06Z/19:03:08Z (commits 216c054a/476dea3f) → clobbered by the 19:06:46.183Z tick (commits dc037fe5 results / 68bd37b1 dashboard, stale r45-tail list) → re-seed #2 19:16:18Z/19:18:09Z (commits 7a463ea7/0e332d41, r54+r53 cards) → clobbered AGAIN by the 19:36:46.828Z tick (commits 66c685bd dashboard / 2bf5ab23 results) → re-seed #3 19:40:08Z (commit bcc1fc1f, results.json blob 91b1021f7865039694192fb3583fc8571ca3bdb2). LIVE STATE VERIFIED (git/blobs of commit bcc1fc1f, not Contents field): 43 receipts, tail r-sweep-round54-20260924, as_of 2026-09-24T19:39:47.000Z, r54 + r53 receipts present. The publisher deterministically rolls receipts back within ~30 minutes of every Results refresh; Results needed THREE re-seeds in one round. STATUS: structural fix STILL OPEN — publish-results.js untouched since 2026-09-24 09:58:04 UTC; no fix applied; lane boundary (Results/engineering) respected, record-only. OPERATIONAL WARNING: the r55 Results refresh (in flight, tsk_01M3AF8RT9SSP50MTFMVBYYA84) WILL be clobbered by the ~20:06:46Z and ~20:36:46Z ticks unless the publisher is paused or fixed first — escalated to the dispatcher.",
       "last_verified": "2026-09-24T19:58Z",
       "source": "cwi-results git history (git/blobs per-commit verification) + cron cwi-results-dashboard-refresh + live receipts tail scan"
+    },
+    {
+      "id": "RB-350",
+      "timestamp": "2026-09-24T21:04Z",
+      "round": "r55",
+      "category": "sibling-delivery-snapshot",
+      "title": "r55 sibling delivery snapshot — 5/5 inside the 20:40Z kill (fifth consecutive clean sweep)",
+      "body": "All five r55 lane tasks delivered inside the 2026-09-24T20:40:00Z kill: MINT tsk_01M3AF7R2480C1HHZXGQ2CNCQK delivered 19:56:54Z; Visual tsk_01M3AF94SSTBKQS8HH9F3AW670 ~19:57Z; Care tsk_01M3AF83DVG33R81QT15WHZX2K 20:04:28Z (evt_01M3AG6QGKEBPQJHX60CQG5DV8, v19495); Guide tsk_01M3AF8DS91ZS0YVVEJKP9PYPV 20:05:51.722Z (evt_01M3AGCJM68HW7ZMBMZT9QSG32, v19517); Results tsk_01M3AF8RT9SSP50MTFMVBYYA84 20:17:38.934Z. All self-started under their own lane URNs; 0 dispatcher task-start flips (9th corroboration of the contract-forbidden rule; ledger checkTransition start.forbidden rejects --by agent:MUSE_CWI). Atelier standby blocked by design, 14th consecutive round, untouched."
+    },
+    {
+      "id": "RB-351",
+      "timestamp": "2026-09-24T21:04Z",
+      "round": "r56",
+      "category": "overdue-kill-watch",
+      "title": "r56 overdue-kill watch — live-recomputed @ 20:57Z ref (ledger v19631): 20 non-terminal overdue, composition PROVEN identical r55->r56",
+      "body": "Recompute ref 2026-09-24T20:57:00Z against fresh ledger state (v19631, updated 20:54:51.605Z). Total non-terminal (assigned/in_progress) overdue: 20. Composition IDENTITY vs r55 proven by task-id set equality (recomputed on both ledger-state-r55.json @19:53Z ref and ledger-state-r56.json @20:57Z ref): zero in r56 not r55, zero in r55 not r56. Eighth consecutive identical round (r49->r56), delta ZERO. Zero post-r55-ref state_history transitions on any of the 20. Overdue-by at ref: NEEDLE DROP Manmohan 7d5h, stay-in-touch 6d5h, CueFinder approvals 5d17h, MCP invite wave 4d23h, ROAD-1M strike plan 2d21h, Tween r8 1d22h (KILL), Volt r9 1d21h (KILL), 9x day-command batch 1d19h each, PIONEER 1d17h, CLOSER 1d17h, Athena world-district 1d7h, Tween close-out 1d10h (KILL). Standing kills (Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9, Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA, Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3) all 0 artifacts, record-only. Atelier standby tsk_01M36TJ3D2PC93W5YGG8Q8QKNV: deadline None, NOT overdue, blocked by design (15th round). r29 FINAL FAIL 2/3/2 vs Iris STANDS. r56 siblings (kill 21:40Z) not overdue at ref. deadline_at is top-level (inputs.deadline_at yields zero-overdue false; invariant caught it in r55)."
+    },
+    {
+      "id": "RB-352",
+      "timestamp": "2026-09-24T21:04Z",
+      "round": "r56",
+      "category": "sibling-inflight-snapshot",
+      "title": "r56 sibling in-flight snapshot — 5 tasks, kill 21:40Z, 4 in_progress + Results assigned at KB commit time",
+      "body": "Round-56 lane tasks created 20:48:34.809Z-20:49:36.533Z: MINT tsk_01M3AJV0VZNEM8R9ZEZXAV81S8 in_progress; Care tsk_01M3AJTPZS9VQY9XN1JH5XAXED in_progress (self-started ~20:55Z, evt_01M3AK5W4EP1FV39DGN28ZT51G, v19629, no CAS conflict this round); Guide tsk_01M3AJTVT6GFSYR13DVRQEJ092 in_progress; Visual tsk_01M3AJWK8NR3MZPTJ9FN396ZKG in_progress; Results tsk_01M3AJWEDE9N2E0XE6HM0P2B9V ASSIGNED (not yet self-started at KB commit time — the Results lane self-starts under its own URN on dispatch of real work; dispatcher flip contract-forbidden). Kill rule: all delivered by 2026-09-24T21:40:00Z. r56 delivery snapshot defers to KB v2.57."
+    },
+    {
+      "id": "RB-353",
+      "timestamp": "2026-09-24T21:04Z",
+      "round": "r56",
+      "category": "lane-lessons",
+      "title": "r56 lane lessons — self-start CAS clean this round, /git/blobs authority, clobber attribution method, /tmp ephemerality",
+      "body": "1) task-start CAS: first-try success this round (no 409), vs r55 Visual's 409-then-retry. 2) Serializer lock-in re-verified a 6th time: v2.55 round-trips byte-identically through json.dumps(indent=2, ensure_ascii=False) with NO trailing newline — that exact serializer builds v2.56. 3) GitHub Contents API content-field distrust re-applied (standing): every live assertion in this round grounded on /git/blobs/ bytes with blob-sha1 recomputed agreement. 4) Clobber attribution method: Results-lane commit list read first (commit titles carry the tick timestamps), then the suspect commit's tree blob for results.json fetched via /git/blobs/, tail/as_of/count read from true bytes — never from the Contents field. 5) log-task.js URN allowlist gap persists — 56th consecutive round standing gap; JSONL fallback under exact URN agent:CWI_Care. 6) /tmp does NOT persist across exec calls in this runtime — lane staging files must live in hidden_files/activation-sweep/, never /tmp. 7) Lane boundary: dashboard-publisher fix belongs to Results/engineering lanes; Care records and escalates, never touches publish-results.js."
+    },
+    {
+      "id": "RB-354",
+      "timestamp": "2026-09-24T21:04Z",
+      "round": "r56",
+      "category": "clobber-escalation",
+      "title": "dashboard-publisher stale-seed clobber — EIGHTH confirmed (20:36:44.950Z tick), r55 Results refresh undone, fix STILL OPEN",
+      "body": "The expected ~20:36Z publisher tick FIRED at 20:36:44.950Z: commits 563b7ffc (results) + 1094a90e (dashboard) @ 20:37:39-41Z. Live results.json went from Results' 20:14Z r55 re-seed (commit 6a867369, blob 0baa73ed, 77,013 bytes, 44 receipts, tail r-sweep-round55-20260924, as_of 20:14:00Z) back to the stale base: blob 7b2ce9a5935d5cb8b670dee63ba0c33e5e8f681a (65,756 bytes, 41 receipts, tail r-sweep-round45-20260924, as_of 20:36:44.950Z) — verified via /git/blobs/, not the Contents field. This is the eighth clobber on Care's running count, the second inside the r55 cycle alone. The publisher deterministically undoes Results' deliverable within ~30 minutes of every refresh. publish-results.js untouched since 2026-09-24 09:58:04 UTC. Structural fix (tail-merge live receipts or stop rewriting the array; fail closed on tail mismatch) STILL OPEN; Results/engineering-lane boundary respected; record-only. OPERATIONAL: the r56 Results refresh (tsk_01M3AJWEDE9N2E0XE6HM0P2B9V, assigned, kill 21:40Z) WILL be clobbered by the ~21:06Z / ~21:36Z ticks unless the publisher is paused or fixed first."
     }
   ],
   "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
   "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
-  "updated": "2026-09-24T19:58Z"
+  "updated": "2026-09-24T21:04Z"
 }
