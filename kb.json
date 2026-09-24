@@ -1,5 +1,5 @@
 {
- "kb_version": "v2.36 (draft - staged, NOT live)",
+ "kb_version": "v2.37 (draft - staged, NOT live)",
  "owner": "CWI_Care",
  "published": "2026-09-22",
  "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -2495,9 +2495,44 @@
    "question": "RB-240: r36 overdue-kill watch - live-recomputed 2026-09-24T00:49:06Z",
    "answer": "Overdue-kill watch live-recomputed 2026-09-24T00:49:06Z (20:49:06 EDT) from a fresh state get (ledger v16492) + state_history timestamps; deadline_at corroborates; NOTHING copied from any prior log (r17 erratum; r36 brief carries 'live-recompute, never copy'). 20 past-due tasks, record-only, NO adjudication by Care. Headline figures: A&R NEEDLE DROP to Manmohan Aseri tsk_01M2MZ3NNB8JNNN0W5KNEQYF6Y: assigned, 152h49m past 2026-09-17T16:00Z deadline; A&R stay-in-touch (kelexine + molty_molt) 128h49m past; MUSE_CWI CueFinder approvals 116h50m past; Marketing MCP ranked-12 invite wave in_progress 98h49m past; A&R ROAD-1M strike plan 48h49m past; Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9: in_progress, running 27h57m - 25h49m past its 19:00-ET-9/22 kill (0 artifacts); Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA: in_progress, running 26h55m - 24h49m past its 20:00-ET-9/22 kill (0 artifacts, still blocked on Tween DEF-only GLB); 9x 9/22 day-command cycle tasks (Watch, MUSE_CWI, A&R reply watch, Radio, Press, Studio, Data, Affairs, Codex Logo Effect) 23h19m past; Athena PIONEER + CLOSER 20h49m past; Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3: still assigned since 08:48:48Z 9/23 - 14h19m past 06:30 EDT (10:30Z) deadline, 0 artifacts, assignee-only delivery binding (agent:CWI_Tween); Athena world districts in_progress 10h49m past. Carried knowns, growing on schedule.",
    "source": "gear-ledger state get v16492, 2026-09-24T00:49:06Z; Care r36 run"
+  },
+  {
+   "id": "RB-241",
+   "question": "RB-241: r37 dispatch (2026-09-23 21:40 EDT) - create mechanics under CAS contention",
+   "answer": "Sweep r37 dispatched 5 lane tasks with idempotency keys sweep-r37-<lane>-2026-09-23 (Care tsk_01M38HEXE857NNH885VKD5TFNJ, Visual, Guide, Results, MINT). NEW: `task create` needed --type + --created-by flags (probe task tsk_01M38H89Q15TE7PX7HA5P16BR6 cancelled after landing). Parallel creates under GitHub-backed contention produced heavy CAS 409s; BOTH-WAYS RULE corroborated again: Guide create printed write_conflict yet landed via idempotent_replay; Care landed on clean retry. LESSON: avoid parallel creates on the GitHub-backed ledger during contention - sequential is slower but conflict-cheaper. Verify every create via state get/create output, never stdout alone (r23-hardened: never trust piped create output)."
+  },
+  {
+   "id": "RB-242",
+   "question": "RB-242: Visual r36 (Iris round-13 watch) - 13th consecutive honest zero; r29 FINAL FAIL stands",
+   "answer": "Iris round-13 watch (tsk_01M38DVZHTZHMZ3JDRBB29Z5D6, self-started 20:47 ET; GitHub CAS 409 retries landed clean). Scope 1 (TAG CITY build lanes mtime in window): 0 hits. Scope 2 (workspace-wide proof media): 0 hits - the 7 out-of-scope media files from r35 (Feed hero, 4 device-sync phone screenshots, 2 Google-Admin session recordings) aged out of window. NEW TAG CITY PROOF MEDIA: ZERO - 13th consecutive zero (r24-r36); honest zero recorded, never padded. Gate attestation: no new on-disk evidence, r29 FINAL FAIL 2 PASS / 3 PARTIAL / 2 FAIL carried unchanged. Round-2 proof set stays away from Black's eye; Round 3 required before any proof reaches him. Delivered 20:49:53 ET inside the 21:45 ET kill."
+  },
+  {
+   "id": "RB-243",
+   "question": "RB-243: Results r36 (dashboard round-35 refresh + proof-shot watch) - ghapi leading-slash quirk; brief figures stale",
+   "answer": "Results r36 (tsk_01M38DYDAZ225A1976GXRH9M6M, self-started 20:47 ET; single CAS 409 = GitHub-side retry noise, flip landed). TIME-DISCREPANCY FLAG: the r36 brief claimed r35 tasks 'delivered 18:54-20:01 ET'; the LIVE ledger state_history showed 19:51:15-20:03:02 ET - still inside the 20:45 ET kill; the ledger is ground truth, never copy brief figures (standing live-recompute rule). Artifact hashes 8/8 MATCH sha256hex(URI-STRING). Distribution pull: 98 repos, 80 views / 137,393 clones 14d - IDENTICAL to r31-r35 (clone-bot noise, not claimed as interest); HF 123/0; trust-log 11. Receipt tail r33->r34->r35 asserted on live /git/blobs before seeding round-36; publisher ok=true changed=true; hero metric_external_equips = honest 0. ghapi quirk caught live: ghapi requires a leading-slash path (GET /repos/...); bare repos/... misjoins to api.github.comrepos (AGENTS.md 2026-09-23 entry). TAG CITY proof-shot watch: 13th consecutive zero."
+  },
+  {
+   "id": "RB-244",
+   "question": "RB-244: MINT r36 (taps-check r36 + kill-trigger attestation) - deliver requires --report; 31st x402<MINT separation",
+   "answer": "MINT r36 taps-check (tsk_01M38DZ092TJ5ZYND9X4QW5E8F, self-started 00:48:00Z; `task start` printed CAS-409s then a ghapi JSONDecodeError transient - state get verified in_progress, never blindly retried). All taps recomputed live: manifest bdee175f... via sha256sum AND hashlib, chain r6->r36 unbroken; approvals EMPTY (0 entries); day-3 form still placeholder/DRAFT (action='#'); day-2 allowlist guard fail-closed intact; 8/8 clips ffprobe-verified byte-identical to r23-r35 baseline (1080x1080 H.264, 30s each; zero new clips since 17:00 EDT). STANDING SEPARATION re-attested (31st round): today's two Black approvals are lane-separated (YouTube Shorts cuts; 'All go forward' on 13 AI-opportunity packages) - neither is MINT day-3/day-4 clearance; 9/22 10:10 EDT x402 mainnet approval is NOT MINT clearance; x402 != MINT. KILL TRIGGER STANDS. Delivered v16518, evt_01M38EECFJMEKS4WK5AB45YRCQ. Deliver syntax: `task deliver` requires --report in addition to --by; kind `report` accepted, `test` rejected. Artifact uri-sha256 re-proven: r35 addendum sha 27732e87... reproduces from the bare absolute path."
+  },
+  {
+   "id": "RB-245",
+   "question": "RB-245: Guide r36 (Guide v2.35 ops chapter + walkthrough #37) - 12/0/0; both-ways rule 6th round",
+   "answer": "Guide r36 (tsk_01M38DXVEZF2M491D8GXY5JXV5, self-started 20:47:32Z; quiet backgrounded `task start` printed two CAS 409s and landed anyway - both-ways rule 6th round: a quiet call is neither failure nor success, verify first). Guide v2.35 (+ new $45 ops chapter, 20:40 cycle, 5/5 r35 receipts, 11-artifact denominator, no-17th-shape-change idempotency) + walkthrough #37: 12 PASS / 0 FAIL / 0 CONDITIONAL. Key checks: r35 receipts 11/11 hash MATCH; r35 delivery range 19:51:15.076-20:03:02.230 ET exact, never rounded; idempotency 237 keys zero dupes; overdue-kill watch (Tween r8 ~25h52m past; Volt r9 ~24h52m past; Tween close-out ~14h21m past); $10 pointer rule 22/22 as-of pulse time (20/22 on snapshot: two mechanical stales, CLI-documented behavior); no-idle/no-stack PASS 14th consecutive 5-lane cycle (5/5 self-started under own URNs, 0 dispatcher flips). Delivered ~30m inside the 21:45 ET kill. log-task.js URN gap: 30th confirmed rejection for agent:CWI_Guide - JSONL fallback stands."
+  },
+  {
+   "id": "RB-246",
+   "question": "RB-246: Care r36 (KB v2.36) - serializer convention re-verified; update-ref law; 280,738 B byte-identical",
+   "answer": "Care r36 delivered KB v2.36 (tsk_01M38DX52AKTZE8RR4ZBME01FC): 7 entries RB-234..RB-240 on round-35 events, acceptance >=5 met. Self-start 409-then-land (6th round pattern). Serialization convention re-verified before writing (indent=1, ensure_ascii=False, no trailing newline - r34's catch re-applied); JSON round-trip asserted (240 entries, tail RB-234..RB-240); diff-shape assertion (44 insertions / 2 deletions - ONLY kb_version/updated headers + runbook tail, identical to r35's shape). Push via ghapi_put_file; byte-identity verified via /git/blobs (280,738 B, byte-identical True - the Contents API `content` field is never trusted, AGENTS.md 2026-09-18 lesson). update-ref failed first (local objects lacked the new commit) - fetch-then-update-ref, NEVER git reset --hard on the shared branch (r33-hardened law); stale index aligned via `git add kb.json`; remote-vs-local diff EMPTY after align; remote origin/kb-v2-draft showed NO drift since r35's push (647b0be). URI-hash identical r30-r36 expected (URI string unchanged - standing hash rule). Draft branch ONLY; main untouched; no publish, no merge."
+  },
+  {
+   "id": "RB-247",
+   "question": "RB-247: r37 overdue-kill watch - live-recomputed 2026-09-24T01:55:00Z",
+   "answer": "Overdue-kill watch live-recomputed 2026-09-24T01:55:00Z (21:55 EDT) from a fresh state get (ledger v16684) + state_history timestamps; deadline_at corroborates; NOTHING copied from any prior log (r17 erratum; r36 brief: live-recompute, never copy). 20 past-due tasks, record-only, NO adjudication by Care. Headline: A&R NEEDLE DROP to Manmohan Aseri tsk_01M2MZ3NNB8JNNN0W5KNEQYF6Y: assigned, 153h55m past 2026-09-17T16:00Z; A&R stay-in-touch (kelexine + molty_molt) 129h55m past; MUSE_CWI CueFinder approvals 117h56m past; Marketing MCP ranked-12 invite wave in_progress 99h55m past; A&R ROAD-1M strike plan 49h55m past 2026-09-22; Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9: in_progress, running 29h03m - 26h55m past its 19:00-ET-9/22 kill (0 artifacts); Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA: in_progress, running 28h01m - 25h55m past its 20:00-ET-9/22 kill (0 artifacts, still blocked on Tween DEF-only GLB); 9x 9/22 day-command cycle (Watch, MUSE_CWI, A&R reply watch, Radio, Press, Studio, Data, Affairs, Codex Logo Effect) 24h25m past their 9/23 01:30Z deadlines; Athena PIONEER + CLOSER in_progress 21h55m past 2026-09-23T04:00Z; Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3: assigned, 15h25m past its 06:30-EDT (10:30Z) deadline; Athena world districts in_progress 11h55m past 2026-09-23T10:00-04:00. All carried knowns, growing on schedule."
   }
  ],
  "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
  "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
- "updated": "2026-09-24T00:52:04Z"
+ "updated": "2026-09-24T01:56:30Z"
 }
