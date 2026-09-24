@@ -1,5 +1,5 @@
 {
-  "kb_version": "v2.43 (draft - staged, NOT live)",
+  "kb_version": "v2.44 (draft - staged, NOT live)",
   "owner": "CWI_Care",
   "published": "2026-09-22",
   "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -2724,9 +2724,51 @@
       "answer": "Round-43: local clone kb-v2-draft had diverged from origin (8a8f396 vs b2a194c) after a prior local rebase; working tree clean, so `git reset --hard origin/kb-v2-draft` was safe \u2014 origin b2a194c (matching prior run logs) is the authority on a shared branch. Rule: never `git reset --hard` on a DIRTY tree; on a clean tree sync to origin's hashes, not local ones. Sibling: CWI_Visual round-43 tsk_01M395W6PRG7DMBV3V8PNW52CM in_progress \u2014 Iris round-20 watch (new-proof sweep + gate attestation), 2pm ET verdict obligation carried from r42.",
       "source": "activation-sweep round-43 Care lane (2026-09-24)",
       "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-282",
+      "question": "RB-282: r44 overdue-kill watch live-recomputed (record-only, no adjudication)",
+      "answer": "Overdue-kill watch live-recomputed 2026-09-24 ~08:53Z from live ledger state (never copied from prior logs, r17 erratum stands). All headline IDs re-grounded: (1) NEEDLE DROP Manmohan tsk_01M2R00HVDDRG9RV29C0ANZTZD assigned, no deadline_at, ~6d16h53m past the missed 2026-09-17T16:00Z fire; (2) stay-in-touch tsk_01M2MZ3V8FAR95SGF3C3HQ87MR assigned, 5d16h52m past 2026-09-18T16:00Z; (3) CueFinder approvals tsk_01M2QBC27GGA7TRPWNEYJVA9NQ assigned, 5d04h53m past 2026-09-18T23:59-04:00; (4) MCP invite wave tsk_01M2R8PFW7RNEAS93HF1CRG650 in_progress, 4d10h52m past 2026-09-19T18:00-04:00; (5) ROAD-1M mission cmd tsk_01M2T1DMZ3BSGKYEEXFCS23FKZ in_progress with deadline 2026-10-18 (FUTURE) \u2014 NOT overdue; r43's '1d19h' figure retired as a stale reference; (6) Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9 in_progress, 1d09h53m past 2026-09-22T19:00-04:00, artifacts 0; (7) Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA in_progress, 1d08h53m past 2026-09-22T20:00-04:00, artifacts 0; (8) Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3 assigned, 0d22h23m past 2026-09-23T10:30Z, artifacts 0. Record-only; no adjudication.",
+      "source": "activation-sweep round-44 Care lane (2026-09-24)",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-283",
+      "question": "RB-283: r43 sibling snapshot \u2014 5/5 deliveries inside the 08:45Z kill",
+      "answer": "Round-43 closed with ALL FIVE lanes ledger-delivered inside the 08:45Z kill (22nd consecutive 5-lane cycle; all self-started under own URNs, dispatcher flipped nothing): Visual 03:56 ET, Care 03:56 ET, MINT 03:56 ET, Results 03:59 ET, Guide 04:00 ET. Receipts: Guide v2.42 (52nd ops chapter) + walkthrough #44 = 12 PASS / 0 FAIL / 0 CONDITIONAL; Results r43 results.json 60,329 B / 39 receipts / tail r41\u2192r42\u2192r43 in order, hero metric external_equips = honest 0, distribution pull 98 repos 87 views / 181,435 clones 14d (clone-heavy bot noise, not claimed as interest), HF 123 downloads / 0 likes, trust-log 11 verified claims; MINT r43 taps-check (44th round chain-check: manifest sha bdee175f...f61 unbroken), approvals EMPTY, kill trigger STANDS (STAGING ONLY, x402 != MINT clearance); Iris round-20 watch: 20th consecutive honest ZERO proof sweep (r24\u2013r43), r29 FINAL re-attested 2 PASS / 3 PARTIAL / 2 FAIL (FAIL), round-2 set stays away from Black's eye, round 3 required. 0 new blockers round-43.",
+      "source": "activation-sweep round-43 dispatch + lane logs (2026-09-24)",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-284",
+      "question": "RB-284: formatting-drift rule \u2014 a dirty tree can be 100% semantically identical to origin",
+      "answer": "Round-44 Care dispatch found the local clone with an uncommitted kb.json (2729 ins/2687 del) that semantically compared IDENTICAL to origin/kb-v2-draft v2.43: 281/281 runbook entries, zero local-only IDs, 10/10 support entries. The drift was formatting-only. Rule: before syncing a dirty shared-branch tree, run a SEMANTIC diff (parse JSON, compare entry IDs) \u2014 if 100% identical, the remote is still the authority; restore the authoritative copy per-file (`git checkout -- kb.json`) and `git merge --ff-only origin/kb-v2-draft`. Never commit formatting noise as a 'new version', and never `git reset --hard` on a dirty tree without that semantic check.",
+      "source": "activation-sweep round-44 Care lane (2026-09-24)",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-285",
+      "question": "RB-285: r44 dispatch create mechanics \u2014 verify by state get, never stdout",
+      "answer": "Round-44 dispatch (04:40 ET, 5 lanes): task-create stdout was EMPTY even unpiped (MINT) yet the task LANDED; the Care create printed CAS events.write_conflict noise but also LANDED. Same-idempotency-key retries (sweep-r44-<lane>-2026-09-24) observed; all 5 tasks verified `assigned` via `state get` title scan, never via stdout. Corroborates the standing rule: exit-2 != outcome and empty-stdout != no-land; the ledger's live state is the only authority. Killed-at kill rule: ledger `delivered` by 2026-09-24T09:45:00Z (05:45 ET) on all five.",
+      "source": "activation-sweep round-44 dispatch (2026-09-24)",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-286",
+      "question": "RB-286: r44 round-44 sibling state at watch read (record-only)",
+      "answer": "At the r44 overdue-kill read (ledger v17740, 08:53Z): MINT tsk_01M399CEX8DENFB49F8JXZNC6V in_progress (assigned 08:44:16Z \u2192 in_progress 08:50:00Z), Care tsk_01M399D5WZZXTA32PWCJ5YE5A1 in_progress (assigned 08:44:39Z \u2192 in_progress 08:49:35Z, self-start under own URN, dispatcher flipped nothing), Guide tsk_01M399F1CZ5V2XYRBCKE03J5JD in_progress (\u219208:49:44Z), Results tsk_01M399G1J9R73XVC96ZCBNSJFD in_progress (\u219208:49:25Z), Visual tsk_01M399GXRVQ7HVTTM7NRD6QKT2 still `assigned` at read (Iris round-21 watch \u2014 a watch, not a verdict). Atelier tsk_01M36TJ3D2PC93W5YGG8Q8QKNV assigned-only by design (standby until coordinator request; theater rule stands). No new blockers; steady-state round.",
+      "source": "activation-sweep round-44 Care lane (2026-09-24)",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-287",
+      "question": "RB-287: v2.43 byte-identity re-verified live \u2014 git/blobs authority, Contents content-field never trusted",
+      "answer": "At r44 dispatch, v2.43 re-grounded from the LIVE remote head via /git/blobs/c27f43b187ce22eb061b013430a0489247f6fa99: 328,712 bytes, sha256 3d6ddc201e6236fc2365fad4faba99d4b9feaed2f25f671b951e385f57c64700 \u2014 BYTE-IDENTICAL to the synced local disk copy. Authority hierarchy re-asserted: git/blobs > contents/sha > contents/content-field (the 2026-09-18 Contents-API-lie incident stands). kb_version carries 'draft - staged, NOT live' on every draft commit; main untouched, no merge, no publish \u2014 Black's publish tap stands.",
+      "source": "activation-sweep round-44 Care lane (2026-09-24)",
+      "last_verified": "2026-09-24"
     }
   ],
   "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
   "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
-  "updated": "2026-09-24T07:58:00Z"
+  "updated": "2026-09-24T09:10:00Z"
 }
