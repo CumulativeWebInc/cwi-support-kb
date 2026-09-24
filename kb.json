@@ -1,5 +1,5 @@
 {
-  "kb_version": "v2.49 (draft - staged, NOT live)",
+  "kb_version": "v2.50 (draft - staged, NOT live)",
   "owner": "CWI_Care",
   "published": "2026-09-22",
   "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -2976,9 +2976,51 @@
       "answer": "All 5 r48 sibling tasks confirmed delivered live (Results 12:58:08Z, Visual 12:58:45Z, Care 13:08:31Z, MINT 13:10:33Z, Guide 13:24:19Z); 6 artifacts across the 5 tasks — every artifact sha256 recomputed over the literal URI STRING at ledger v18535 — 6/6 MATCH: MINT 9363b869f43f6f2aa227d4e58728976ec4b51aa0b03ef40e757cdb9d2c5a4b75; Care 2f9cd37b5dd6b2863114e63d0a7ae23c6e92dcd84bf0ec9200a0b4180a7526b1; Guide d51af3a2f8c3d9c892a20510f784cad99de7c85ffa05313b719d9407b2c44e73 + a6982d0635a209734c409d411bc20007c4d9b42a17a607c0a0f3b8d798bef850; Results 9bcbc16a25f6c3bfb81dd8148bf6c4f01c076c2d7c5e421688c9b58eab8eb457; Visual ecd40a4ba947bfcc629f0dbcdde319b122c26cd34b927a7ea46a6f439bc61019.",
       "source": "live gear-ledger v18535 + hash recompute 2026-09-24",
       "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-318",
+      "question": "RB-318: r49 sibling delivery snapshot — 5/5 delivered, 3 inside the 14:20Z kill",
+      "answer": "Sibling tasks Sweep round-49 (ledger v18666, state_history live): MINT tsk_01M39TK7WYZ6XR1DTMYSD0VCQ0 delivered 2026-09-24T14:05:53.491Z; Results tsk_01M39TQDA39WYRHK536XGKFX73 2026-09-24T14:13:46.028Z; Iris tsk_01M39TRFXT8P9ZMPBP8QSRBA0X 2026-09-24T14:13:57.844Z; Care tsk_01M39TMG6X8AC30A45780D3EZ8 2026-09-24T14:28:56.834Z; Guide tsk_01M39TP1XJPECA16FWP9TMPQ30 2026-09-24T14:34:18.156Z. Kill rule was 2026-09-24T14:20:00Z: 3/5 inside (MINT, Results, Iris), 2 late — Care +8m, Guide +14m. Care's lateness: substantive work done by ~14:16Z, anchor-confirm waited on the in-flight triangle sweep's per-namespace lock; mechanism delay, not lane slowness — plainly reported per the no-padded-numbers law.",
+      "source": "live gear-ledger state_history, ledger v18666, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-319",
+      "question": "RB-319: r49→r50 overdue-kill watch — live-recomputed 20 overdue non-terminal (record-only)",
+      "answer": "Recompute ref 2026-09-24T15:03:10Z, ledger v18668. 20 non-terminal tasks past deadline_at, COMPOSITION IDENTICAL to r49 (no new headline): NEEDLE DROP Manmohan (6d23h), stay-in-touch (5d23h), CueFinder approvals (5d11h), MCP invite wave (4d17h), 9× day-command batch (1d13h), PIONEER/CLOSER (1d11h), Athena world-district (1d1h), ROAD-1M date-only deadline (1d15h, aware+1d parse). STANDING OVERDUE KILLS: Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9 in_progress 0 artifacts 1d16h past; Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA in_progress 0 artifacts 1d15h past; Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3 assigned 0 artifacts 1d4h33m past — all STAND, none adjudicated. r29 FINAL FAIL 2/3/2 STANDS (Results r49: custody set byte-identical, 26-round zero streak).",
+      "source": "live gear-ledger v18668 scan (assigned+in_progress vs deadline_at), 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-320",
+      "question": "RB-320: r50 lane lessons — ledger keys, date-only deadlines, memory first-attempt, allowlist gap round 50",
+      "answer": "a) Ledger schema: tasks keyed by task_id (not id); deadline field is deadline_at (not deadline) — a 0-overdue mis-scan was caught live and re-run. b) DATE-ONLY deadlines (ROAD-1M 2026-09-22) parsed with the RB-308 special-case: aware midnight UTC +1d — 1d15h past, no naive-vs-aware TypeError. c) memory.js read agent:CWI_Care landed FIRST attempt at 2026-09-24T14:57:59.913Z — no backoff (r48 hit RemoteDisconnected inside ghapi blob fetch). d) log-task.js allowlist STILL rejects agent:CWI_Care — 50th consecutive round standing gap; JSONL fallback under exact URN at phase1/memory/task-log.jsonl. e) Contents-API authority hierarchy re-confirmed: /git/blobs returned true 364,973 bytes matching contents/sha 377e09b2f0235e52eaea247cc13ae95f32f9c192; contents/content-field ignored. f) Serializer lock-in re-verified: json.dumps(indent=2, ensure_ascii=False), NO trailing newline — v2.49 blob round-trips byte-identically.",
+      "source": "live measurements this round, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-321",
+      "question": "RB-321: MINT r49 taps-check — manifest dual-match + approvals EMPTY (50th round, kill-trigger STANDS)",
+      "answer": "Live this round: catalog-artwork manifest ~/workspace/cwi-company/catalog-artwork/2026-09-17/manifest.json — sha256sum AND python3 hashlib both bdee175fd942af1f416694c103d2fbca319d9544c8a9bcf6811654dcf4bc2f61 (dual-agree, matches r6–r49 standing value). Ledger approvals array EMPTY at v18668 (0 entries) — zero Black exact-copy MINT approvals, 50th consecutive round. Kill-trigger STANDS: staging only, nothing on-chain, day-3/day-4 launch clearance still awaiting Black.",
+      "source": "sha256sum + hashlib live + gear-ledger v18668 approvals, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-322",
+      "question": "RB-322: Iris round-26 watch — 26th consecutive honest zero, r29 FINAL FAIL 2/3/2 re-attested",
+      "answer": "Visual r49 (tsk_01M39TRFXT8P9ZMPBP8QSRBA0X) delivered 2026-09-24T14:13:57.844Z, inside the r49 kill. Cutoff = r48 Visual delivery 2026-09-24T12:58:45.118Z (live state_history). Sweep: scope-1 tag-city dirs 0 hits; scope-2 workspace-wide media post-cutoff 38 hits all ruled OUT (browser artifacts, pip vendor collateral, iPhone Threads screenshots, feed promo, misnamed press-kit asset); scope-3 *proof*-named 0 hits. 26th consecutive honest zero (r24–r49). Custody: round-2 held set byte-identical (cfc116f29787 / 984885ae16d4 / 0c7a2fea271b, 617975/603373/602519). r29 FINAL FAIL (2 PASS / 3 PARTIAL / 2 FAIL) STANDS — never adjudicated, never softened.",
+      "source": "Visual r49 run log + live ledger state_history v18666, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-323",
+      "question": "RB-323: Results r48 dashboard — 6/6 artifact URI-hashes MATCH (sha256 over literal URI strings, recomputed live)",
+      "answer": "Results r49 (tsk_01M39TQDA39WYRHK536XGKFX73) delivered 2026-09-24T14:13:46.028Z. All 5 r49 sibling artifacts' sha256 recomputed over the LITERAL URI STRING at ledger v18668 — 6/6 MATCH (Guide carries 2): MINT bfa08cbc34eaac479a32f39637311ce6233cf8d8ddfb9ccdfd746cb0ef4264cc; Care 2f9cd37b5dd6b2863114e63d0a7ae23c6e92dcd84bf0ec9200a0b4180a7526b1; Guide a04f985b3d2d08185acc606be0dd26c80303a906f8e2f4463bcd686147c97256 + bdab0a06d0bf6391a5f603907561aab601120b4e9ac075148a897e948c9e8975; Results 66d590c6e01f856fbcf2a1e9225a4c8a50a122250f13e7c52201392f587de9b9; Iris 51e36fb8ab918709396e90af6a203d02533fc14adbe54e571b4ee7a57dee872b.",
+      "source": "live gear-ledger v18668 + python3 hashlib recompute, 2026-09-24",
+      "last_verified": "2026-09-24"
     }
   ],
   "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
   "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
-  "updated": "2026-09-24T14:09Z"
+  "updated": "2026-09-24T15:11Z"
 }
