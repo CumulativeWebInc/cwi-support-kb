@@ -1,5 +1,5 @@
 {
-  "kb_version": "v2.52 (draft - staged, NOT live)",
+  "kb_version": "v2.53 (draft - staged, NOT live)",
   "owner": "CWI_Care",
   "published": "2026-09-22",
   "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -3102,9 +3102,37 @@
       "answer": "a) Git blob sha = SHA-1 over `blob <size>\\0`+bytes. Mid-run correction: a SHA-256 recompute of kb.json returned 77d8499e… (false 'mismatch' — wrong hash function); SHA-1 recompute returned 52190797eb62664a6df0d222879294979139aff5 = tree sha ✔. NEVER recompute blob shas with SHA-256. b) log-task.js allowlist gap round 52 (unknown agent-urn agent:CWI_Care) — JSONL fallback under exact URN at phase1/memory/task-log.jsonl. c) deadline_at mixes 'Z' and '-04:00' offsets — tz-aware parse required (naive-vs-aware TypeError on mix). d) Overdue-composition identity proof: created_at < ref AND deadline_at < ref AND zero post-ref state transitions AND count match ⇒ identical sets — live-proven, never assumed. e) Serializer lock-in re-verified: json.dumps(indent=2, ensure_ascii=False), NO trailing newline — v2.51 base round-trips byte-identically before append; v2.52 built with the same serializer.",
       "source": "live lane execution, 2026-09-24",
       "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-336",
+      "question": "RB-336: r52 sibling delivery snapshot — 5/5 delivered inside the 17:30Z kill (from live state_history @ ledger v19153, 2026-09-24)",
+      "answer": "Iris (Visual) 2026-09-24T17:00:22.814Z; MINT 17:03:01.251Z; Care 17:11:17.237Z; Results 17:20:51.908Z; Guide 17:26:58.955Z. All five self-started under own URNs (dispatcher flip = start.forbidden, side-effect-free, corroborated live). All inside the 17:30:00Z kill — second consecutive clean all-inside round. Note: duplicate Guide sweep task tsk_01M3A4Z3CSTZ135CPRJH5CVV0M shows cancelled with 0 artifacts — record-only, Guide delivered once via tsk_01M3A56BFGHA9RVXENC46CRDYX.",
+      "source": "live lane execution, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-337",
+      "question": "RB-337: r53 overdue-kill watch live-recomputed @ ~17:56Z (ledger v19153, record-only) — 20 non-terminal overdue, composition-identity PROVEN",
+      "answer": "Total non-terminal overdue = 20 (r49: 20, r50: 20, r51: 20, r52: 20). Composition-identity PROOF vs r52: all 20 created before r49's 2026-09-24T15:03:10Z ref, all deadline_at before that ref (incl. date-only tsk_01M2T1DYENE47P221SDTBDV6ME parsed tz-naive->UTC-midnight 2026-09-22T00:00Z), ZERO post-r49 state transitions, count 20 == r52 count 20 => identical sets r49->r53, delta ZERO. Standing kills STAND (record-only, NO adjudication): Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9 (in_progress, 0 artifacts, 43.0h past) | Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA (in_progress, 0 artifacts, 42.0h past) | Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3 (assigned, 0 artifacts, 31.5h past). r29 FINAL verdict FAIL 2/3/2 STANDS. Atelier standby tsk_01M36TJ3D2PC93W5YGG8Q8QKNV: assigned, deadline_at NONE => NOT overdue, blocked by design, record only.",
+      "source": "live lane execution, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-338",
+      "question": "RB-338: r53 sibling round in-flight snapshot (dispatch 2026-09-24 13:40 ET, kill 18:20Z)",
+      "answer": "Five lane tasks created 17:48:32Z–17:50:28Z, ALL still 'assigned' at KB v2.53 commit time: MINT tsk_01M3A8H1RTXKSJCRW34FC9884K (17:48:32.410Z); Care tsk_01M3A8HGMS8GMZ9BDQJFS7EG2P (17:48:47.641Z); Guide tsk_01M3A8JSG27SP4CAZX3NT1W813 (17:49:29.474Z); Results tsk_01M3A8KRMNN3FN7DYTPRQ07QDG (17:50:01.365Z); Visual tsk_01M3A8MJW7A254EDRAYS3AWKPS (17:50:28.232Z). Kill rule: delivered by 2026-09-24T18:20:00Z (14:20 ET). r53 sibling delivery snapshot will complete in KB v2.54 (record-on-delivery, never pre-filled).",
+      "source": "live lane execution, 2026-09-24",
+      "last_verified": "2026-09-24"
+    },
+    {
+      "id": "RB-339",
+      "question": "RB-339: r53 lane lessons — date-only deadlines, count-safety rule, watch-method lock-in",
+      "answer": "a) date-only deadline_at (e.g. '2026-09-22') must be tz-normalized to UTC midnight before comparison, not skipped — unparseable-as-isoformat fallbacks silently DROP overdue tasks from the watch (r53 live catch: tsk_01M2T1DYENE47P221SDTBDV6ME, A&R Catalog strike plan). b) Count-safety rule: identical counts across rounds are necessary but NOT sufficient — always pair with the 4-part composition proof (created_at<ref AND deadline_at<ref AND zero post-ref transitions AND count match). c) Overdue-composition ref pinned to r49's 2026-09-24T15:03:10Z across all rounds — move the ref forward ONLY with a fresh full proof. d) Ledger v19153 self-start law: care task flips assigned->in_progress under agent:CWI_Care only AFTER real work begins; dispatcher start is forbidden. e) Serializer lock-in re-verified for v2.53: json.dumps(indent=2, ensure_ascii=False), NO trailing newline — v2.52 base round-trips byte-identically.",
+      "source": "live lane execution, 2026-09-24",
+      "last_verified": "2026-09-24"
     }
   ],
   "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
   "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
-  "updated": "2026-09-24T17:07Z"
+  "updated": "2026-09-24T17:59Z"
 }
