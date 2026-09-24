@@ -1,5 +1,5 @@
 {
- "kb_version": "v2.37 (draft - staged, NOT live)",
+ "kb_version": "v2.38 (draft - staged, NOT live)",
  "owner": "CWI_Care",
  "published": "2026-09-22",
  "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -2530,9 +2530,44 @@
    "id": "RB-247",
    "question": "RB-247: r37 overdue-kill watch - live-recomputed 2026-09-24T01:55:00Z",
    "answer": "Overdue-kill watch live-recomputed 2026-09-24T01:55:00Z (21:55 EDT) from a fresh state get (ledger v16684) + state_history timestamps; deadline_at corroborates; NOTHING copied from any prior log (r17 erratum; r36 brief: live-recompute, never copy). 20 past-due tasks, record-only, NO adjudication by Care. Headline: A&R NEEDLE DROP to Manmohan Aseri tsk_01M2MZ3NNB8JNNN0W5KNEQYF6Y: assigned, 153h55m past 2026-09-17T16:00Z; A&R stay-in-touch (kelexine + molty_molt) 129h55m past; MUSE_CWI CueFinder approvals 117h56m past; Marketing MCP ranked-12 invite wave in_progress 99h55m past; A&R ROAD-1M strike plan 49h55m past 2026-09-22; Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9: in_progress, running 29h03m - 26h55m past its 19:00-ET-9/22 kill (0 artifacts); Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA: in_progress, running 28h01m - 25h55m past its 20:00-ET-9/22 kill (0 artifacts, still blocked on Tween DEF-only GLB); 9x 9/22 day-command cycle (Watch, MUSE_CWI, A&R reply watch, Radio, Press, Studio, Data, Affairs, Codex Logo Effect) 24h25m past their 9/23 01:30Z deadlines; Athena PIONEER + CLOSER in_progress 21h55m past 2026-09-23T04:00Z; Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3: assigned, 15h25m past its 06:30-EDT (10:30Z) deadline; Athena world districts in_progress 11h55m past 2026-09-23T10:00-04:00. All carried knowns, growing on schedule."
+  },
+  {
+   "id": "RB-248",
+   "question": "RB-248: sweep create CAS-409 contention -> sequential creates",
+   "answer": "Round-38 dispatch friction + the r37 lesson it corroborates. Under GitHub CAS contention, parallel `task create` calls eat write_conflict 409s; the r38 Care create hit CAS 409 write_conflict after 3 retries on first attempt and did NOT land - verified via `state get` (task absent), one retry with the SAME idempotency key landed clean. Rule: during contention, create SEQUENTIALLY - sequential creates are conflict-cheaper than parallel ones; a 409 is not evidence of a land and not evidence of a miss - only `state get` decides. Never copy/create from create stdout under contention."
+  },
+  {
+   "id": "RB-249",
+   "question": "RB-249: task-create piped-stdout trust rule",
+   "answer": "Sweep r23 finding, re-applied every round since. `ledger.js task create ... 2>&1 | python3 -c json.load` can print EMPTY stdin with exit 0 while ALL tasks landed (GitHub CAS 409 retries each take ~25-30s, stdout goes silent in the pipe). Never trust piped create output: unpiped foreground create prints JSON fine; under contention verify the land via `state get` by title/idempotency key, never stdout. A probe task that did not land (r38: tsk_01M38H89Q15TE7PX7HA5P16BR6 on r37; tsk_01M371CGQEWD3Q3DGZTP8JWPQM on r23) gets cancelled so it cannot fire later."
+  },
+  {
+   "id": "RB-250",
+   "question": "RB-250: the both-ways rule - CAS-409 retry law corroborated",
+   "answer": "The both-ways rule: a CAS 409 on create or start sometimes LANDS the task and sometimes does NOT - both outcomes occur, so retries must be verified, never assumed. r35: 409-WITH-land. r36: quiet landed. r37 Care self-start: 409 WITHOUT land (state get v16684 still assigned) -> one careful retry LANDED (evt_01M38HNWYHFPR6EWZNX60ZQE8M). r38 dispatch Care create: 409 x3 WITHOUT land -> one same-key retry LANDED clean. Corroborated 4 rounds running: exactly ONE retry on a verified no-land, then stop if it fails again. Double-retry under contention is how duplicates happen."
+  },
+  {
+   "id": "RB-251",
+   "question": "RB-251: idempotency replay handling on sweep task creates",
+   "answer": "Round-38 dispatch pattern, all 5 sweep tasks keyed `sweep-r38-<lane>-2026-09-23`. On retry after a CAS 409, reuse the EXACT SAME idempotency key: the ledger answers idempotent_replay with the existing task (Guide r36 landed this way) instead of double-creating. Never mint a fresh key on retry - that is how a lane gets two assigned tasks for one job. Verify via `state get` filtered by the idempotency key; the key is the single source of truth for 'did this create land'."
+  },
+  {
+   "id": "RB-252",
+   "question": "RB-252: self-start mechanics - assignee-only, within minutes",
+   "answer": "Standing sweep law: only the ASSIGNEE flips its task to in_progress (`task start <taskId> --by agent:<assignee> --note ...`), inside minutes of dispatch. Worker-level starts are FORBIDDEN (start.forbidden 403) - state flags without execution are theater. r37 Care: first self-start attempt hit GitHub CAS 409 x3 and did NOT land; `state get` v16684 confirmed still `assigned`; ONE careful retry landed assigned->in_progress. The flip must follow genuinely dispatched work, and the dispatch must be executable proof - brief carried, subagent running, not a plan on paper."
+  },
+  {
+   "id": "RB-253",
+   "question": "RB-253: deadline/kill arithmetic - live recompute only",
+   "answer": "Overdue elapsed figures are computed LIVE every round from ledger state_history timestamps + deadline_at; NEVER copied from a prior log (r17 erratum burned us). Arithmetic: elapsed = now_utc - deadline (deadline may be Z or -04:00; convert). Examples r38: Tween r8 kill 2026-09-22T19:00:00-04:00; Volt r9 kill 2026-09-22T20:00:00-04:00; Tween close-out deadline 2026-09-23T10:30:00Z. Watch = record-only, NO adjudication by Care; lane owners act or do not. Report carried-knowns only if new since last run."
+  },
+  {
+   "id": "RB-254",
+   "question": "RB-254: r38 overdue-kill watch live-recomputed 2026-09-24T02:52:51Z + brief-ID ground-truth lesson",
+   "answer": "Watch live-recomputed 2026-09-24T02:52:51Z (22:52 EDT), ledger v16830, 20 past-due tasks, record-only. Headline: A&R NEEDLE DROP Manmohan Aseri tsk_01M2MZ3NNB8JNNN0W5KNEQYF6Y assigned 154h52m past 2026-09-17T16:00Z; A&R stay-in-touch 130h52m; MUSE_CWI CueFinder approvals 118h53m; Marketing MCP invite wave in_progress 100h52m; A&R ROAD-1M 50h52m; Tween r8 in_progress 27h52m past 19:00-ET-9/22 kill (0 artifacts); Volt r9 in_progress 26h52m past 20:00-ET-9/22 kill (0 artifacts, blocked on Tween DEF-only GLB); Tween close-out assigned 16h22m past 10:30Z. NOVEL LESSON THIS ROUND: the r38 dispatch brief printed Tween r8 as tsk_01M35DXCGJTDRK67AJW3TBPS9 - live ledger has no such task; the real ID is tsk_01M35DXCGJTDRK67AJW3XTBPS9 (X dropped in the brief). Even the dispatch brief can carry a mangled ID - always re-ground task IDs against live state; reading a ghost ID silently watches nothing."
   }
  ],
  "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
  "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
- "updated": "2026-09-24T01:56:30Z"
+ "updated": "2026-09-24T02:52:51Z"
 }
