@@ -1,5 +1,5 @@
 {
-  "kb_version": "v2.59 (draft - staged, NOT live)",
+  "kb_version": "v2.60 (draft - staged, NOT live)",
   "owner": "CWI_Care",
   "published": "2026-09-22",
   "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -3344,9 +3344,41 @@
       "category": "lane-lessons",
       "title": "r59 lane lessons — allowlist gap 59th round, ground-truth chain intact, serializer lock-in 9th",
       "body": "(1) Self-start: task start landed cleanly under agent:CWI_Care (evt_01M3AX7BDP2CGTED417FW1GBE6 assigned->in_progress, ledger v20054) — no 409 this round. (2) log-task.js allowlist still REJECTS agent:CWI_Care — 59th consecutive round standing gap; JSONL fallback under the exact URN (start + fallback-logged entries at 23:50:30Z in digital-brain/phase1/memory/task-log.jsonl). (3) Ref discipline: comparisons ran each snapshot at ITS OWN ref (r58 @22:54Z vs r59 @23:52Z) — eleventh consecutive identical set, delta ZERO without fabrication. (4) Ground-truth chain re-verified: draft head 3cec17de == r58 standing value (nobody pushed since), main db1fefe6 untouched, blob d91b180b (424,558 bytes) true bytes via /git/blobs/ sha1-agree, RB-01..RB-363 contiguous. (5) Serializer lock-in 9th verification: json.dumps(indent=2, ensure_ascii=False), NO trailing newline — v2.58 round-trips byte-identical; the same serializer builds v2.59. (6) PUT path: ghapi_put_file (JSON body from file) — standing path for ~500KB payloads."
+    },
+    {
+      "id": "RB-368",
+      "timestamp": "2026-09-25T00:57Z",
+      "round": "r60",
+      "category": "sibling-snapshot",
+      "title": "r59 sibling delivery snapshot — 5/5 delivered with timestamps, NINTH consecutive clean sweep",
+      "body": "All five r59 sweep tasks (created 23:43:19.330Z-23:45:46.686Z, kill 2026-09-25T00:40:00Z) are state=delivered with exact receipts verified live in ledger v20249 (~00:53Z): MINT tsk_01M3AWTNS2FHXC5MP4EVVWH0VR (agent:CWI_Athena_MINT) delivered 23:55:01.039Z, 1 artifact; Care tsk_01M3AWWBF0A844S3FFW4NZSJQM (agent:CWI_Care) delivered 00:01:55.725Z, 1 artifact; Guide tsk_01M3AWX8TS5YR323267KZBF297 (agent:CWI_Guide) delivered 00:14:33.063Z, 2 artifacts; Visual tsk_01M3AWY46AWGWRNF8V3DK1KPB4 (agent:CWI_Visual) delivered 23:54:34.603Z, 1 artifact; Results tsk_01M3AWZ5NXC2CGD7K9DTFM63AF (agent:CWI_Results) delivered 00:08:19.340Z, 2 artifacts. All inside kill with margin 25-45 min. NINTH CONSECUTIVE CLEAN SWEEP (r51-r59). All five lanes self-started under their own URNs; zero dispatcher flips. r59 delivered the Care KB v2.59 draft push (commit ed98331, blob 5b624dbf, 430,022 bytes, RB-01..RB-367 contiguous) that v2.60 now builds on."
+    },
+    {
+      "id": "RB-369",
+      "timestamp": "2026-09-25T00:57Z",
+      "round": "r60",
+      "category": "overdue-kill-watch",
+      "title": "r60 overdue-kill watch live-recomputed @ ref 2026-09-25T00:55:00Z — 24 non-terminal overdue, identical streak ENDS after 11 rounds, delta +4/0 gone (HONEST)",
+      "body": "Recompute ref 2026-09-25T00:55:00Z on fresh ledger state (state get ~00:53Z, ledger v20249). Total non-terminal overdue: 24. Composition identity PROVEN at proper refs: the r59 20-set had ZERO state_history transitions after the r59 ref (2026-09-24T23:52:00Z), ZERO state diffs, and recompute yields exactly those 20 plus 4 new — zero new-not-r59 other than the 4, zero gone, zero unparseable deadlines, verified excluded as terminal, date-only deadlines as UTC midnight. The r49->r59 ELEVEN-round identical streak ENDS: delta is +4, reported as +4, not padded to zero and not inflated. The 4 new (all date-only 2026-09-25 deadlines, crossed at UTC midnight, 0h55m overdue at ref, all still assigned): ROAD-1M 14-day social cadence tsk_01M2T1E8Q41BJJPNK9F3N13BPQ (agent:CWI_Marketing), ROAD-1M milestone visuals tsk_01M2T1G3C7G1E1BA9S7AXZECQY (agent:CWI_Studio), ROAD-1M pace-tracker baseline tsk_01M2T1GG4JVFW028VKWRF0NC2N (agent:CWI_Data), ROAD-1M lane-mix forecast tsk_01M2T1HJ4Y4JQA7D2TTT58DF7D (agent:CWI_Athena). Carryover overdue-by at ref: NEEDLE DROP Manmohan 7d9h, stay-in-touch 6d9h, MCP invite wave 5d3h, CueFinder approvals 5d21h, ROAD-1M strike plan 3d1h, Tween r8 2d2h (KILL), Volt r9 2d1h (KILL), 9x day-command batch 1d23h each, PIONEER 1d21h, CLOSER 1d21h, Athena world-district 1d11h, Tween close-out 1d14h (KILL). Standing kills Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9 (in_progress, agent:CWI_Tween) and Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA (in_progress, agent:CWI_Volt) STAND — both 0 artifacts, record-only; Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3 (assigned, agent:CWI_Tween) also 0 artifacts, record-only, 19th round on the watch. Atelier standby tsk_01M36TJ3D2PC93W5YGG8Q8QKNV: deadline None => NOT overdue, blocked by design (19th round). r29 FINAL FAIL 2/3/2 vs Iris STANDS. r60 siblings (kill 01:40Z) NOT overdue at ref. publisher-clobber: CONFIRMED HOLDING — anti-clobber structural fix live since 18:00 EDT 2026-09-24; live results.json receipt tail verified at 48 entries, newest r-sweep-round59 (round-58 deliveries) appended, tail growing monotonically, ZERO clobber events."
+    },
+    {
+      "id": "RB-370",
+      "timestamp": "2026-09-25T00:57Z",
+      "round": "r60",
+      "category": "sibling-snapshot",
+      "title": "r60 sibling in-flight snapshot — 5 tasks created 00:44:49Z-00:46:39Z, 5x in_progress at KB commit time, kill 01:40Z",
+      "body": "r60 sweep tasks created 2026-09-25T00:44:49.632Z-00:46:39.648Z by dispatch ~00:44Z. At KB v2.60 commit time all five are in_progress, every one self-started under its own URN (round-60 self-start notes, verified in state_history): MINT tsk_01M3B0B9K0PFA36S2VBZPX7N6F (agent:CWI_Athena_MINT) started 00:51:28.915Z; Care tsk_01M3B0C8MTS52E0SY1HJBVMNTR (agent:CWI_Care) started 00:52:03.795Z; Guide tsk_01M3B0CYZ7DWTZ8JNVYCPENXQ2 (agent:CWI_Guide) started 00:51:56.158Z; Visual tsk_01M3B0DPC0C5TAS03GR55682X9 (agent:CWI_Visual) started 00:51:40.656Z; Results tsk_01M3B0EN10ZJTW87M4JY7DKJYY (agent:CWI_Results) started 00:51:06.445Z. Kill 2026-09-25T01:40:00Z for all five. Zero dispatcher flips — the self-start law holds for the 10th consecutive round."
+    },
+    {
+      "id": "RB-371",
+      "timestamp": "2026-09-25T00:57Z",
+      "round": "r60",
+      "category": "lane-lessons",
+      "title": "r60 lane lessons — allowlist gap 60th round, identical-streak honesty test PASSED, local-drift discipline, serializer lock-in 10th",
+      "body": "(1) Self-start: task start landed cleanly under agent:CWI_Care (evt_01M3B0RM5E9FEW6VR70MEVND9N, assigned->in_progress, ledger v20242) — no 409 this round. (2) log-task.js allowlist still REJECTS agent:CWI_Care — 60th consecutive round standing gap; JSONL fallback under the exact URN (start + fallback-logged entries in digital-brain/phase1/memory/task-log.jsonl). (3) Honesty test passed: the 11-round identical streak ended this round (delta +4/0 gone) and was reported as +4, not as a fabricated zero — proven via zero post-r59-ref transitions on the r59 20-set and exact set-equality with the 4 new date-only ROAD-1M tasks. (4) Local-drift discipline: the working tree in ~/workspace/cwi-company/support/repo carries UNCOMMITTED foreign edits to kb.json (RB-03/RB-34/RB-197 answer redactions, 3 insertions) on a local branch 15 commits behind the pushed kb-v2-draft (local at v2.44 8e218a0 vs remote ed98331 v2.59) — build from /git/blobs/ true bytes ONLY, never from the working tree; the drift stays unstaged and untouched. (5) Serializer lock-in 10th verification: json.dumps(indent=2, ensure_ascii=False), NO trailing newline — v2.59 round-trips byte-identical (430,022 bytes, blob 5b624dbf via git/blobs/ sha1-agree); the same serializer builds v2.60. (6) Main branch untouched (fffc1b9); draft-only pushes via Contents API. (7) Standing context: MEMORY.md gained the Project Ultimate ad-program kill (Black's order 2026-09-24, retired forever) — Care lane untouched, noted for the log."
     }
   ],
   "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
   "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
-  "updated": "2026-09-24T23:54Z"
+  "updated": "2026-09-25T00:57Z"
 }
