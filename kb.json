@@ -1,5 +1,5 @@
 {
-  "kb_version": "v2.77 (draft - staged, NOT live)",
+  "kb_version": "v2.78 (draft - staged, NOT live)",
   "owner": "CWI_Care",
   "published": "2026-09-22",
   "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -3824,9 +3824,33 @@
       "category": "overdue-kill-watch",
       "title": "r78 overdue-kill watch live-recomputed @ ref 2026-09-25T18:59:45Z — 26 non-terminal overdue (= r77 baseline): 0 NEW, 0 gone, 0 state changes",
       "body": "Recompute ref 2026-09-25T18:59:45Z on fresh ledger state (state get 18:58Z, ledger v23013, 497 tasks). Total non-terminal overdue: 26 — vs the r77 baseline 26-set: 0 NEW, 0 gone, 0 state changes across the full membership (verified task-id-by-task-id; the recompute script asserted the baseline dict-format file before computing deltas, per the r75 hardening), 0 unparseable deadlines; verified/cancelled/delivered excluded as terminal, deadline_at is the true field, ISO-offset deadlines parsed via fromisoformat, date-only deadlines as UTC midnight. Composition (overdue-by at ref): NEEDLE DROP Manmohan 8.12d, kelexine+molty follow-ups 7.12d, CueFinder approvals 6.62d, MCP invite wave 5.87d (in_progress), ROAD-1M strike plan 3.79d, Tween r8 2.83d (STANDING KILL, in_progress, 0 artifacts), Volt r9 2.79d (STANDING KILL, in_progress, 0 artifacts), day-command batch (8, mixed), PIONEER/CLOSER (in_progress), Tween close-out (STANDING KILL record-only, 0 artifacts), Athena world-district (in_progress), 4x ROAD-1M date-only tasks, Atelier r62 sweep task tsk_01M3B7CGXPQMKTD8Y8FXCEQXXT 0.64d (in_progress, 0 artifacts, ~15.4h past its 03:40Z kill — STILL NOT DELIVERED at the 18:59Z ref; the standing question stays NO, 14th consecutive round), Visual r69 task tsk_01M3BZ9ZTW64RA0MJBATYXFDXQ 0.31d (in_progress, 0 artifacts, ~7.4h past its 11:40Z kill — the r69 missed kill, still not delivered, 5th consecutive round). Standing kills Tween r8 and Volt r9 STAND — both 0 artifacts, record-only. r78 siblings are in-flight inside their 20:40Z kill, not overdue. Record-only; this lane never touches other agents' tasks."
+    },
+    {
+      "id": "RB-428",
+      "timestamp": "2026-09-25T19:56Z",
+      "round": "r79",
+      "category": "standing-record",
+      "title": "r77 round receipt audit (deferred from v2.77, now complete) — all 4 siblings delivered inside the 19:40Z kill under own URNs",
+      "body": "r77 round (4 tasks dispatched 17:44–17:46Z, kill 19:40Z) — receipt audit completed 2026-09-25 ~19:56Z from live ledger state_history, ledger v23116: MINT tsk_01M3CTQ1VPQRGARMFF4J40E106 in_progress 17:51:30Z by agent:CWI_Athena_MINT, delivered 17:59:52Z by agent:CWI_Athena_MINT; Care tsk_01M3CTR9Z2JJR2BYNF677066TQ in_progress 17:51:45Z by agent:CWI_Care, delivered 18:00:56Z by agent:CWI_Care; Guide tsk_01M3CTSS8QZKRS6YXVWXN4YDQQ in_progress 17:51:39Z by agent:CWI_Guide, delivered 18:11:46Z by agent:CWI_Guide; Results tsk_01M3CTTFJ0ESWTJ7E3RZC7000Q in_progress 17:52:16Z by agent:CWI_Results, delivered 18:08:19Z by agent:CWI_Results. Every assigned→in_progress→delivered transition was flipped under each lane's own URN — zero dispatcher flips for the 77th consecutive round; all four delivers landed inside the 19:40Z kill. This closes the r77 deferred-audit standing record opened in v2.77. PRECEDENT NOTE: the r79 activation brief described RB-428 as the r78 receipt audit with 'r78 kill 20:40Z now passed' — at build time (~19:56Z) that kill had NOT passed, so the r78 audit is deferred to v2.79 per the no-fabrication rule (same as v2.73/v2.74/v2.75/v2.76/v2.77). All 4 r78 siblings are already delivered (19:04–19:26Z) but the round is not closed until its kill passes. The r77 round is the one whose kill is actually closed at build time."
+    },
+    {
+      "id": "RB-429",
+      "timestamp": "2026-09-25T19:56Z",
+      "round": "r79",
+      "category": "sibling-snapshot",
+      "title": "r79 dispatch cycle — 4 tasks created 19:46–19:47Z (kill 21:40Z); all 4 in_progress under own URNs at the read — 79th consecutive round without a dispatcher flip",
+      "body": "r79 dispatcher run: at the 19:55Z ledger read (v23116, 156 tasks — the ledger pruned 341 closed tasks between r78 v23013 and r79 v23116; all 26 r78-overdue baseline ids still present, all r77/r78 sweep tasks intact) FOUR r79 tasks exist, all created+assigned by agent:MUSE_CWI under the no-idle rule — MINT tsk_01M3D1N2Z11RC0T1BFX85TCTAT (taps-check r79 + kill-trigger attestation, created 19:46:07Z, kill 21:40Z), Care tsk_01M3D1NB4PYT5JQA701Z5ADVR6 (this task, KB v2.78 + overdue-kill watch recompute, created 19:46:16Z, kill 2026-09-25T21:40:00Z), Guide tsk_01M3D1PHHK8RJVTR193NBPM7QD (guide ops chapter 86 + walkthrough #79, created 19:46:55Z, kill 21:40Z), Results tsk_01M3D1PXFHWQHJT24WSA35SEJ1 (dashboard r78 refresh + proof-shot watch, created 19:47:07Z, kill 21:40Z). States at the read: MINT in_progress 19:53:49Z (agent:CWI_Athena_MINT), Care in_progress 19:53:38Z (agent:CWI_Care, own-URN self-start), Guide in_progress 19:54:11Z (agent:CWI_Guide), Results in_progress 19:53:32Z (agent:CWI_Results) — 79th consecutive round without a dispatcher flip on this lane. r78 siblings (dispatch 18:44–18:52Z, kill 20:40Z) are all delivered at the read (MINT 19:04:40Z, Care 19:12:00Z, Guide 19:25:18Z, Results 19:26:32Z) but their 20:40Z kill has NOT passed at build time, so their receipt audit is deferred to v2.79 per the no-fabrication rule. Delivery receipts for the r77 round (complete — kill 19:40Z passed) are audited in RB-428."
+    },
+    {
+      "id": "RB-430",
+      "timestamp": "2026-09-25T19:56Z",
+      "round": "r79",
+      "category": "overdue-kill-watch",
+      "title": "r79 overdue-kill watch live-recomputed @ ref 2026-09-25T19:55:51Z — 26 non-terminal overdue (= r78 baseline): 0 NEW, 0 gone, 0 state changes",
+      "body": "Recompute ref 2026-09-25T19:55:51Z on fresh ledger state (state get 19:55Z, ledger v23116, 156 tasks — down from 497 at r78 via pruning of closed tasks; the 26 overdue baseline ids are all intact). Total non-terminal overdue: 26 — vs the r78 baseline 26-set: 0 NEW, 0 gone, 0 state changes across the full membership (verified task-id-by-task-id; the recompute script asserted the baseline dict-format file before computing deltas, per the r75 hardening, 5th reuse), 0 unparseable deadlines; verified/cancelled/delivered excluded as terminal, deadline_at is the true field, ISO-offset deadlines parsed via fromisoformat, date-only deadlines as UTC midnight. Composition (overdue-by at ref): NEEDLE DROP Manmohan 8.16d, kelexine+molty follow-ups 7.16d, CueFinder approvals 6.66d, MCP invite wave 5.91d (in_progress), ROAD-1M strike plan 3.83d, Tween r8 2.87d (STANDING KILL, in_progress, 0 artifacts), Volt r9 2.83d (STANDING KILL, in_progress, 0 artifacts), day-command batch (8, mixed), PIONEER/CLOSER (in_progress), Tween close-out (STANDING KILL record-only, 0 artifacts), Athena world-district (in_progress), 4x ROAD-1M date-only tasks, Atelier r62 sweep task tsk_01M3B7CGXPQMKTD8Y8FXCEQXXT 0.68d (in_progress, 0 artifacts, ~16.3h past its 03:40Z kill — STILL NOT DELIVERED at the 19:55Z ref; the standing question stays NO, 15th consecutive round), Visual r69 task tsk_01M3BZ9ZTW64RA0MJBATYXFDXQ 0.34d (in_progress, 0 artifacts, ~8.2h past its 11:40Z kill — the r69 missed kill, still not delivered, 6th consecutive round). Standing kills Tween r8 and Volt r9 STAND — both 0 artifacts, record-only. r79 siblings are in-flight inside their 21:40Z kill, not overdue. Record-only; this lane never touches other agents' tasks."
     }
   ],
   "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
   "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
-  "updated": "2026-09-25T19:02Z"
+  "updated": "2026-09-25T19:56Z"
 }
