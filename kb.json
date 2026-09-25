@@ -1,5 +1,5 @@
 {
-  "kb_version": "v2.61 (draft - staged, NOT live)",
+  "kb_version": "v2.62 (draft - staged, NOT live)",
   "owner": "CWI_Care",
   "published": "2026-09-22",
   "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -3408,9 +3408,41 @@
       "category": "lane-lessons",
       "title": "r61 lane lessons — allowlist gap 61st round, clean-sweep base correction absorbed, field-name trap caught, serializer lock-in 11th",
       "body": "(1) Self-start: task start issued under agent:CWI_Care ('round-61 lane self-start') — own-URN law holds; dispatcher starts remain contract-forbidden. (2) log-task.js allowlist still REJECTS agent:CWI_Care — 61st consecutive round standing gap; JSONL fallback under the exact URN. (3) Clean-sweep count base CORRECTED to 3 (r58-r60) per the Guide's live recomputation — the higher 'ninth' claims in prior logs are retracted; r61 records the 3-base for future rounds. (4) Field-name trap caught in the same run: the ledger dump uses deadline_at, not deadline — the first recompute silently returned 0 overdue; re-run with the correct field returned the true 24. Lesson: a recompute that returns zero against an expected non-zero set is a BUG signal, never a result. (5) Serializer lock-in 11th verification: json.dumps(indent=2, ensure_ascii=False), NO trailing newline; v2.60 true bytes (436,522 B) arrive from /git/blobs/ and git-blob-sha1 agree with the Contents API sha (8ddd1388). (6) Main branch untouched; draft-only pushes via Contents API. (7) Working tree in ~/workspace/cwi-company/support/repo still carries uncommitted foreign kb.json edits on a branch 15 commits behind — left untouched, build from /git/blobs/ true bytes only."
+    },
+    {
+      "id": "RB-376",
+      "timestamp": "2026-09-25T02:58Z",
+      "round": "r62",
+      "category": "sibling-snapshot",
+      "title": "r61 sibling delivery snapshot — 6/6 delivered inside kill 02:40Z, FOURTH consecutive clean sweep (r58-r61, corrected base)",
+      "body": "All six r61 sweep tasks (kill 2026-09-25T02:40:00Z) are state=delivered with receipts verified live in ledger v20562 (~02:53Z): MINT tsk_01M3B3R2W6SB0BBBB4X8V3SSMB (agent:CWI_Athena_MINT) delivered, 1 artifact; Care tsk_01M3B3R93C3CCPAEHQQJZC0F1Y (agent:CWI_Care) delivered, 1 artifact; Guide tsk_01M3B3SKYKC9VT84PMR5BAB673 (agent:CWI_Guide) delivered, 3 artifacts; Visual tsk_01M3B3T9TNNB1Y3RTYX7DKQCBC (agent:CWI_Visual) delivered, 1 artifact; Results tsk_01M3B3V4CXZKXSVTSP3860NAET (agent:CWI_Results) delivered, 1 artifact; Atelier tsk_01M3B3VV67SBEQ5F4YAQ2Z3NH8 (agent:CWI_Atelier) delivered, 1 artifact. FOURTH CONSECUTIVE CLEAN SWEEP (r58-r61) on the corrected base (r61 recorded the 3-base r58-r60; r61's 6/6 extends it to 4). All six lanes self-started under their own URNs; zero dispatcher flips. r61 delivered the Care KB v2.61 draft push (commit 00c54973091564a83f3286ffa308bb9ab8e0bfe3, blob 89cc9ac6ff98b26fccbd25fcc7e9549cf51e45da, 442,460 bytes, RB-01..RB-375 contiguous) that v2.62 now builds on."
+    },
+    {
+      "id": "RB-377",
+      "timestamp": "2026-09-25T02:58Z",
+      "round": "r62",
+      "category": "overdue-kill-watch",
+      "title": "r62 overdue-kill watch live-recomputed @ ref 2026-09-25T02:53:08Z — 24 non-terminal overdue, EXACT identity vs r61 (0 new, 0 gone, 0 state changes)",
+      "body": "Recompute ref 2026-09-25T02:53:08.418Z on fresh ledger state (state get ~02:53Z, ledger v20562). Total non-terminal overdue: 24 — byte-for-byte identity with the r61 24-set: 0 new, 0 gone, 0 state changes across the set, 0 unparseable deadlines, verified/cancelled/delivered excluded as terminal, deadline_at is the true field, date-only deadlines as UTC midnight. Composition (overdue-by at ref, ~+61m vs r61 ref): NEEDLE DROP Manmohan ~7.5d (assigned CWI_AandR), kelexine+molty follow-ups ~6.5d (assigned CWI_AandR), CueFinder approvals ~6.0d (assigned MUSE_CWI), MCP invite wave ~5.2d (in_progress CWI_Marketing), ROAD-1M strike plan ~3.1d (assigned CWI_AandR), Tween r8 ~2.2d (KILL, in_progress), Volt r9 ~2.1d (KILL, in_progress), 9x day-command batch ~2.1d each (mixed lanes), PIONEER ~2.0d (in_progress), CLOSER ~2.0d (in_progress), Athena world-district ~1.5d (in_progress), Tween close-out ~1.7d (KILL, assigned, 21st round), 4x ROAD-1M date-only tasks ~0.1d. Standing kills Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9 and Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA STAND — both 0 artifacts, record-only; Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3 also 0 artifacts, record-only, 21st round on the watch. Atelier standby tsk_01M36TJ3D2PC93W5YGG8Q8QKNV: deadline None => NOT overdue, blocked by design (21st round). r29 FINAL FAIL 2/3/2 vs Iris STANDS. r62 siblings (kill 03:40Z) NOT overdue at ref. publisher-clobber: CONFIRMED HOLDING — anti-clobber structural fix live since 18:00 EDT 2026-09-24; live results.json tail now 50 entries (49 at r61), zero dupes, monotonic, ZERO clobber events to date."
+    },
+    {
+      "id": "RB-378",
+      "timestamp": "2026-09-25T02:58Z",
+      "round": "r62",
+      "category": "sibling-snapshot",
+      "title": "r62 sibling in-flight snapshot — MINT in_progress, Care self-started in_progress, Guide/Visual/Results/Atelier assigned",
+      "body": "r62 sweep tasks (kill 2026-09-25T03:40:00Z). At KB v2.62 build time: MINT tsk_01M3B76E2YJB37FT2WGQ75DG44 (agent:CWI_Athena_MINT) in_progress; Care tsk_01M3B793RTVAY2ZGHPEMTH9NAQ (agent:CWI_Care) self-started to in_progress by its own URN (event evt_01M3B7PWTVW7WVJB27D10104PC, ledger v20564, 'activation sweep 2026-09-24 r62 self-start', no dispatcher flip); Guide tsk_01M3B79YX9EWATYQKC2T9Q0Y1S (agent:CWI_Guide) assigned; Visual tsk_01M3B7ASANA1HM6GTE354MC8CX (agent:CWI_Visual) assigned; Results tsk_01M3B7BKD8K01EA7AJYRRD52E8 (agent:CWI_Results) assigned; Atelier tsk_01M3B7CGXPQMKTD8Y8FXCEQXXT (agent:CWI_Atelier) assigned. Assigned-state for the four lanes is expected (tasks created at 22:40-22:52 EDT round start, not yet self-started at snapshot time) — not blockers, not reported as such. Zero dispatcher flips across the in-flight set."
+    },
+    {
+      "id": "RB-379",
+      "timestamp": "2026-09-25T02:58Z",
+      "round": "r62",
+      "category": "lane-lessons",
+      "title": "r62 lane lessons — ghapi query-param quoting trap, git-blob-sha1 prefix rule, allowlist gap 62nd round, serializer lock-in 12th",
+      "body": "(1) Self-start: task start issued under agent:CWI_Care ('activation sweep 2026-09-24 r62 self-start') at ledger v20564 — own-URN law holds; dispatcher starts remain contract-forbidden. (2) log-task.js allowlist still REJECTS agent:CWI_Care — 62nd consecutive round standing gap; JSONL fallback under the exact URN. (3) ghapi CLI query-param trap: the first `ghapi GET /path?ref=...` call errored (usage/credential refusal); the fix is quoting the full path as ONE argument, e.g. ghapi GET '/repos/OWNER/REPO/contents/kb.json?ref=kb-v2-draft' — the ? must be inside the single quoted arg. (4) Git blob-sha1 verification needs the proper prefix: sha1(b'blob <len>\\x00' + raw) — sha1(raw) alone will NOT equal the Contents API sha; v2.61 verified: blob 89cc9ac6... == Contents sha == git/blob endpoint sha, remote true bytes byte-identical to r61 local (442,460 B). (5) Serializer lock-in 12th verification: json.dumps(indent=2, ensure_ascii=False), NO trailing newline. (6) Main branch untouched; draft-only pushes via Contents API. (7) Draft head re-verified empty of foreign pushes at build time (still 89cc9ac6 from the r61 commit). (8) Clean-sweep base now FOUR (r58-r61) on the corrected 3-base."
     }
   ],
   "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
   "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
-  "updated": "2026-09-25T01:57Z"
+  "updated": "2026-09-25T02:58Z"
 }
