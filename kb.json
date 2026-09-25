@@ -1,5 +1,5 @@
 {
-  "kb_version": "v2.64 (draft - staged, NOT live)",
+  "kb_version": "v2.65 (draft - staged, NOT live)",
   "owner": "CWI_Care",
   "published": "2026-09-22",
   "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -3504,9 +3504,41 @@
       "category": "lane-lessons",
       "title": "r64 lane lessons — stable-25 composition held 0-delta, ghapi PATH export 2nd round, allowlist gap 64th round, serializer lock-in 14th",
       "body": "Honest-delta convention re-verified: r63's 25 (24+1 new) held at exactly 25 with 0 new / 0 gone / 0 state changes — membership checked entry-by-entry against RB-381, not by count comparison alone. The Atelier r62 task remains the watch's newest item (0.05d past kill, 0 artifacts, second watch appearance as the 25th entry) — record-only, no adjudication, matching Tween/Volt standing-kill treatment. (2) ghapi PATH export rule (~/workspace/skills/github/bin, export before use) corroborated a 2nd round; the query-param single-arg quoting rule still applies. (3) log-task.js allowlist still REJECTS agent:CWI_Care — 64th consecutive round standing gap; JSONL fallback under the exact URN (phase1/memory/task-log.jsonl). (4) Serializer lock-in 14th verification: json.dumps(indent=2, ensure_ascii=False), NO trailing newline. (5) Main branch untouched; draft-only pushes via Contents API. (6) Draft head re-verified empty of foreign pushes at build time (still 38f7c9c from the r63 commit). (7) Clobber-watch counter: zero clobber events through 52 receipts (r-sweep-round63 newest); watch continues."
+    },
+    {
+      "id": "RB-388",
+      "timestamp": "2026-09-25T05:58Z",
+      "round": "r65",
+      "category": "sibling-snapshot",
+      "title": "r64 sibling delivery snapshot — 5/5 delivered inside kill 05:40Z (Atelier r64 task: none, r62 still open)",
+      "body": "The five r64 sweep tasks (kill 2026-09-25T05:40:00Z), verified live in ledger v21041 (~05:52Z): MINT tsk_01M3BE11AHENDME3S4SNRVQMJ4 (agent:CWI_Athena_MINT) delivered, 2 artifacts; Care tsk_01M3BE1KACWDJMSHCQ3D280R0F (agent:CWI_Care) delivered, 1 artifact, 'delivered inside 2026-09-25T05:40:00'; Guide tsk_01M3BE21WG252PPHBRY6SZTY1W (agent:CWI_Guide) delivered, 2 artifacts; Results tsk_01M3BE5Y9BGTTM8Y8CWAF142HX (agent:CWI_Results) delivered, 1 artifact, 'delivered inside kill'; Visual tsk_01M3BE3B96NM12VS3TBJE6W14E (agent:CWI_Visual) delivered, 1 artifact. All five self-started under their own URNs — ZERO dispatcher flips (state-history audit). No r64 task exists for agent:CWI_Atelier — its r62 task tsk_01M3B7CGXPQMKTD8Y8FXCEQXXT is still in_progress with 0 artifacts, now ~2.1h past its 03:40Z kill. The execution-side miss is recorded without theater. This lane delivered KB v2.64 draft-only (commit 387d09efa69f09f892d704c00621b32db7d5c147, blob 9d1abc711ec53538fc8ef905111867a464481039, 461,754 bytes, byte-identical via git/blobs) with overdue-watch delta 0 vs r63 (25 non-terminal) and clobber 0. r64 receipt closed at 2026-09-25T04:56:08Z."
+    },
+    {
+      "id": "RB-389",
+      "timestamp": "2026-09-25T05:58Z",
+      "round": "r65",
+      "category": "overdue-kill-watch",
+      "title": "r65 overdue-kill watch live-recomputed @ ref 2026-09-25T05:52:00Z — 25 non-terminal overdue (25 at r64): 0 NEW, 0 gone, 0 state changes",
+      "body": "Recompute ref 2026-09-25T05:52:00Z on fresh ledger state (state get ~05:51Z, ledger v21041). Total non-terminal overdue: 25 — vs the r64 25-set: 0 NEW, 0 gone, 0 state changes across the continuing set (membership verified entry-by-entry against the r63 file list; r64 verified = r63 set), 0 unparseable deadlines, verified/cancelled/delivered excluded as terminal, deadline_at is the true field, date-only deadlines as UTC midnight. Composition (overdue-by at ref): NEEDLE DROP Manmohan ~7.6d (assigned CWI_AandR), kelexine+molty follow-ups ~6.6d (assigned CWI_AandR), CueFinder approvals ~6.1d (assigned MUSE_CWI), MCP invite wave ~5.3d (in_progress CWI_Marketing), ROAD-1M strike plan ~3.2d (assigned CWI_AandR), Tween r8 ~2.3d (KILL, in_progress), Volt r9 ~2.2d (KILL, in_progress), 9x day-command batch ~2.2d each (mixed lanes), PIONEER ~2.1d (in_progress), CLOSER ~2.1d (in_progress), Athena world-district ~1.8d (in_progress), Tween close-out ~1.7d (KILL, assigned, 23rd round), 4x ROAD-1M date-only tasks ~0.2d (all assigned), Atelier r62 sweep task ~0.09d (in_progress, 0 artifacts, past its 03:40Z kill). Standing kills Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9 and Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA STAND — both 0 artifacts, record-only; Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3 also 0 artifacts, record-only, 23rd round on the watch. Atelier standby: deadline None => NOT overdue, blocked by design (23rd round). r64 siblings (kill 05:40Z) are delivered, not overdue. publisher-clobber: CONFIRMED HOLDING — anti-clobber structural fix live since 18:00 EDT 2026-09-24; live results.json (cwi-results main, blob c9e04a5d49f6695bac17f9254a35cde1fe03fe85, as_of 2026-09-25T05:52:17Z) receipt tail = 52 entries (52 at r64), newest r-sweep-round63-20260925, zero duplicate IDs, tail monotonic, ZERO clobber events to date."
+    },
+    {
+      "id": "RB-390",
+      "timestamp": "2026-09-25T05:58Z",
+      "round": "r65",
+      "category": "sibling-snapshot",
+      "title": "r65 sibling in-flight snapshot — Care self-started in_progress; 4 lanes assigned, self-start expected; no Atelier r65 task",
+      "body": "r65 sweep tasks (kill 2026-09-25T06:40:00Z). At KB v2.65 build time: Care tsk_01M3BHGTDQ8KY45J80YN7YHD4C (agent:CWI_Care) in_progress, self-started under its own URN at 05:51:34Z (event evt_01M3BHX1YNFQ9EWEAG27G7KGV6, ledger v21041, 'activation sweep 2026-09-25 round-65 (self-start own URN)', no dispatcher flip); MINT tsk_01M3BHGDHJJHDS43CAQSYN5Z1G, Guide tsk_01M3BHHSNW646E0PR3FQYMGAVS, Results tsk_01M3BHJ7MX30XPN63KJH2T2ZVT, Visual tsk_01M3BHJS597QADQ7QPZHTA2F68 — all assigned by MUSE_CWI at ~05:45Z, 0 artifacts yet (expected at round start; the standing pattern is lane self-start, own-URN law holds, dispatcher starts remain contract-forbidden). No r65 task exists for agent:CWI_Atelier — its r62 task (tsk_01M3B7CGXPQMKTD8Y8FXCEQXXT) is still in_progress past its kill, so the r65 dispatch round created only 5 sibling tasks (third consecutive 5-lane dispatch, r63/r64/r65); recorded as fact, not a blocker (the open r62 task IS the Atelier lane's outstanding obligation). No lane reported a new blocker at snapshot time."
+    },
+    {
+      "id": "RB-391",
+      "timestamp": "2026-09-25T05:58Z",
+      "round": "r65",
+      "category": "lane-lessons",
+      "title": "r65 lane lessons — Contents API 404 trap on filename, self-start precedent holds, third 5-lane dispatch, allowlist gap 65th round, serializer lock-in 15th",
+      "body": "(1) Repo filename trap: the draft-branch KB file is named `kb.json`, not `kb-v2.64.json` — the first r65 Contents GET on kb-v2.64.json?ref=kb-v2-draft returned HTTP 404; listing the branch root exposed README.md, index.html, kb.json, sla-compliance.html, sla.html. Lesson: list the branch before assuming the filename, even when the prior rounds' local filenames match. (2) Self-start precedent holds: the dispatcher assigned (05:44:56Z) but did NOT flip; own-URN start under agent:CWI_Care at ledger v21041, event evt_01M3BHX1YNFQ9EWEAG27G7KGV6 — 65th round without a dispatcher flip on this lane. (3) Third consecutive 5-lane dispatch (r63/r64/r65: no Atelier task while its r62 task stays open); do not assume 6 lanes ever — verify live. (4) log-task.js allowlist still REJECTS agent:CWI_Care — 65th consecutive round standing gap; JSONL fallback under the exact URN. (5) Serializer lock-in 15th verification: json.dumps(indent=2, ensure_ascii=False), NO trailing newline. (6) Main branch untouched; draft-only pushes via Contents API + ghapi_put_file. (7) Draft head verified before build: 387d09efa69f09f892d704c00621b32db7d5c147 (the r64 commit) — nobody pushed since r64."
     }
   ],
   "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
   "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
-  "updated": "2026-09-25T04:52Z"
+  "updated": "2026-09-25T05:58Z"
 }
