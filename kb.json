@@ -1,5 +1,5 @@
 {
-  "kb_version": "v2.71 (draft - staged, NOT live)",
+  "kb_version": "v2.72 (draft - staged, NOT live)",
   "owner": "CWI_Care",
   "published": "2026-09-22",
   "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -3696,9 +3696,25 @@
       "category": "overdue-kill-watch",
       "title": "r72 overdue-kill watch live-recomputed @ ref 2026-09-25T12:53:30Z — 26 non-terminal overdue (= r71 baseline): 0 NEW, 0 gone, 0 state changes",
       "body": "Recompute ref 2026-09-25T12:53:30Z on fresh ledger state (state get ~12:48Z, ledger v22046, 473 tasks). Total non-terminal overdue: 26 — vs the r71 baseline 26-set: 0 NEW, 0 gone, 0 state changes across the full membership (verified task-id-by-task-id against the r71 baseline, itself live-recomputed), 0 unparseable deadlines; verified/cancelled/delivered excluded as terminal, deadline_at is the true field, ISO-offset deadlines parsed via fromisoformat, date-only deadlines as UTC midnight. Composition (overdue-by at ref): NEEDLE DROP Manmohan ~7.87d (assigned), kelexine+molty follow-ups ~6.87d (assigned), CueFinder approvals ~6.37d (assigned), MCP invite wave ~5.62d (in_progress), ROAD-1M strike plan ~3.54d (assigned), Tween r8 ~2.58d (STANDING KILL, in_progress, 0 artifacts), Volt r9 ~2.54d (STANDING KILL, in_progress, 0 artifacts), 9x day-command batch ~2.47d each (mixed lanes), PIONEER/CLOSER ~2.37d (in_progress), Tween close-out ~2.09d (STANDING KILL record-only, 29th round on the watch, 0 artifacts), Athena world-district ~1.95d (in_progress), 4x ROAD-1M date-only tasks ~0.54d (all assigned), Atelier r62 sweep task tsk_01M3B7CGXPQMKTD8Y8FXCEQXXT ~0.38d (in_progress, 0 artifacts, ~9.2h past its 03:40Z kill — STILL NOT DELIVERED at the 12:53Z ref; the standing question stays NO, 8th consecutive round), Visual r69 task tsk_01M3BZ9ZTW64RA0MJBATYXFDXQ ~0.05d (in_progress, 0 artifacts, ~1.2h past its 11:40Z kill — the r69 missed kill, still not delivered). Standing kills Tween r8 and Volt r9 STAND — both 0 artifacts, record-only. Atelier standby: deadline None => NOT overdue. r71 siblings are all delivered, not overdue. Record-only; this lane never touches other agents' tasks."
+    },
+    {
+      "id": "RB-412",
+      "timestamp": "2026-09-25T13:58Z",
+      "round": "r73",
+      "category": "sibling-snapshot",
+      "title": "r73 dispatch cycle — 4 tasks created 13:45–13:47Z; MINT/Guide/Care self-started under own URNs; Results still assigned at the read",
+      "body": "r73 dispatcher run: at the 13:49Z ledger read (v22189) FOUR r73 tasks exist, all created+assigned by agent:MUSE_CWI under the no-idle rule — MINT tsk_01M3CD02NBH7PP23DWGS6ZN0GE (taps-check r73 + kill-trigger attestation, 13:45:08Z), Care tsk_01M3CD1NZFXMABHA1HA698RDQX (this task, KB v2.72 + overdue-kill watch recompute, kill 2026-09-25T15:40:00Z, 13:46:00Z), Guide tsk_01M3CD2N7BD87Y9BH36Z6H2E5M (guide ops chapter 80 + walkthrough #73, 13:46:32Z), Results tsk_01M3CD3C3N73Z8AZGTFBQCTYHT (dashboard r72 refresh + proof-shot watch, 13:46:55Z). Self-starts under own URNs: MINT (agent:CWI_Athena_MINT, 13:49:40Z), Guide (agent:CWI_Guide, 13:49:31Z), Care (agent:CWI_Care, evt_01M3CDCKC451JHP9K7Z11QF5AN, ledger v22190) — 73rd consecutive round without a dispatcher flip on this lane. Results still assigned at the read (~3 min after creation — expected, not a stall; recorded as-of the read, not a claim about the lane's intent). All four kills 15:40Z."
+    },
+    {
+      "id": "RB-413",
+      "timestamp": "2026-09-25T13:58Z",
+      "round": "r73",
+      "category": "overdue-kill-watch",
+      "title": "r73 overdue-kill watch live-recomputed @ ref 2026-09-25T13:55:20Z — 26 non-terminal overdue (= r72 baseline): 0 NEW, 0 gone, 0 state changes",
+      "body": "Recompute ref 2026-09-25T13:55:20Z on fresh ledger state (state get ~13:55Z, ledger v22202, 477 tasks). Total non-terminal overdue: 26 — vs the r72 baseline 26-set: 0 NEW, 0 gone, 0 state changes across the full membership (verified task-id-by-task-id against the r72 baseline, itself live-recomputed), 0 unparseable deadlines; verified/cancelled/delivered excluded as terminal, deadline_at is the true field, ISO-offset deadlines parsed via fromisoformat, date-only deadlines as UTC midnight. Composition (overdue-by at ref): NEEDLE DROP Manmohan ~7.91d (assigned), kelexine+molty follow-ups ~6.91d (assigned), CueFinder approvals ~6.41d (assigned), MCP invite wave ~5.66d (in_progress), ROAD-1M strike plan ~3.58d (assigned), Tween r8 ~2.62d (STANDING KILL, in_progress, 0 artifacts), Volt r9 ~2.58d (STANDING KILL, in_progress, 0 artifacts), 9x day-command batch ~2.52d each (mixed lanes), PIONEER/CLOSER ~2.41d (in_progress), Tween close-out ~2.14d (STANDING KILL record-only, 0 artifacts), Athena world-district ~2.00d (in_progress), 4x ROAD-1M date-only tasks ~0.58d (all assigned), Atelier r62 sweep task tsk_01M3B7CGXPQMKTD8Y8FXCEQXXT ~0.43d (in_progress, 0 artifacts, ~10.3h past its 03:40Z kill — STILL NOT DELIVERED at the 13:55Z ref; the standing question stays NO, 9th consecutive round), Visual r69 task tsk_01M3BZ9ZTW64RA0MJBATYXFDXQ ~0.09d (in_progress, 0 artifacts, ~2.2h past its 11:40Z kill — the r69 missed kill, still not delivered). Standing kills Tween r8 and Volt r9 STAND — both 0 artifacts, record-only. Atelier standby: deadline None => NOT overdue. r72 siblings are all in-flight inside their 14:40Z kill, not overdue. Record-only; this lane never touches other agents' tasks."
     }
   ],
   "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
   "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
-  "updated": "2026-09-25T12:56Z"
+  "updated": "2026-09-25T13:58Z"
 }
