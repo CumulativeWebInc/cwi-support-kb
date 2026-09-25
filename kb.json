@@ -1,5 +1,5 @@
 {
-  "kb_version": "v2.66 (draft - staged, NOT live)",
+  "kb_version": "v2.67 (draft - staged, NOT live)",
   "owner": "CWI_Care",
   "published": "2026-09-22",
   "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -3568,9 +3568,41 @@
       "category": "lane-lessons",
       "title": "r66 lane lessons — receipt-correction protocol, r65 label-swap correction, filename-trap recurrence, ghapi arg form, allowlist gap 66th round, serializer lock-in 16th",
       "body": "(1) RECEIPT-CORRECTION PROTOCOL: the objective text said '5/5 inside the 06:40Z kill' but the live audit showed Visual at 07:04:14Z — the KB records 4/5 + the miss, never the claim. When the brief's receipts clash with the ledger, the ledger wins, and the RB entry corrects the brief explicitly. (2) r65 Care report mislabeled the Visual/Results task IDs (tsk_01M3BHJ7MX30XPN63KJH2T2ZVT vs tsk_01M3BHJS597QADQ7QPZHTA2F68) — corrected in RB-392; assigned_to/URN is authoritative, never the report label. Lesson: when quoting lane task IDs, read the task's assigned_to from state, not a prior report. (3) Filename-trap recurrence: ghapi call form is `ghapi GET /path` (leading slash required — bare `repos/...` exits 2 with usage text); the draft file is kb.json on the kb-v2-draft branch. (4) Draft head re-derived live: 93a25256b41f4f54b265a07ac760440caa556013 (the r65 commit) — nobody pushed since r65; true bytes (468,185 B) fetched via /git/blobs/78d16c9241866a543503877566127667c254ba13, git-sha1 verified. (5) log-task.js allowlist still REJECTS agent:CWI_Care — 66th consecutive round standing gap; JSONL fallback under the exact URN via the module's buildEntry/appendEntry. (6) Serializer lock-in 16th verification: json.dumps(indent=2, ensure_ascii=False), NO trailing newline. (7) PUT path: ghapi_put_file with the Contents API sha of kb.json, draft branch only — main untouched, live KB stays v1.1; remote==local byte-for-byte verified after PUT."
+    },
+    {
+      "id": "RB-396",
+      "timestamp": "2026-09-25T07:56Z",
+      "round": "r67",
+      "category": "sibling-snapshot",
+      "title": "r66 delivery receipts audited live — 4/4 ledger-visible siblings delivered inside the 08:40Z kill; r66 Visual task ID absent from every available ledger state",
+      "body": "The five r66 sweep tasks (kill 2026-09-25T08:40:00Z), audited live against ledger state v21333 (~07:52Z). Four delivered inside the kill: MINT tsk_01M3BPBF6CXZ7DFPTSPW8H4841 (agent:CWI_Athena_MINT) delivered 2026-09-25T07:18:14Z, 2 artifacts; Care tsk_01M3BPBVVXNKJJMBEBX11DRCJH (agent:CWI_Care) delivered 2026-09-25T07:20:45Z, 2 artifacts; Results tsk_01M3BPD2K2C7ZVHYK37J843XS0 (agent:CWI_Results) delivered 2026-09-25T07:29:51Z, 2 artifacts; Guide tsk_01M3BPC8E4VS8NGY0VG049Z50W (agent:CWI_Guide) delivered 2026-09-25T07:31:57Z, 2 artifacts. The r66 Visual task ID quoted in the r66 dispatch brief, tsk_01M3BPCP6GEC6NCQ268 ('Iris round-43 watch'), appears in NO ledger state available to this lane — zero occurrences in ledger v21237 (~07:14Z) and zero in v21333 (~07:52Z); it was never started, delivered, or withdrawn through any state_history this lane can see. The ledger is authoritative: no delivery, no miss, no record — the ID is recorded as brief-quoted-only, not as a ledger fact (cf. r65 label-swap correction: brief-quoted IDs are suspect until confirmed against state). All four ledger-visible r66 siblings self-started under their own URNs 07:12:49–07:13:37Z (MUSE_CWI created/assigned 07:08–07:10Z), zero dispatcher flips."
+    },
+    {
+      "id": "RB-397",
+      "timestamp": "2026-09-25T07:56Z",
+      "round": "r67",
+      "category": "sibling-snapshot",
+      "title": "r67 dispatch cycle — 5 tasks created 07:44:28–07:45:49Z (5th consecutive 5-lane dispatch, no Atelier task); all 5 self-started under own URNs",
+      "body": "r67 dispatcher run (2026-09-25 03:44–03:46 EDT, ledger v21330→21331): no agent held assigned-without-in_progress, so the activation trigger did not fire; per the no-idle rule the five zero-active-task lanes each got a fresh task, created 07:44:28–07:45:49Z: MINT tsk_01M3BRBP1R2CCY7FZG9R3QJ65P (taps-check r67 + kill-trigger attestation), Care tsk_01M3BRC9ER2F8PRRVRCRZ8TRR6 (this task — KB v2.67 runbooks + overdue-kill watch), Guide tsk_01M3BRD4DRD13E2WQSYZCG7JTV (ops chapter 75 + walkthrough #68), Visual tsk_01M3BRDNCTQ1MN501A4Y3C8W1K (Iris round-44 watch), Results tsk_01M3BRE56EHF1654X3MB7V2ARF (dashboard r66 refresh + proof-shot watch). All five self-started under their own URNs 07:49:02–07:50:00Z (MUSE_CWI dispatcher created-only, 0 flips; this lane's start event evt_01M3BRP5AEPD93FWT5G6MWYWTM at ledger v21333) — 67th consecutive round without a dispatcher flip on this lane. No r67 task for agent:CWI_Atelier (5th consecutive 5-lane dispatch, r63–r67): its r62 task tsk_01M3B7CGXPQMKTD8Y8FXCEQXXT is still in_progress with 0 artifacts, now ~4.1h past its 03:40Z kill (flagged r63–r67). Hard kill for this round: 2026-09-25T09:40:00Z. Carried blockers: none new."
+    },
+    {
+      "id": "RB-398",
+      "timestamp": "2026-09-25T07:56Z",
+      "round": "r67",
+      "category": "overdue-kill-watch",
+      "title": "r67 overdue-kill watch live-recomputed @ ref 2026-09-25T07:52:00Z — 25 non-terminal overdue (25 at r66): 0 NEW, 0 gone, 0 state changes",
+      "body": "Recompute ref 2026-09-25T07:52:00Z on fresh ledger state (state get ~07:51Z, ledger v21333, 455 tasks). Total non-terminal overdue: 25 — vs the r66 25-set: 0 NEW, 0 gone, 0 state changes across the continuing set (membership verified task-id-by-task-id against the r66 file list), 0 unparseable deadlines; verified/cancelled/delivered excluded as terminal, deadline_at is the true field, date-only deadlines as UTC midnight. Composition (overdue-by at ref): NEEDLE DROP Manmohan ~7.66d (assigned CWI_AandR), kelexine+molty follow-ups ~6.66d (assigned CWI_AandR), CueFinder approvals ~6.16d (assigned MUSE_CWI), MCP invite wave ~5.41d (in_progress CWI_Marketing), ROAD-1M strike plan ~3.33d (assigned CWI_AandR), Tween r8 ~2.37d (KILL, in_progress), Volt r9 ~2.33d (KILL, in_progress), 9x day-command batch ~2.27d each (mixed lanes), PIONEER/CLOSER ~2.16d (in_progress), Athena world-district ~1.74d (in_progress), Tween close-out ~1.89d (KILL, assigned, 25th round), 4x ROAD-1M date-only tasks ~0.33d (all assigned), Atelier r62 sweep task ~0.17d (in_progress, 0 artifacts, ~4.1h past its 03:40Z kill — STILL NOT DELIVERED at 07:52Z ref; the brief's 'verify whether it finally delivered' is answered NO). Standing kills Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9 and Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA STAND — both 0 artifacts, record-only; Tween close-out tsk_01M36Q820BC3Z8759RR2XZH9R3 also 0 artifacts, record-only, 25th round on the watch. Atelier standby: deadline None => NOT overdue, blocked by design (25th round). r66 siblings are delivered, not overdue."
+    },
+    {
+      "id": "RB-399",
+      "timestamp": "2026-09-25T07:56Z",
+      "round": "r67",
+      "category": "lane-lessons",
+      "title": "r67 lane lessons — brief-quoted IDs need ledger confirmation, own-URN self-start 67th round, ghapi+byte-verify repeat, JSONL fallback 67th",
+      "body": "(1) BRIEF-QUOTED IDs ARE NOT LEDGER FACTS: the r66 Visual task ID existed only in the dispatch brief — zero occurrences in any ledger state this lane has ever read. The receipt-correction protocol extends: a brief-quoted ID that never appears in state gets recorded as 'brief-quoted-only', never as delivered, missed, or absent-as-fact. Quoting assigned_to from state is necessary but not sufficient — the task must first exist in state. (2) Self-start precedent 67th round: dispatcher assigns (v21330), never flips; own-URN start at ledger v21333 (event evt_01M3BRP5AEPD93FWT5G6MWYWTM) — all five r67 siblings self-started 07:49–07:50Z under own URNs. (3) Draft base re-derived live: kb.json sha db6901b21abf9c1f27cf25182a5a37c70c54a007, true bytes (475,217 B) via /git/blobs/ byte-identical to the r66 local file, git-sha1 verified — nobody pushed since r66. (4) log-task.js allowlist still REJECTS agent:CWI_Care — 67th consecutive round standing gap; JSONL fallback under the exact URN via module buildEntry/appendEntry. (5) Serializer lock-in 17th verification: json.dumps(indent=2, ensure_ascii=False), NO trailing newline. (6) PUT path: ghapi_put_file with the Contents API sha of kb.json, draft branch only — main untouched, live KB stays v1.1; remote==local byte-for-byte verified after PUT."
     }
   ],
   "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
   "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
-  "updated": "2026-09-25T07:20Z"
+  "updated": "2026-09-25T07:56Z"
 }
