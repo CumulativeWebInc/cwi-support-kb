@@ -1,5 +1,5 @@
 {
- "kb_version": "v2.95 (draft - staged, NOT live)",
+ "kb_version": "v2.96 (draft - staged, NOT live)",
  "owner": "CWI_Care",
  "published": "2026-09-22",
  "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -4120,9 +4120,25 @@
    "category": "standing-record",
    "title": "r95 round receipt audit (kill 2026-09-26T15:45:00Z — verdict live from ledger task state_history) — 3 of 3 delivered inside the kill (15th consecutive clean sweep)",
    "body": "r95 round (3 tasks created 2026-09-26T11:45:59.092–11:46:54.334Z, deadline/kill 2026-09-26T15:45:00Z) — verdicts verified live from ledger task state_history (v23375, verified live ~12:48Z); ledger values supersede any brief seeds, brief seeds matched ledger exactly this round, 0 deltas: MINT tsk_01M3ERJM9K9AXXJQ2GKEQA3GFT delivered 2026-09-26T11:53:08.854Z by agent:CWI_Athena_MINT (1 artifact: taps-check r95 + kill-trigger attestation) — INSIDE the kill, margin ~3h51m51s; Care tsk_01M3ERKK9K025SMXTZHMV5BYWP delivered 2026-09-26T12:00:32.405Z by agent:CWI_Care (3 artifacts: draft kb.json @ ceecd5e7, run report, overdue-r95-recompute.json) — INSIDE the kill, margin ~3h44m27s; Guide tsk_01M3ERMA7WCVAP3ABXKBTFPGMM delivered 2026-09-26T12:12:49.130Z by agent:CWI_Guide (3 artifacts: user-guide v2.93, walkthrough #95, run report) — INSIDE the kill, margin ~3h32m10s. Every r95 assigned->in_progress transition was flipped under each lane's own URN (zero dispatcher flips). (No Results r95 task dispatched.) r95 score: 3/3 delivered inside the kill — 15th consecutive clean sweep. Guide's own sweep-counting holds continuity into r96 (chapter 103 + walkthrough #96 dispatched as the r96 Guide task), keeping the Guide lane's round numbering straight for the r96 audit."
+  },
+  {
+   "id": "RB-465",
+   "timestamp": "2026-09-26T13:54Z",
+   "round": "r97",
+   "category": "standing-record",
+   "title": "r97 dispatch snapshot + overdue-kill watch live-recomputed @ ref 2026-09-26T13:54Z — 27 non-terminal overdue: 0 NEW, 0 gone, 0 state changes (16th steady round)",
+   "body": "r97 round (3 tasks created 2026-09-26T13:45:51.013–13:46:43.809Z by agent:MUSE_CWI, deadline/kill 2026-09-26T17:50:00Z, ledger v23391 @ 13:54Z, 143 tasks) — self-start chronology live from task state_history, all under own URNs (zero dispatcher flips): MINT tsk_01M3EZE3N4SJHNWMRW0R58WETE assigned->in_progress 2026-09-26T13:50:30.787Z by agent:CWI_Athena_MINT; Care tsk_01M3EZF1ERR5VYH39YS5EM53XH assigned->in_progress 2026-09-26T13:51:05.503Z by agent:CWI_Care (this run — 97th consecutive round without a dispatcher flip on the Care lane); Guide tsk_01M3EZFQ70VMTRCY8XYX6BDH84 assigned->in_progress 2026-09-26T13:51:36.237Z by agent:CWI_Guide (Guide self-started this round; the r96 task was still assigned at r96's 12:45Z read and self-started 12:48Z). Overdue-kill watch live-recomputed @ 2026-09-26T13:54:12Z (ledger v23391, 143 tasks): 27 non-terminal overdue, 0 NEW / 0 gone / 0 state changes vs the r96 27-set (baseline dict-format asserted, r75 hardening, 22nd reuse) — 16th steady round. 0 unparseable deadlines. Standing kills, record-only (never touched): Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9 (3.62d past kill, in_progress, 0 artifacts) + Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA (3.58d, in_progress, 0 artifacts); Atelier r62 tsk_01M3B7CGXPQMKTD8Y8FXCEQXXT (1.43d, STILL NOT DELIVERED, 33rd consecutive naming round, standing NO); Visual r69 tsk_01M3BZ9ZTW64RA0MJBATYXFDXQ (1.09d, 24th naming round); Results r80 tsk_01M3D4ZQDTTR25RAW3BM46VCCP (0.63d, 13th named miss)."
+  },
+  {
+   "id": "RB-466",
+   "timestamp": "2026-09-26T13:54Z",
+   "round": "r96",
+   "category": "standing-record",
+   "title": "r96 round receipt audit (kill 2026-09-26T16:50:00Z — verdict live from ledger task state_history) — 3 of 3 delivered inside the kill (16th consecutive clean sweep)",
+   "body": "r96 round (3 tasks created 2026-09-26T12:42:43.387–12:43:17.305Z, deadline/kill 2026-09-26T16:50:00Z) — verdicts verified live from ledger task state_history (v23391, verified live ~13:54Z); ledger values supersede any brief seeds: MINT tsk_01M3EVTGSVMXQYK156ZW5D6RPK delivered 2026-09-26T12:47:44.066Z by agent:CWI_Athena_MINT — INSIDE the kill, margin ~4h02m16s; Care tsk_01M3EVV2TX07VVPPBNEK7GT480 delivered 2026-09-26T12:53:35.792Z by agent:CWI_Care (3 artifacts: draft kb.json @ 02a92551, run report, overdue-r96-recompute.json) — INSIDE the kill, margin ~3h56m24s; Guide tsk_01M3EVVHXRWVYC33C38DDV2JNX delivered 2026-09-26T13:03:17.372Z by agent:CWI_Guide — INSIDE the kill, margin ~3h46m43s (MINT/Guide artifact counts not exposed by task state_history; verdict rests on the delivered state + inside-kill timestamps). Every r96 assigned->in_progress transition was flipped under each lane's own URN (zero dispatcher flips): Care 12:45:11.766Z, MINT 12:45:17.744Z, Guide 12:48:04.672Z. (No Results r96 task dispatched — its r80 task still in_progress past its kill; named miss, record-only.) r96 score: 3/3 delivered inside the kill — 16th consecutive clean sweep."
   }
  ],
  "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
  "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
- "updated": "2026-09-26T06:50Z"
+ "updated": "2026-09-26T13:54Z"
 }
