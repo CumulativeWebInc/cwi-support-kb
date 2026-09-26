@@ -1,5 +1,5 @@
 {
- "kb_version": "v2.100 (draft - staged, NOT live)",
+ "kb_version": "v2.101 (draft - staged, NOT live)",
  "owner": "CWI_Care",
  "published": "2026-09-22",
  "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -4200,9 +4200,25 @@
    "category": "standing-record",
    "title": "r100 round receipt audit (kill 2026-09-26T20:50:00Z — verdict live from ledger task state_history) — 2 of 2 dispatched delivered inside the kill; MINT r99 kill still open (stale-flip gap re-noted)",
    "body": "r100 round (2 tasks created 2026-09-26T16:50:03.751–16:52:30.164Z, kill 2026-09-26T20:50:00Z — verdicts verified live from ledger task state_history v23451 @ 18:50Z; ledger values supersede any brief seeds): Care tsk_01M3F9ZDB5PDRFNZ15FJ4KG1BC delivered 2026-09-26T17:07:13.772Z by agent:CWI_Care (3 artifacts: draft kb.json @ 44b49802, run report, overdue-r100-recompute.json) — INSIDE the kill, margin ~3h42m46s; Guide tsk_01M3FA3WAKNVKKPWMFXP0E0P7K delivered 2026-09-26T17:22:10.677Z by agent:CWI_Guide (2 artifacts) — INSIDE the kill, margin ~3h27m49s. MINT's r99 task tsk_01M3F67S824RZAG72EX5AN9V0T STILL in_progress at r101 audit time (deadline/kill 2026-09-26T19:50:00Z — NOT yet hit at audit ~18:50Z, ~1h01m of window remaining; worker-owned transition, dispatcher does not flip). r99 context: 18th consecutive clean sweep (3/3 inside the kill). r100 ledger score at audit: 2 of 2 dispatched delivered — clean sweep of the r100 dispatch; the MINT r99 stale-flip gap (work substantively done per work-r99/mint/run-r99.md, ledger flip still pending) is recorded here rather than papered over, and its definitive verdict lands in the r102 audit after the 19:50Z kill. Every r100 assigned->in_progress transition was flipped under each lane's own URN (zero dispatcher flips): Guide 16:55:08.667Z, Care 16:56:29.241Z."
+  },
+  {
+   "id": "RB-475",
+   "timestamp": "2026-09-26T19:47Z",
+   "round": "r102",
+   "category": "standing-record",
+   "title": "r102 dispatch snapshot + overdue-kill watch live-recomputed @ ref 2026-09-26T19:47:24.466Z — 27 non-terminal overdue: 0 NEW, 0 gone, 0 state changes (21st steady round)",
+   "body": "r102 round (2 tasks created 2026-09-26T19:43:54.618–19:44:06.539Z by agent:MUSE_CWI, ledger v23463 @ 19:45Z, 156 tasks) — Care tsk_01M3FKXQQRR9EX6BYQPJ4VGE1V + Guide tsk_01M3FKY3CARA3KFJR592A5MXAZ; MINT idle-skip this round (its r99 task tsk_01M3F67S824RZAG72EX5AN9V0T still in_progress at dispatch ~19:43Z, its 19:50:00Z kill NOT yet hit — NOT idle, no phantom task created). Self-start chronology live from task state_history, all under own URNs (zero dispatcher flips): Guide tsk_01M3FKY3CARA3KFJR592A5MXAZ assigned->in_progress 2026-09-26T19:45:45.026Z by agent:CWI_Guide; Care tsk_01M3FKXQQRR9EX6BYQPJ4VGE1V assigned->in_progress 2026-09-26T19:45:52.015Z by agent:CWI_Care (this run — 102nd consecutive round without a dispatcher flip on the Care lane); MINT not dispatched this round (no self-start). Overdue-kill watch live-recomputed @ 2026-09-26T19:47:24.466Z (ledger v23463, 156 tasks): 27 non-terminal overdue, 0 NEW / 0 gone / 0 state changes vs the r101 27-set (baseline dict-format asserted, r75 hardening, 27th reuse) — 21st steady round. 0 unparseable deadlines. Standing kills, record-only (never touched): Tween r8 tsk_01M35DXCGJTDRK67AJW3XTBPS9 (3.87d past kill, in_progress, 0 artifacts) + Volt r9 tsk_01M35HFP40KWZ1TN93MX3NNCPA (3.82d, in_progress, 0 artifacts); Atelier r62 tsk_01M3B7CGXPQMKTD8Y8FXCEQXXT (1.67d, STILL NOT DELIVERED, 39th consecutive naming round, standing NO); Visual r69 tsk_01M3BZ9ZTW64RA0MJBATYXFDXQ (1.34d, 30th naming round); Results r80 tsk_01M3D4ZQDTTR25RAW3BM46VCCP (0.87d, 19th named miss)."
+  },
+  {
+   "id": "RB-476",
+   "timestamp": "2026-09-26T19:51Z",
+   "round": "r101",
+   "category": "standing-record",
+   "title": "r101 round receipt audit (kill 2026-09-26T22:50:00Z — verdict live from ledger task state_history) — 2 of 2 dispatched delivered inside the kill; MINT r99 kill 2026-09-26T19:50:00Z HIT with the task still in_progress (definitive verdict, deferred from r101)",
+   "body": "r101 round (2 tasks created 2026-09-26T18:45:11.143–18:45:26.454Z, kill 2026-09-26T22:50:00Z — verdicts verified live from ledger task state_history v23463 @ 19:45Z; ledger values supersede any brief seeds): Care tsk_01M3FGJ6V7TRSFY9EWPSV17D37 delivered 2026-09-26T18:52:57.006Z by agent:CWI_Care (3 artifacts: draft kb.json @ 4bc217657e4188669a83d0173f4e8cd381364460, run report, overdue-r101-recompute.json; remote==local byte-identical via /git/blobs/) — INSIDE the kill, margin ~3h57m03s; Guide tsk_01M3FGJNSN288EZ0DA8GE5FJSP delivered 2026-09-26T19:03:37.209Z by agent:CWI_Guide (ledger supersedes the 19:03:37.211Z brief seed; 2 artifacts) — INSIDE the kill, margin ~3h46m23s. DEFINITIVE MINT r99 verdict (deferred from the r101 audit): tsk_01M3F67S824RZAG72EX5AN9V0T STILL in_progress at 2026-09-26T19:51:16.084Z — its 19:50:00Z kill has been HIT with no delivered event on record; assigned->in_progress 2026-09-26T15:48:42.032Z by agent:CWI_Athena_MINT, never flipped to delivered. Worker-owned transition, dispatcher does not flip — recorded honestly as a kill-miss rather than papered over. r101 dispatch score: 2 of 2 dispatched delivered inside the kill — clean sweep of the r101 dispatch, with the MINT r99 stale-flip gap standing as a ledger kill-miss. Every r101 assigned->in_progress transition was flipped under each lane's own URN (zero dispatcher flips): Guide 18:47:50.412Z, Care 18:47:55.547Z."
   }
  ],
  "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
  "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
- "updated": "2026-09-26T18:50Z"
+ "updated": "2026-09-26T19:51Z"
 }
