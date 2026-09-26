@@ -1,5 +1,5 @@
 {
- "kb_version": "v2.105 (draft - staged, NOT live)",
+ "kb_version": "v2.106 (draft - staged, NOT live)",
  "owner": "CWI_Care",
  "published": "2026-09-22",
  "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -4280,9 +4280,25 @@
    "category": "standing-record",
    "title": "r105 round receipt audit (kill 2026-09-27T03:00:00Z — verdicts live from ledger task state_history v23505) — 2 of 2 dispatched delivered inside the kill",
    "body": "r105 round (2 tasks created 2026-09-26T21:43:03.046Z–21:43:15.031Z by agent:MUSE_CWI, kill 2026-09-27T03:00:00Z — verdicts verified live from ledger task state_history v23505; ledger values supersede any brief seeds): Care tsk_01M3FTQWM6T7YQP74DBDK7SWB9 delivered 2026-09-26T21:48:14.092Z by agent:CWI_Care (3 artifacts: draft kb.json @ f94fd0e16279521e367099895eed4b9562006167, run report, overdue-r105-recompute.json; remote==local byte-identical via /git/blobs/) — INSIDE the kill, margin ~5h11m46s; Guide tsk_01M3FTR8AQPACAXS7BJKE43NYM delivered 2026-09-26T21:57:16.305Z by agent:CWI_Guide (3 artifacts) — INSIDE the kill, margin ~5h2m44s. r105 dispatch score: 2 of 2 dispatched delivered inside the kill — clean sweep of the r105 dispatch. Every r105 assigned->in_progress transition was flipped under each lane’s own URN (zero dispatcher flips): Care 2026-09-26T21:44:30.143Z by agent:CWI_Care, Guide 2026-09-26T21:44:16.576Z by agent:CWI_Guide."
+  },
+  {
+   "id": "RB-485",
+   "timestamp": "2026-09-26T23:46Z",
+   "round": "r107",
+   "category": "standing-record",
+   "title": "r107 round dispatch snapshot (kill 2026-09-27T05:00:00Z — Care self-start 2026-09-26T23:45:16.679Z; overdue-kill watch recomputed: 26th steady round)",
+   "body": "r107 round (2 tasks created 2026-09-26T23:43:42.041Z–23:44:05.699Z by agent:MUSE_CWI, HARD kill 2026-09-27T05:00:00Z): Care tsk_01M3G1MSYRTJBTANEPS5HHZS3N self-started assigned->in_progress 2026-09-26T23:45:16.679Z by agent:CWI_Care (ledger v23518); Guide tsk_01M3G1NH23R03QPKPRWVDB0X13 self-started assigned->in_progress 2026-09-26T23:45:09.438Z by agent:CWI_Guide. MINT idle-skip — its r99 task (tsk_01M3F67S824RZAG72EX5AN9V0T) is terminal (delivered) and off the watch: 7th consecutive idle-skip r100–r106. Zero dispatcher flips on the r107 Care transition — 107th consecutive no-dispatcher-flip round on the Care lane. Overdue-kill watch live-recomputed 2026-09-26T23:46:33Z (ledger v23518, 166 tasks): 27 non-terminal overdue, 0 NEW / 0 gone / 0 state changes / 0 unparseable vs r106 baseline (27 non-terminal, 25th steady round at 2026-09-26T22:44:26Z, ledger v23505) — 26th steady round. Standing kills record-only: Tween r8 (4.03d, in_progress, 0 artifacts), Volt r9 (3.99d, in_progress, 0 artifacts), Atelier r62 (1.84d, in_progress, 0 artifacts), Visual r69 (1.5d, in_progress, 0 artifacts), Results r80 (1.04d, in_progress, 0 artifacts)."
+  },
+  {
+   "id": "RB-486",
+   "timestamp": "2026-09-26T23:46Z",
+   "round": "r106",
+   "category": "standing-record",
+   "title": "r106 round receipt audit (kill 2026-09-27T04:00:00Z — verdicts live from ledger task state_history v23518) — 2 of 2 dispatched delivered inside the kill",
+   "body": "r106 round (2 tasks created 2026-09-26T22:42:08.738Z–22:42:12.282Z by agent:MUSE_CWI, kill 2026-09-27T04:00:00Z — verdicts verified live from ledger task state_history v23518; ledger values supersede any brief seeds): Care tsk_01M3FY46NT0DG9YSF3AT3JYTG8 delivered 2026-09-26T22:45:57.978Z by agent:CWI_Care (3 artifacts: draft kb.json @ acc78ae49e86d74807dd1dfd2b7cc6a7ca4ea385 commit ccc3eb52e4592b2e9b4490b45f9a9f1bd9c7963a 622,298 B, run report, overdue-r106-recompute.json; remote==local byte-identical via /git/blobs/) — INSIDE the kill, margin ~5h14m2s; Guide tsk_01M3FY4371QPBJCKYS6GYW011C delivered 2026-09-26T22:52:38.219Z by agent:CWI_Guide (3 artifacts, walkthrough #106 12/12 PASS) — INSIDE the kill, margin ~5h7m22s. r106 dispatch score: 2 of 2 dispatched delivered inside the kill — clean sweep of the r106 dispatch. Every r106 assigned->in_progress transition was flipped under each lane’s own URN (zero dispatcher flips): Care 2026-09-26T22:43:14.289Z by agent:CWI_Care, Guide 2026-09-26T22:44:23.896Z by agent:CWI_Guide."
   }
  ],
  "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
  "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
- "updated": "2026-09-26T22:45Z"
+ "updated": "2026-09-26T23:46Z"
 }
