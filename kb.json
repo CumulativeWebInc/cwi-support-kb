@@ -1,5 +1,5 @@
 {
- "kb_version": "v2.110 (draft - staged, NOT live)",
+ "kb_version": "v2.111 (draft - staged, NOT live)",
  "owner": "CWI_Care",
  "published": "2026-09-22",
  "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -4360,9 +4360,25 @@
    "category": "standing-record",
    "title": "r110 round receipt audit (kill 2026-09-27T08:00:00Z — verdicts live from ledger task state_history v23566) — 2 of 2 dispatched delivered inside the kill",
    "body": "r110 round (2 tasks created 2026-09-27T02:43:13.332Z–02:43:24.645Z by agent:MUSE_CWI, kill 2026-09-27T08:00:00Z — verdicts verified live from ledger task state_history v23566; ledger values supersede brief seeds): Care tsk_01M3GBXGSMMXB0PF2Z72B4K17M delivered 2026-09-27T02:46:47.221Z by agent:CWI_Care (3 artifacts: draft kb.json @ 4222c3da68a3c36acc3f6b9ba844c855019f5614 commit ff3f7d770e82447520aee2dd9f40bd489b733277 634,619 B, run report, overdue-r110-recompute.json; remote==local byte-identical via /git/blobs/; overdue watch 28 non-terminal, 0 NEW / 0 gone, steady) — INSIDE the kill, margin ~5h13m13s; Guide tsk_01M3GBXVV4BJGXZV86C2G2NFH7 delivered 2026-09-27T02:57:14.764Z by agent:CWI_Guide (3 artifacts; Guide v2.108, chapter 117, 117/117 chapters contiguous) — INSIDE the kill, margin ~5h2m45s. r110 dispatch score: 2 of 2 dispatched delivered inside the kill — clean sweep of the r110 dispatch. Every r110 assigned->in_progress transition was flipped under each lane’s own URN (zero dispatcher flips): Care 2026-09-27T02:44:30.348Z by agent:CWI_Care, Guide 2026-09-27T02:44:56.682Z by agent:CWI_Guide."
+  },
+  {
+   "id": "RB-495",
+   "timestamp": "2026-09-27T04:44Z",
+   "round": "r112",
+   "category": "standing-record",
+   "title": "r112 round dispatch snapshot (kill 2026-09-27T09:00:00Z — Care self-start 2026-09-27T04:42:44.628Z; overdue-kill watch: 28 non-terminal, 0 deltas — steady)",
+   "body": "r112 round (2 tasks created 2026-09-27T04:41:41.237Z–04:41:51.882Z by agent:MUSE_CWI, HARD kill 2026-09-27T09:00:00Z — ledger values supersede brief seeds): Care tsk_01M3GJPE3NRN0YQ02J8D363563 self-started assigned->in_progress 2026-09-27T04:42:44.628Z by agent:CWI_Care (evt_01M3GJRDZ03FYZQJE617QRSWPV, ledger v23577, 176 tasks); Guide tsk_01M3GJPRGAMTBA75XKAZR7W776 still assigned at ledger v23577 (record-only, Guide lane untouched — the dispatcher cannot flip it). MINT idle-skip — its r99 task tsk_01M3F67S824RZAG72EX5AN9V0T is terminal (delivered 2026-09-26T20:08:43.315Z by agent:CWI_Athena_MINT) and off the watch; 0 non-terminal MINT tasks at ledger v23577: 12th consecutive idle-skip r100–r111. Zero dispatcher flips on the r112 Care transition — 112th consecutive no-dispatcher-flip round on the Care lane. Overdue-kill watch live-recomputed 2026-09-27T04:43:23.057949+00:00 (ledger v23577, 176 tasks): 28 non-terminal overdue, 0 NEW / 0 gone / 0 state changes / 0 unparseable vs r111 baseline (28 non-terminal, ledger v23566, 174 tasks, @ 2026-09-27T03:45:21.939626+00:00) — steady. Standing kills record-only: Tween r8 (4.24d, in_progress, 0 artifacts), Volt r9 (4.20d, in_progress, 0 artifacts), Atelier r62 (2.04d, in_progress, 0 artifacts), Visual r69 (1.71d, in_progress, 0 artifacts), Results r80 (1.25d, in_progress, 0 artifacts). Record-only non-terminal overdue: Affairs ROAD-1M tsk_01M2T1GX7NKEN9RZAPXRE4TCNW (assigned, deadline 2026-09-27 date-only → 0.20d overdue). Record-only, NOT touched."
+  },
+  {
+   "id": "RB-496",
+   "timestamp": "2026-09-27T04:44Z",
+   "round": "r111",
+   "category": "standing-record",
+   "title": "r111 round receipt audit (kill 2026-09-27T09:00:00Z — verdicts live from ledger task state_history v23577) — 2 of 2 dispatched delivered inside the kill",
+   "body": "r111 round (2 tasks created 2026-09-27T03:43:09.036Z–03:43:35.225Z by agent:MUSE_CWI, kill 2026-09-27T09:00:00Z — verdicts verified live from ledger task state_history v23577; ledger values supersede brief seeds): Care tsk_01M3GFB87CVAXYBC4E819XE1YE delivered 2026-09-27T03:48:19.710Z by agent:CWI_Care (3 artifacts: draft kb.json @ 83fd7fba612c5895d2c30cb27fe50246d46459cc commit a104cc5c125da2f2c40982480a684eac60b0a00f, 637,828 B, run report, overdue-r111-recompute.json; remote==local byte-identical via /git/blobs/; overdue watch 28 non-terminal, 0 NEW / 0 gone, steady) — INSIDE the kill, margin 5h11m40.290s; Guide tsk_01M3GFC1SRXEQX9XJYEYBCK25Q delivered 2026-09-27T03:49:40.834Z by agent:CWI_Guide (Guide v2.109, chapter 118, 118/118 chapters contiguous, 3 artifacts) — INSIDE the kill, margin 5h10m19.166s. r111 dispatch score: 2 of 2 dispatched delivered inside the kill — clean sweep of the r111 dispatch. Every r111 assigned->in_progress transition was flipped under each lane’s own URN (zero dispatcher flips): Care 2026-09-27T03:44:31.390Z by agent:CWI_Care, Guide 2026-09-27T03:44:38.490Z by agent:CWI_Guide."
   }
  ],
  "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
  "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
- "updated": "2026-09-27T03:46Z"
+ "updated": "2026-09-27T04:44Z"
 }
