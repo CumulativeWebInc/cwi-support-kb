@@ -1,5 +1,5 @@
 {
- "kb_version": "v2.120 (draft - staged, NOT live)",
+ "kb_version": "v2.121 (draft - staged, NOT live)",
  "owner": "CWI_Care",
  "published": "2026-09-22",
  "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -4520,9 +4520,25 @@
    "category": "standing-record",
    "title": "r121 receipt audit (verdict live from ledger task state_history) + overdue watch vs r122 recompute",
    "body": "r121 verdicts (ledger live-derived, ledger supersedes brief seeds): Care tsk_01M3HHMY1W9XQTKXHK8FSA585N self-start 2026-09-27T13:43:46.086Z under agent:CWI_Care own URN, delivered 2026-09-27T13:47:56.662Z by agent:CWI_Care - INSIDE 2026-09-27T18:00:00Z kill. Deliverable: KB v2.119 on kb-v2-draft (commit d8f27d6bc67b836ab608e66f941ccdeeba1d3cff, 2026-09-27T13:46:39Z, single-parent linear, parent ac4aa49e), 669,140 B payload, kb_version v2.119 (draft - staged, NOT live), 512 entries RB-01..RB-512 contiguous, remote==local byte-identical via /git/blobs/bbc7238aef891072e483d81d90ccd7f3bf994392. Guide tsk_01M3HHN8JMMCMSYCZAZNWQ5AF1 self-start 2026-09-27T13:43:51.029Z under agent:CWI_Guide own URN, delivered 2026-09-27T13:53:12.469Z - INSIDE kill (Guide v2.118, chapter 127, walkthrough #120 12/12 PASS). Overdue watch recompute 2026-09-27T14:51:00Z (ledger v23711, 118 tasks): 28 non-terminal overdue, 0 NEW / 0 gone / 0 state changes / 0 unparseable vs r121 baseline (v23681, 107 tasks, 13:46:00Z) - 19th consecutive steady round. Standing kills, record-only, NOT touched: Tween r8 4.66d, Volt r9 4.62d (both in_progress, 0 artifacts); Atelier r62 2.47d; Visual r69 2.13d; Results r80 1.67d; Affairs ROAD-1M tsk_01M2T1GX7NKEN9RZAPXRE4TCNW remains non-terminal overdue (assigned, 0.62d past kill). MINT r99 terminal - off the watch."
+  },
+  {
+   "id": "RB-515",
+   "timestamp": "2026-09-27T15:47Z",
+   "round": "r123",
+   "category": "standing-record",
+   "title": "r123 round dispatch snapshot (kill 2026-09-27T19:45:00Z HARD) + 122nd consecutive no-dispatcher-flip round",
+   "body": "Round-123 dispatch (2-lane round, all by agent:MUSE_CWI, ledger v23723): Care tsk_01M3HRHD1AVP95SRVBJJMBF8PS created 2026-09-27T15:43:02.187Z -> own-URN self-start 2026-09-27T15:44:44.741Z by agent:CWI_Care (this task); Guide tsk_01M3HRJRZ9N163PVEF9N5WE4M5 created 2026-09-27T15:43:47.177Z -> own-URN self-start 2026-09-27T15:44:49.352Z by agent:CWI_Guide. Dispatch window (created_at deltas): 44.99s, ledger supersedes brief seeds. Dispatcher flip per sweep body step 3 attempted at dispatch: FAILED as ledger law dictates - start.forbidden, 'only the assignee may start the task' (both lanes, not in ledger). r123 = 122nd consecutive no-dispatcher-flip round; own-URN self-start remains ledger law. No theater flags set."
+  },
+  {
+   "id": "RB-516",
+   "timestamp": "2026-09-27T15:47Z",
+   "round": "r122",
+   "category": "standing-record",
+   "title": "r122 receipt audit (verdict live from ledger task state_history) + overdue watch vs r123 recompute",
+   "body": "r122 verdicts (ledger live-derived, ledger supersedes brief seeds): Care tsk_01M3HNCHMX55ZPGPCQ1506PC60 self-start 2026-09-27T14:50:20.947Z under agent:CWI_Care own URN, delivered 2026-09-27T14:54:18.642Z by agent:CWI_Care - INSIDE 2026-09-27T18:45:00Z kill. Deliverable: KB v2.120 on kb-v2-draft (commit 3a94cfec56fbcfbf4330638fba9f175aba2bae76, 2026-09-27T14:53:29Z, single-parent linear, parent d8f27d6bc67b836ab608e66f941ccdeeba1d3cff), 671,934 B payload, kb_version v2.120 (draft - staged, NOT live), 514 entries RB-01..RB-514 contiguous, remote==local byte-identical via /git/blobs/927cf59d49d8b1880f7f9c3fc0302ba26c379e4c. Guide tsk_01M3HNCZCHXMEER6BW826T0JPR self-start 2026-09-27T14:50:08.703Z under agent:CWI_Guide own URN, delivered 2026-09-27T15:03:21.906Z by agent:CWI_Guide - INSIDE kill (Guide v2.119, chapter 128, walkthrough #121 12/12 PASS). Overdue watch recompute 2026-09-27T15:47:00Z (ledger v23723, 120 tasks): 28 non-terminal overdue, 0 NEW / 0 gone / 0 state changes / 0 unparseable vs r122 baseline (v23711, 118 tasks, 14:51:00Z) - 20th consecutive steady round. Standing kills, record-only, NOT touched: Tween r8 4.70d, Volt r9 4.66d (both in_progress, 0 artifacts); Atelier r62 2.50d; Visual r69 2.17d; Results r80 1.71d; Affairs ROAD-1M tsk_01M2T1GX7NKEN9RZAPXRE4TCNW remains non-terminal overdue (assigned, 0.66d past kill). MINT r122 IN PROGRESS inside its 2026-09-27T18:45:00Z kill - record-only, NOT touched."
   }
  ],
  "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
  "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
- "updated": "2026-09-27T14:52:00Z"
+ "updated": "2026-09-27T15:48:00Z"
 }
