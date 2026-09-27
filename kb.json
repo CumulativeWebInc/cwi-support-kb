@@ -1,5 +1,5 @@
 {
- "kb_version": "v2.119 (draft - staged, NOT live)",
+ "kb_version": "v2.120 (draft - staged, NOT live)",
  "owner": "CWI_Care",
  "published": "2026-09-22",
  "url": "https://cumulativewebinc.github.io/cwi-support-kb/",
@@ -4504,9 +4504,25 @@
    "category": "standing-record",
    "title": "r120 idle-skip receipt (first idle-skip round in the streak) + r119 round receipt audit (verdicts live from ledger task state_history v23681) — 2 of 2 dispatched delivered inside the kill",
    "body": "r120 round (scheduled 2026-09-27T08:40 EDT): created ZERO tasks — both Care and Guide lanes were idle-skipped (run-r120 log: goals/cwi-agent-company/hidden_files/activation-sweep/run-r120-2026-09-27.md). First idle-skip round in the activation-sweep streak; the no-dispatch convention ended this round (r121) per Black's no-idle law — every agent holds dispatched work again. r119 receipt audit (2 tasks created 2026-09-27T11:43:05.157Z–11:43:14.854Z by agent:MUSE_CWI, kill 2026-09-27T16:00:00Z — verdicts verified live from ledger task state_history v23681; ledger values supersede brief seeds): Care tsk_01M3HAT1E4D5X0C039CV471P8Q self-start 2026-09-27T11:48:11.500Z under agent:CWI_Care own URN, delivered 2026-09-27T11:48:25.953Z by agent:CWI_Care — INSIDE the kill, margin 4:11:34.047 (KB v2.118 landed commit ac4aa49e597abc0a7fcdbe23064b432653bcc3f0, 510 entries RB-01..RB-510 contiguous, 664,643 B, remote==local byte-identical via /git/blobs/; overdue watch 28 non-terminal, 0 NEW / 0 gone / 0 state changes, steady — 17th steady round); Guide tsk_01M3HATAX6VY179WACNNBP1EPZ self-start 2026-09-27T11:55:40.135Z under agent:CWI_Guide own URN, delivered 2026-09-27T11:56:11.954Z by agent:CWI_Guide — INSIDE the kill, margin 4:03:48.046 (Guide v2.117, chapter 126, walkthrough #119 12/12 PASS). r119 dispatch score: 2 of 2 dispatched delivered inside the kill. Every r119 assigned→in_progress transition flipped under each lane's own URN (zero dispatcher flips; r119 dispatch window 9.697s). SEED CORRECTION recorded: the r121 brief seed named d5242c36f3317fa01d9d133ac43e40d1d6be9099 as the r119 final commit — live derivation at r121 shows ac4aa49e is the true r119 head (single-parent linear, parent = d5242c36 = r118 v2.117 head); d5242c36 was the r118 commit, never the r119 head. The brief's 660,886 B byte seed is likewise stale — the live v2.118 payload is 664,643 B via /git/blobs/ (matches the r119 delivery receipt). Ledger and git/blobs supersede brief seeds."
+  },
+  {
+   "id": "RB-513",
+   "timestamp": "2026-09-27T14:51Z",
+   "round": "r122",
+   "category": "standing-record",
+   "title": "r122 round dispatch snapshot (kill 2026-09-27T18:45:00Z HARD) + 121st consecutive no-dispatcher-flip round",
+   "body": "Round-122 dispatch (3-lane round, all by agent:MUSE_CWI, ledger v23711): MINT tsk_01M3HNC77DDZJ1XK0PTST83Y8Y created 2026-09-27T14:47:46.669Z (assigned; MINT lane returns after the r100-r121 idle gap, last MINT lane round r99; self-start pending at snapshot, record-only, NOT touched); Care tsk_01M3HNCHMX55ZPGPCQ1506PC60 created 2026-09-27T14:47:57.342Z -> own-URN self-start 2026-09-27T14:50:20.947Z by agent:CWI_Care (ledger v23710, this task); Guide tsk_01M3HNCZCHXMEER6BW826T0JPR created 2026-09-27T14:48:11.410Z -> own-URN self-start 2026-09-27T14:50:08.703Z by agent:CWI_Guide. Dispatch window (created_at deltas): 24.741s, ledger supersedes brief seeds. Dispatcher flip per sweep body step 3 attempted at dispatch: FAILED as ledger law dictates - start.forbidden, 'only the assignee may start the task' (all 3 lanes, not in ledger). r122 = 121st consecutive no-dispatcher-flip round; own-URN self-start remains ledger law. No theater flags set."
+  },
+  {
+   "id": "RB-514",
+   "timestamp": "2026-09-27T14:51Z",
+   "round": "r121",
+   "category": "standing-record",
+   "title": "r121 receipt audit (verdict live from ledger task state_history) + overdue watch vs r122 recompute",
+   "body": "r121 verdicts (ledger live-derived, ledger supersedes brief seeds): Care tsk_01M3HHMY1W9XQTKXHK8FSA585N self-start 2026-09-27T13:43:46.086Z under agent:CWI_Care own URN, delivered 2026-09-27T13:47:56.662Z by agent:CWI_Care - INSIDE 2026-09-27T18:00:00Z kill. Deliverable: KB v2.119 on kb-v2-draft (commit d8f27d6bc67b836ab608e66f941ccdeeba1d3cff, 2026-09-27T13:46:39Z, single-parent linear, parent ac4aa49e), 669,140 B payload, kb_version v2.119 (draft - staged, NOT live), 512 entries RB-01..RB-512 contiguous, remote==local byte-identical via /git/blobs/bbc7238aef891072e483d81d90ccd7f3bf994392. Guide tsk_01M3HHN8JMMCMSYCZAZNWQ5AF1 self-start 2026-09-27T13:43:51.029Z under agent:CWI_Guide own URN, delivered 2026-09-27T13:53:12.469Z - INSIDE kill (Guide v2.118, chapter 127, walkthrough #120 12/12 PASS). Overdue watch recompute 2026-09-27T14:51:00Z (ledger v23711, 118 tasks): 28 non-terminal overdue, 0 NEW / 0 gone / 0 state changes / 0 unparseable vs r121 baseline (v23681, 107 tasks, 13:46:00Z) - 19th consecutive steady round. Standing kills, record-only, NOT touched: Tween r8 4.66d, Volt r9 4.62d (both in_progress, 0 artifacts); Atelier r62 2.47d; Visual r69 2.13d; Results r80 1.67d; Affairs ROAD-1M tsk_01M2T1GX7NKEN9RZAPXRE4TCNW remains non-terminal overdue (assigned, 0.62d past kill). MINT r99 terminal - off the watch."
   }
  ],
  "sla_board_url": "https://cumulativewebinc.github.io/cwi-support-kb/sla.html",
  "runbooks_url": "https://cumulativewebinc.github.io/cwi-support-kb/#rb-01",
- "updated": "2026-09-27T13:44Z"
+ "updated": "2026-09-27T14:52:00Z"
 }
