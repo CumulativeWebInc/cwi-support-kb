@@ -27,6 +27,8 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:v
 .btn.ghost{background:#fff;color:var(--acc)!important;border:2px solid var(--acc)}
 .cta-box{background:#eef7f2;border:2px solid var(--acc);border-radius:12px;padding:20px;margin:32px 0}
 .empty-log{border:2px dashed var(--line);border-radius:12px;padding:28px;text-align:center;color:var(--mut);font-size:16px;margin:16px 0}
+.hit{color:var(--acc);font-weight:700}.miss{color:#b91c1c;font-weight:700}.pend{color:var(--warn);font-weight:700}
+code{background:#f4f4f4;padding:1px 6px;border-radius:4px;font-size:13px}
 </style>
 </head>
 <body>
@@ -37,39 +39,33 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:v
 </header>
 
 <div class="card">
-<div class="q">How this log works (and how it started)</div>
+<div class="q">How this log works (and its honest history)</div>
 <div class="a">
 <ul>
-<li><strong>Measurement begins 2026-09-23.</strong> Day 1 of this log is 2026-09-23 — the day the SLA board v1.2 published named targets.</li>
-<li><strong>The log starts EMPTY and is never backfilled.</strong> No ticket is entered for a day when logging was not live. A blank row is an honest blank row, not a hidden miss.</li>
-<li>Every ticket gets one row: received timestamp, unit (Care/Guide), tier (Free/Paid — everyone is Free until paid products launch), acknowledge time, substantive-response time, resolve/escalate time, and ✅/❌ against each target.</li>
-<li><strong>Honest downgrade rule:</strong> if any unit × tier misses its target on &gt;20% of tickets over a 30-day window, the published target is downgraded to what we actually achieved — dated, announced in this log, old target kept as history. Kill rule: 30 days with &gt;20% missing SLA &rarr; target honestly downgraded the same week.</li>
+<li><strong>Machine-readable source of truth:</strong> <a href="sla-compliance.jsonl">sla-compliance.jsonl</a> — one JSON record per ticket. This page renders from it. Every record's hit/miss flags are recomputed from timestamps by <a href="tools/sla-validate.js">tools/sla-validate.js</a>; the summary below is produced by that same validator (<a href="sla-compliance-summary.json">sla-compliance-summary.json</a>).</li>
+<li><strong>Measurement began 2026-09-23</strong> under the v1.2 board. <strong>Zero tickets were ever filed</strong> in the v1.2 window — the log is never backfilled, so those rows stay blank honestly.</li>
+<li><strong>v2.0 targets took effect 2026-10-01;</strong> measurement against v2.0 begins that day. The first ticket received on/after 2026-10-01 appears here as row 1.</li>
+<li><strong>Only due tickets count against us:</strong> a ticket counts toward a rate only once its target deadline has passed — early answers are hits; not-yet-due is pending, never a miss.</li>
+<li><strong>Honest downgrade rule:</strong> 30 days with SLA missed on &gt;20% of tickets → the published target is downgraded to what we actually achieved — dated, announced here, old target kept as history. Kill rule, never silent.</li>
 <li>Owner-only topics (spending, wallet signing, identity, paid accounts) are excluded from timing: they queue to Black, and the queue time is shown, not hidden.</li>
 </ul>
 </div>
-<div class="src"><span class="verified">Measurement begins 2026-09-23</span> · A11 (OPERATION INDUSTRY LEVEL). Compliance target: &ge;90% within target per unit × tier.</div>
+<div class="src"><span class="verified">Mechanism live 2026-10-01</span> · A11 (OPERATION BEST, Wave 2). Validator: 15/15 self-tests green.</div>
 </div>
 
-<h2>Current 30-day window: 2026-08-25 → 2026-09-23</h2>
-<div class="empty-log">
-<strong>No tickets logged yet.</strong><br>
-Measurement began <strong>2026-09-23</strong>. The first ticket received after logging went live will appear here as row 1.
-Nothing before 2026-09-23 is entered — the log is never backfilled.
-</div>
+<h2 id="window-title">Current 30-day window</h2>
+<div id="summary-box" class="card"><p class="meta">Loading compliance summary…</p></div>
 
 <h2>Ticket-level rows (rolling 30 days)</h2>
-<table>
+<table id="rows-table">
 <tr><th>#</th><th>Received</th><th>Unit</th><th>Tier</th><th>Acknowledge</th><th>Substantive response</th><th>Resolve / escalate</th><th>Within target?</th></tr>
-<tr><td colspan="8" class="meta">— no tickets in the current window —</td></tr>
+<tr><td colspan="8" class="meta">Loading ticket rows…</td></tr>
 </table>
 
 <h2>Unit × tier summary (rolling 30 days)</h2>
-<table>
+<table id="summary-table">
 <tr><th>Unit</th><th>Tier</th><th>Tickets</th><th>Ack within target</th><th>Response within target</th><th>Resolve within target</th><th>Published target status</th></tr>
-<tr><td class="sev">CWI_Care</td><td>Free</td><td>0</td><td>—</td><td>—</td><td>—</td><td><span class="badge live">ACTIVE — 3/5/10 business days</span></td></tr>
-<tr><td class="sev">CWI_Care</td><td>Paid</td><td>0</td><td>—</td><td>—</td><td>—</td><td><span class="badge prod">STAGED — activates when paid products launch</span></td></tr>
-<tr><td class="sev">CWI_Guide</td><td>Free</td><td>0</td><td>—</td><td>—</td><td>—</td><td><span class="badge live">ACTIVE — 3/5 business days</span></td></tr>
-<tr><td class="sev">CWI_Guide</td><td>Paid</td><td>0</td><td>—</td><td>—</td><td>—</td><td><span class="badge prod">STAGED — activates when paid products launch</span></td></tr>
+<tr><td colspan="7" class="meta">Loading…</td></tr>
 </table>
 
 <div class="cta-box">
@@ -81,8 +77,99 @@ Nothing before 2026-09-23 is entered — the log is never backfilled.
 </div>
 
 <footer>
-CWI_Care · SLA compliance log v1.0 (measurement begins 2026-09-23) · blank rows are honest blank rows — never backfilled, never re-labeled. Truth rule: verified or it didn't happen.
+CWI_Care · SLA compliance log v2.0 (2026-10-01) · blank rows are honest blank rows — never backfilled, never re-labeled. Truth rule: verified or it didn't happen.
 </footer>
 </div>
+<script>
+(function () {
+  "use strict";
+  function fmt(iso) {
+    if (!iso) return "—";
+    try { return new Date(iso).toISOString().replace("T", " ").replace("Z", " UTC").slice(0, 19) + " UTC"; }
+    catch (e) { return String(iso); }
+  }
+  function flagCell(v) {
+    if (v === true) return '<span class="hit">✅ within</span>';
+    if (v === false) return '<span class="miss">❌ missed</span>';
+    return '<span class="pend">⏳ pending</span>';
+  }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+
+  var tierStatus = {
+    "care x free": '<span class="badge live">ACTIVE — ack ≤24h · response ≤72h · resolve ≤7d</span>',
+    "care x paid": '<span class="badge prod">STAGED — activates when paid products launch</span>',
+    "care x priority": '<span class="badge live">ACTIVE — same-day KingCode escalation</span>',
+    "guide x free": '<span class="badge live">ACTIVE — ack ≤24h · answered ≤72h</span>',
+    "guide x paid": '<span class="badge prod">STAGED — activates when paid products launch</span>'
+  };
+
+  Promise.all([
+    fetch("sla-compliance.jsonl").then(function (r) { return r.ok ? r.text() : ""; }),
+    fetch("sla-compliance-summary.json").then(function (r) { return r.ok ? r.json() : null; })
+  ]).then(function (parts) {
+    var text = parts[0] || "", summary = parts[1];
+    var rows = [];
+    text.split("\n").forEach(function (line) {
+      if (!line.trim()) return;
+      try { rows.push(JSON.parse(line)); } catch (e) { /* validator rejects these; page skips */ }
+    });
+    var live = rows.filter(function (r) { return !r.excluded; });
+
+    // window title from summary
+    if (summary) {
+      document.getElementById("window-title").textContent =
+        "Current 30-day window: " + summary.window_start_utc.slice(0, 10) + " → " + summary.window_end_utc.slice(0, 10);
+      document.getElementById("summary-box").innerHTML =
+        '<div class="q">Window summary (generated ' + esc(fmt(summary.generated_utc)) + ', targets v' + esc(summary.targets_version) + ')</div>' +
+        '<div class="a"><strong>' + summary.tickets_in_window + '</strong> tickets in window. ' +
+        'Only due tickets count against a rate — see "How this log works".</div>';
+    } else {
+      document.getElementById("summary-box").innerHTML = '<p class="meta">Summary not generated yet — run <code>node tools/sla-validate.js --write-summary</code>.</p>';
+    }
+
+    // rows table
+    var rt = document.getElementById("rows-table");
+    if (!live.length) {
+      rt.innerHTML = '<tr><th>#</th><th>Received</th><th>Unit</th><th>Tier</th><th>Acknowledge</th><th>Substantive response</th><th>Resolve / escalate</th><th>Within target?</th></tr>' +
+        '<tr><td colspan="8"><div class="empty-log"><strong>No tickets logged yet.</strong><br>' +
+        'Measurement began <strong>2026-09-23</strong>; v2.0 targets took effect <strong>2026-10-01</strong>. ' +
+        'The first ticket received will appear here as row 1. Nothing is ever backfilled.</div></td></tr>';
+    } else {
+      var html = '<tr><th>#</th><th>Received</th><th>Unit</th><th>Tier</th><th>Acknowledge</th><th>Substantive response</th><th>Resolve / escalate</th><th>Within target?</th></tr>';
+      live.forEach(function (r, i) {
+        html += '<tr><td>' + (i + 1) + ' <span class="meta">' + esc(r.ticket_id) + '</span></td>' +
+          '<td>' + esc(fmt(r.received_utc)) + '</td><td>' + esc(r.unit) + '</td><td>' + esc(r.tier) + '</td>' +
+          '<td>' + esc(fmt(r.acknowledged_utc)) + '<br>' + flagCell(r.ack_within_target) + '</td>' +
+          '<td>' + esc(fmt(r.responded_utc)) + '<br>' + flagCell(r.response_within_target) + '</td>' +
+          '<td>' + esc(fmt(r.resolved_or_escalated_utc)) + (r.escalated_to ? '<br><span class="meta">→ ' + esc(r.escalated_to) + '</span>' : '') + '<br>' + flagCell(r.resolve_within_target) + '</td>' +
+          '<td>' + flagCell(r.ack_within_target) + ' ' + flagCell(r.response_within_target) + ' ' + flagCell(r.resolve_within_target) + '</td></tr>';
+      });
+      rt.innerHTML = html;
+    }
+
+    // summary table
+    var st = document.getElementById("summary-table");
+    var comp = (summary && summary.compliance) || {};
+    var keys = Object.keys(tierStatus);
+    var sh = '<tr><th>Unit</th><th>Tier</th><th>Tickets</th><th>Ack within target</th><th>Response within target</th><th>Resolve within target</th><th>Published target status</th></tr>';
+    keys.forEach(function (k) {
+      var parts2 = k.split(" x "), g = comp[k];
+      var pct = function (v) { return v == null ? "—" : v.toFixed(1) + "%"; };
+      sh += '<tr><td class="sev">CWI_' + esc(parts2[0][0].toUpperCase() + parts2[0].slice(1)) + '</td>' +
+        '<td>' + esc(parts2[1][0].toUpperCase() + parts2[1].slice(1)) + '</td>' +
+        '<td>' + (g ? g.tickets : 0) + '</td>' +
+        '<td>' + (g ? pct(g.ack_pct) + ' <span class="meta">(' + g.hits.ack + '/' + g.due.ack + ' due)</span>' : '—') + '</td>' +
+        '<td>' + (g ? pct(g.response_pct) + ' <span class="meta">(' + g.hits.response + '/' + g.due.response + ' due)</span>' : '—') + '</td>' +
+        '<td>' + (g ? pct(g.resolve_pct) + ' <span class="meta">(' + g.hits.resolve + '/' + g.due.resolve + ' due)</span>' : '—') + '</td>' +
+        '<td>' + tierStatus[k] + '</td></tr>';
+    });
+    st.innerHTML = sh;
+  }).catch(function (err) {
+    document.getElementById("summary-box").innerHTML = '<p class="meta">Could not load the compliance data files. ' +
+      'Machine-readable log: <a href="sla-compliance.jsonl">sla-compliance.jsonl</a>.</p>';
+  });
+})();
+</script>
 </body>
 </html>
